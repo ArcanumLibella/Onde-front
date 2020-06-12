@@ -4,6 +4,14 @@
 
 Plateforme numérique de participation citoyenne destinée à préserver le littoral et les eaux méditerranéennes.
 
+#### Groupe 8 :
+
+- Emma Cassagnettes (UI | UX)
+- Victor Balducci (UI | UX)
+- Romain Dreidemy (Back-end)
+- Kalani Marquand (Front-end)
+- Fiona Roux (Front-end)
+
 ## Choix techniques :
 
 Notre projet sera composé d'un front, d'une API, d'un back et d'une BDD.
@@ -12,14 +20,6 @@ Notre projet sera composé d'un front, d'une API, d'un back et d'une BDD.
 - Map SVG
 - PWA
 - Performances et accessibilité seront au coeur de notre attention
-
-#### Groupe 8 :
-
-- Emma Cassagnettes (UI | UX)
-- Victor Balducci (UI | UX)
-- Romain Dreidemy (Back-end)
-- Kalani Marquand (Front-end)
-- Fiona Roux (Front-end)
 
 ## Available Scripts
 
