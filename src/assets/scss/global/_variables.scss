@@ -1,0 +1,64 @@
+/**
+* VARIABLES
+*/
+
+// COLORS
+
+// *** Primary :
+$black: #222222;
+$white: #ffffff;
+$background: #f9faff;
+
+// *** Secondary
+
+// *** Gradient :
+$gradient: linear-gradient(270deg, #64e0b9 0%, #4451c4 100%);
+
+// FONTS
+$font: 'Inter', sans-serif;
+
+// BREAKPOINTS
+$tablet-up: 768px;
+$tablet-down: 767px;
+
+$desktop-up: 1200px;
+$desktop-down: 1199px;
+
+$big-desktop-up: 1600px;
+$big-desktop-down: 1599px;
+
+@mixin tablet-up {
+	@media (min-width: $tablet-up) {
+		@content;
+	}
+}
+@mixin tablet-down {
+	@media (max-width: $tablet-down) {
+		@content;
+	}
+}
+
+@mixin desktop-up {
+	@media (min-width: $desktop-up) {
+		@content;
+	}
+}
+@mixin desktop-down {
+	@media (max-width: $desktop-down) {
+		@content;
+	}
+}
+
+@mixin big-desktop-up {
+	@media (min-width: $big-desktop-up) {
+		@content;
+	}
+}
+@mixin big-desktop-down {
+	@media (max-width: $big-desktop-down) {
+		@content;
+	}
+}
+
+// GLOBAL
+$headerHeight: 80px;

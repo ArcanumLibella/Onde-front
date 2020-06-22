@@ -1,0 +1,10 @@
+@import './global/reset';
+@import './global/typography';
+@import './global/variables';
+@import './global/utilities';
+@import './global/fonts';
+@import './global/icons';
+
+.app {
+	font-family: $font;
+}
