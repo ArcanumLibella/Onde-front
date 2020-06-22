@@ -12,7 +12,9 @@
 		"react-dom": "^16.13.1",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "3.4.1",
-		"node-sass": "^4.13.1",
+		"node-sass": "^4.13.1"
+	},
+	"devDependencies": {
 		"prettier": "^1.19.1",
 		"stylelint": "^13.0.0",
 		"stylelint-config-prettier": "^8.0.1",
