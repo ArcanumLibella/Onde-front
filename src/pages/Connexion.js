@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
+import Title from '../components/Wordings';
 
-class Connexion extends React.Component {
-	render() {
-		return <h1>Bienvenue !</h1>;
-	}
-}
+const Connexion = () => {
+  return <Title>Bienvenue !</Title>;
+};
 
 export default Connexion;
