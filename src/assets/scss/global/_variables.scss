@@ -10,6 +10,7 @@ $white: #ffffff;
 $background: #f9faff;
 
 // *** Secondary
+$grey: #808a9f;
 
 // *** Gradient
 $gradient: linear-gradient(270deg, #64e0b9 0%, #4451c4 100%);
@@ -18,44 +19,26 @@ $gradient: linear-gradient(270deg, #64e0b9 0%, #4451c4 100%);
 $font: 'Inter', sans-serif;
 
 // BREAKPOINTS
-$tablet-up: 768px;
-$tablet-down: 767px;
+$medium: 768px;
 
-$desktop-up: 1200px;
-$desktop-down: 1199px;
+$large: 1200px;
 
-$big-desktop-up: 1600px;
-$big-desktop-down: 1599px;
+$wide: 1600px;
 
-@mixin tablet-up {
-	@media (min-width: $tablet-up) {
-		@content;
-	}
-}
-@mixin tablet-down {
-	@media (max-width: $tablet-down) {
+@mixin medium {
+	@media (min-width: $medium) {
 		@content;
 	}
 }
 
-@mixin desktop-up {
-	@media (min-width: $desktop-up) {
-		@content;
-	}
-}
-@mixin desktop-down {
-	@media (max-width: $desktop-down) {
+@mixin large {
+	@media (min-width: $large) {
 		@content;
 	}
 }
 
-@mixin big-desktop-up {
-	@media (min-width: $big-desktop-up) {
-		@content;
-	}
-}
-@mixin big-desktop-down {
-	@media (max-width: $big-desktop-down) {
+@mixin wide {
+	@media (min-width: $wide) {
 		@content;
 	}
 }
