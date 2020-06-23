@@ -1,9 +1,7 @@
 import React from 'react';
 
-class Wordings extends React.Component {
-	render() {
-		return <h2>Une plateforme qui encourage la prise de parole et les échanges entre activistes</h2>;
-	}
-}
+const Title = (props) => {
+	return <h1>{props.children}</h1>;
+};
 
-export default Wordings;
+export default Title;
