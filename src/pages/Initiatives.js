@@ -1,7 +1,12 @@
 import React from 'react';
+import { Title } from '../components';
 
 const Initiatives = () => {
-  return <h1>Vos initiatives</h1>;
+  return (
+    <>
+      <Title>Vos initiatives</Title>
+    </>
+  );
 };
 
 export default Initiatives;
