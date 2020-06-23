@@ -1,7 +1,8 @@
 import React from 'react';
+import Title from '../components/Wordings';
 
 const Homepage = () => {
-  return <h1>Apporter sa goutte à la mer !</h1>;
+  return <Title>Apporter sa goutte à la mer !</Title>;
 };
 
 export default Homepage;

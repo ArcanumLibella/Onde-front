@@ -1,11 +1,12 @@
 import React from 'react';
+import Title from '../components/Wordings';
 
 const Missions = () => {
   return (
-    <h1>
+    <Title>
       Une plateforme qui encourage la prise de parole et les échanges entre
       activistes
-    </h1>
+    </Title>
   );
 };
 
