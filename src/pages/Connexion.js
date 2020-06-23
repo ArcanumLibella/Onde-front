@@ -1,8 +1,12 @@
 import React from 'react';
-import Title from '../components/Wordings';
+import { Title } from '../components';
 
 const Connexion = () => {
-  return <Title>Bienvenue !</Title>;
+  return (
+    <>
+      <Title>Bienvenue !</Title>
+    </>
+  );
 };
 
 export default Connexion;
