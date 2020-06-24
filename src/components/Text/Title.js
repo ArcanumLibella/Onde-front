@@ -1,11 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const titleStyle = {
-  color: '#001E3C'
-};
+const TitleStyled = styled.h1`
+  color: ${props => props.theme.midnight};
+  font-size: 30px;
+`;
 
 const Title = props => {
-  return <h1 style={titleStyle}>{props.children}</h1>;
+  return <TitleStyled>{props.children}</TitleStyled>;
 };
 
 export default Title;

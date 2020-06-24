@@ -1,11 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const paragraphStyle = {
-  color: '#001E3C'
-};
+const ParagraphStyle = styled.p`
+  color: ${props => props.theme.midnight};
+  font-size: 17px;
+  font-weight: 700;
+`;
 
 const Paragraph = props => {
-  return <p style={paragraphStyle}>{props.children}</p>;
+  return <ParagraphStyle>{props.children}</ParagraphStyle>;
 };
 
 export default Paragraph;
