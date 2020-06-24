@@ -5,7 +5,11 @@ const ButtonStyle = styled.button`
   color: ${props => props.theme.white};
   background-color: ${props => props.theme.malibuBlue};
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 500;
+  padding: 14px 20px;
+  border: none;
+  letter-spacing: 0.3px;
+  border-radius: 4px;
 `;
 
 const Button = props => {
