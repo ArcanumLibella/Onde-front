@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { devices } from '../data/devices.js';
+import { devices } from '../utilities/devices.js';
 
 // import { Logo } from '../assets/images/logo.svg';
 
