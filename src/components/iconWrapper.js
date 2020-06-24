@@ -1,7 +1,14 @@
 import React from 'react';
 import { assets } from './index';
 
-const iconWrapper = props => {
-  return <img src={assets[props.name]}></img>;
+const IconWrapper = props => {
+  const { name } = props;
+
+  if (!assets[name]) {
+    return null;
+  }
+
+  return <img alt="img" src={assets[name]} />;
 };
-export default iconWrapper;
+
+export default IconWrapper;
