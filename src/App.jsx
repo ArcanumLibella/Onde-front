@@ -12,31 +12,31 @@ import Navigation from './components/Navigation';
 const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!./assets/scss/global/_variables.scss');
 
 function App() {
-	return (
-		<ThemeProvider theme={theme}>
-			<div className="app">
-				<Router>
-					<Navigation />
-					<div>
-						<Switch>
-							<Route path="/initiatives">
-								<Initiatives />
-							</Route>
-							<Route path="/connexion">
-								<Connexion />
-							</Route>
-							<Route path="/missions">
-								<Missions />
-							</Route>
-							<Route path="/">
-								<Homepage />
-							</Route>
-						</Switch>
-					</div>
-				</Router>
-			</div>
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={theme}>
+      <div className="app">
+        <Router>
+          <Navigation />
+          <div>
+            <Switch>
+              <Route path="/initiatives">
+                <Initiatives />
+              </Route>
+              <Route path="/connexion">
+                <Connexion />
+              </Route>
+              <Route path="/missions">
+                <Missions />
+              </Route>
+              <Route path="/">
+                <Homepage />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
+    </ThemeProvider>
+  );
 }
 
 export default App;

@@ -1,11 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const subTitleStyle = {
-  color: '#23A1F5'
-};
+const SubTitleStyled = styled.h2`
+  color: ${props => props.theme.blue};
+  font-size: 18px;
+  font-weight: 500;
+`;
 
 const SubTitle = props => {
-  return <h2 style={subTitleStyle}>{props.children}</h2>;
+  return <SubTitleStyled>{props.children}</SubTitleStyled>;
 };
 
 export default SubTitle;
