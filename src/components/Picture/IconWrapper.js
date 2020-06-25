@@ -5,9 +5,7 @@ import styled from 'styled-components';
 const SvgStyle = styled.svg.attrs(props => ({
   width: '320px'
 }))`
-  /* fill: ${props =>
-    props.brandColor ? props.theme.blue : props.theme.grey};*/
-  
+  fill: ${props => (props.color ? props.theme.blue : props.theme.grey)};
 `;
 
 const IconWrapper = props => {
