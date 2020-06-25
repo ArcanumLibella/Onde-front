@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { devices } from '../utilities/devices.js';
 
 // COMPONENTS
-import { IconWrapper } from '../components';
+import { Picture } from '../components';
 import { HomeF, HomeO, DropF, DropO, HeartF, HeartO, UserF, UserO } from '../assets/icons/all-icons.js';
 
 const HeaderStyle = styled.header`
@@ -92,7 +92,7 @@ const HeaderStyle = styled.header`
 const Navigation = () => {
 	return (
 		<HeaderStyle className="content-wrapper">
-			<IconWrapper name="OndeLogo" />
+			<Picture name="OndeLogo" />
 			<nav role="navigation">
 				<ul className="content-wrapper">
 					<li>
