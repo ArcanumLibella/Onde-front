@@ -16,23 +16,21 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="app">
         <Router>
-          <Navigation />
-          <div>
-            <Switch>
-              <Route path="/initiatives">
-                <Initiatives />
-              </Route>
-              <Route path="/connexion">
-                <Connexion />
-              </Route>
-              <Route path="/missions">
-                <Missions />
-              </Route>
-              <Route path="/">
-                <Homepage />
-              </Route>
-            </Switch>
-          </div>
+          {/* <Navigation /> */}
+          <Switch>
+            <Route path="/initiatives">
+              <Initiatives />
+            </Route>
+            <Route path="/connexion">
+              <Connexion />
+            </Route>
+            <Route path="/missions">
+              <Missions />
+            </Route>
+            <Route path="/">
+              <Homepage theme={theme} />
+            </Route>
+          </Switch>
         </Router>
       </div>
     </ThemeProvider>
