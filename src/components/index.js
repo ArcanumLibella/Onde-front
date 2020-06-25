@@ -14,5 +14,5 @@ export { Button };
 import Navigation from './Navigation';
 export { Navigation };
 
-import IconWrapper from './IconWrapper';
-export { IconWrapper };
+import Picture from './Picture';
+export { Picture };

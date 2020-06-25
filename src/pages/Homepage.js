@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, SubTitle, Paragraph, Button, IconWrapper } from '../components';
+import { Title, SubTitle, Paragraph, Button, Picture } from '../components';
 
 const Homepage = () => {
   return (
@@ -11,7 +11,8 @@ const Homepage = () => {
         pour la protection du bassin méditerranéen.
       </Paragraph>
       <Button>Découvrir les initiatives</Button>
-      <IconWrapper name="CleanUpTheBeach" />
+      <Picture name="CleanUpTheBeach" />
+      <Picture isIcon name="HomeFilled" />
     </>
   );
 };
