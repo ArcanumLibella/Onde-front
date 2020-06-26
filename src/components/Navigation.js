@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { devices, rem } from '../utilities';
-import { HomeO, DropO, HeartO, UserO } from '../assets';
+import { Link } from 'react-router-dom';
+
 import { ImageWrapper } from '../components';
+import { HomeO, DropO, HeartO, UserO } from '../assets';
+import { devices, rem } from '../utilities';
 
 const HeaderStyle = styled.header`
   position: sticky;

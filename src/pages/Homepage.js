@@ -1,4 +1,7 @@
 import React from 'react';
+
+import styled from 'styled-components';
+
 import {
   Title,
   SubTitle,
@@ -9,7 +12,6 @@ import {
 } from '../components';
 import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
 import { rem } from '../utilities';
-import styled from 'styled-components';
 
 const HomepageStyled = styled.section`
   .bluePart {
