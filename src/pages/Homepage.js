@@ -6,8 +6,20 @@ import {
   Button,
   ImageWrapper
 } from '../components';
-import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
+import {
+  DropCircleF,
+  FistRaisedCircleF,
+  PinCircleF,
+  SecurityCheck
+} from '../assets';
 import { rem } from '../utilities';
+import styled from 'styled-components';
+
+const HomepageStyled = styled.section`
+  .bluePart {
+    background-color: ${props => props.theme.blueBackground};
+  }
+`;
 
 const Homepage = props => {
   const { theme } = props;
@@ -25,7 +37,7 @@ const Homepage = props => {
   };
 
   return (
-    <>
+    <HomepageStyled>
       <Title>Apporter sa goutte à la mer !</Title>
       <SubTitle>Plateforme participative</SubTitle>
       <Paragraph>
@@ -55,7 +67,18 @@ const Homepage = props => {
         title="Se réunir"
         paragraph="Le rendez-vous fixé par le créateur de l’initiative correspond à la réunion des participants. En fonction du nombre atteint, un objectif est réalisé."
       />
-    </>
+      <div className="bluePart">
+        <SubTitle color={theme.white} fontSize="14">
+          VÉRIFICATIONS ADMINS
+        </SubTitle>
+        <Title color={theme.white}>Se concentrer sur l’essentiel</Title>
+        <Paragraph color={theme.white}>
+          Des personnes s’occupent de la vérification des initiatives afin de
+          conserver une plateforme agréable, respectueuse et porteuse de sens.
+        </Paragraph>
+        <ImageWrapper name="SecurityCheck" />
+      </div>
+    </HomepageStyled>
   );
 };
 
