@@ -4,7 +4,8 @@ import {
   SubTitle,
   Paragraph,
   Button,
-  ImageWrapper
+  ImageWrapper,
+  Link
 } from '../components';
 import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
 import { rem } from '../utilities';
@@ -89,6 +90,7 @@ const Homepage = props => {
           Des badges sont accordés aux utilisateurs réguliers de la plateforme
           ou à ceux qui effectuent une demande pour devenir modérateur.
         </Paragraph>
+        <Link>Devenir modérateur →</Link>
         <ImageWrapper name="BoyUnderneathFirework" />
       </div>
       <div className="imageContainer">
