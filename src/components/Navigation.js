@@ -65,18 +65,20 @@ const HeaderStyle = styled.header`
 			font-size: ${rem(18)};
 		}
 
-		&:first-child {
-			@media ${devices.large} {
-				display: none;
-			}
-		}
-
 		.icon {
 			margin-bottom: 3px;
 			width: 21px;
 			height: 21px;
 			fill: ${(props) => props.theme.grey};
 
+			@media ${devices.large} {
+				display: none;
+			}
+		}
+	}
+
+	a {
+		&:first-child {
 			@media ${devices.large} {
 				display: none;
 			}
@@ -97,22 +99,30 @@ const Navigation = () => {
 			<Picture name="OndeLogo" />
 			<nav role="navigation">
 				<ul className="content-wrapper">
-					<li>
-						<HomeO />
-						<Link to="/">Accueil</Link>
-					</li>
-					<li>
-						<DropO />
-						<Link to="/initiatives">Initiatives</Link>
-					</li>
-					<li>
-						<HeartO />
-						<Link to="/missions">Missions</Link>
-					</li>
-					<li>
-						<UserO />
-						<Link to="/connexion">Connexion</Link>
-					</li>
+					<Link to="/">
+						<li>
+							<HomeO />
+							Accueil
+						</li>
+					</Link>
+					<Link to="/initiatives">
+						<li>
+							<DropO />
+							Initiatives
+						</li>
+					</Link>
+					<Link to="/missions">
+						<li>
+							<HeartO />
+							Missions
+						</li>
+					</Link>
+					<Link to="/connexion">
+						<li>
+							<UserO />
+							Connexion
+						</li>
+					</Link>
 				</ul>
 			</nav>
 		</HeaderStyle>
