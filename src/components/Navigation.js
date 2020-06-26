@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { devices } from '../utilities/devices.js';
@@ -87,13 +87,46 @@ const HeaderStyle = styled.header`
 
 	img {
 		width: 100%;
-		max-width: 128px;
-		max-height: 45px;
+		max-width: 94px;
+		max-height: 32px;
 		z-index: 10;
+
+		@media ${devices.large} {
+			max-width: 128px;
+			max-height: 45px;
+		}
 	}
 `;
 
 const Navigation = () => {
+	// STATE
+	const [ isSelected, setIsSelected ] = useState(false);
+
+	// FUNCTIONS
+	// To change icon style if clicked
+	const manageClick = () => {
+		setIsSelected(!isSelected);
+		return changeIcon(isSelected);
+	};
+
+	const changeIcon = (isSelected) => {
+		if ({ isSelected }) {
+			console.log('click ? ', isSelected);
+			return <HomeF />;
+		} else {
+			return <HomeO />;
+		}
+	};
+
+	// To remove a sport selected
+	// const handleSportSelection = (sportSelected) => {
+	//   setIsSelected(!isSelected)
+	//   if ({ isSelected }) {
+	//     updateSportSelection(sportSelected)
+	//     removeSportSelection(sportSelected)
+	//   }
+	// }
+
 	return (
 		<HeaderStyle className="content-wrapper">
 			<Picture name="OndeLogo" />
