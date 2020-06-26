@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { devices } from '../utilities/devices.js';
+import { rem } from '../utilities/utils.js';
 
 // COMPONENTS
 import { Picture } from '../components';
 import { HomeF, HomeO, DropF, DropO, HeartF, HeartO, UserF, UserO } from '../assets/icons/all-icons.js';
 
 const HeaderStyle = styled.header`
+	position: sticky;
+	top: 0;
 	display: flex;
 	align-items: center;
 	width: 100vw;
@@ -15,7 +18,6 @@ const HeaderStyle = styled.header`
 	background-color: ${(props) => props.theme.white};
 
 	@media ${devices.large} {
-		top: 0;
 		bottom: auto;
 		box-shadow: 0px 0.8px 10px rgba(128, 138, 159, 0.23);
 	}
@@ -55,12 +57,12 @@ const HeaderStyle = styled.header`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		font-size: 0.625rem;
+		font-size: ${rem(10)};
 		font-weight: 500;
 
 		@media ${devices.large} {
 			margin: 0 20px;
-			font-size: 1.125rem;
+			font-size: ${rem(18)};
 		}
 
 		&:first-child {
