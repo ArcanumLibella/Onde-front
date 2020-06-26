@@ -6,7 +6,7 @@ import {
   Button,
   ImageWrapper
 } from '../components';
-import { DropCircleF } from '../assets';
+import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
 import { rem } from '../utilities';
 
 const Homepage = props => {
@@ -45,10 +45,12 @@ const Homepage = props => {
         cliquant sur la petite goutte à droite de chacune des initiatives.
         Aucune création de compte n’est requise pour cela !"
       />
+      <FistRaisedCircleF width={rem(30)} fill={theme.blue} />
       <IconWrapper
         title="Participer"
         paragraph="Donner de son temps pour soutenir une initiative qui a du sens. Participer, c’est s’engager dans la poursuite d’objectifs concrets avec plusieurs personnes pour faire bouger les lignes."
       />
+      <PinCircleF width={rem(30)} fill={theme.green} />
       <IconWrapper
         title="Se réunir"
         paragraph="Le rendez-vous fixé par le créateur de l’initiative correspond à la réunion des participants. En fonction du nombre atteint, un objectif est réalisé."
