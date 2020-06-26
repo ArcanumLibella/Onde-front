@@ -4,6 +4,9 @@
 
 Plateforme numérique de participation citoyenne destinée à préserver le littoral et les eaux méditerranéennes.
 
+## Lien du site :
+https://onde.netlify.app/
+
 #### Groupe 8 :
 
 - Emma Cassagnettes (UI | UX)
