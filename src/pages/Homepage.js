@@ -33,7 +33,9 @@ const Homepage = props => {
         pour la protection du bassin méditerranéen.
       </Paragraph>
       <ImageWrapper name="CleanUpTheBeach" />
-      <Button>Découvrir les initiatives</Button>
+      <Button backgroundColor={theme.darkBlue}>
+        Découvrir les initiatives
+      </Button>
       <ImageWrapper isIcon name="HomeFilled" />
       <DropCircleF width={rem(30)} fill={theme.darkBlue} />
       <IconWrapper

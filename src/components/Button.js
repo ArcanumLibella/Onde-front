@@ -8,18 +8,23 @@ const ButtonStyle = styled.button`
   font-size: ${rem(17)};
   font-weight: 500;
   letter-spacing: 0.3px;
-  background-color: ${props => props.theme.malibuBlue};
+  background-color: ${props => props.backgroundColor || props.theme.malibuBlue};
   border: none;
   border-radius: 4px;
 `;
 
 const Button = props => {
+  const { backgroundColor } = props;
   function handleClick(e) {
     e.preventDefault();
     console.log('The link was clicked.');
   }
 
-  return <ButtonStyle onClick={handleClick}>{props.children}</ButtonStyle>;
+  return (
+    <ButtonStyle backgroundColor={backgroundColor} onClick={handleClick}>
+      {props.children}
+    </ButtonStyle>
+  );
 };
 
 export default Button;
