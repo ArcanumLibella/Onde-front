@@ -1,9 +1,10 @@
 import React from 'react';
-import { assets } from '../index';
+import { assets } from './index';
 import styled from 'styled-components';
+import { rem } from '../utilities';
 
 const ImgStyle = styled.img.attrs(props => ({
-  width: props.width + 'px' || '320px'
+  width: rem(props.width) || rem(320)
 }))`
   width: ${props => props.width};
 `;
