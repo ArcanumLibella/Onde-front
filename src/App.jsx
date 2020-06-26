@@ -17,22 +17,20 @@ function App() {
 			<div className="app">
 				<Router>
 					<Navigation />
-					<div>
-						<Switch>
-							<Route path="/initiatives">
-								<Initiatives />
-							</Route>
-							<Route path="/connexion">
-								<Connexion />
-							</Route>
-							<Route path="/missions">
-								<Missions />
-							</Route>
-							<Route path="/">
-								<Homepage />
-							</Route>
-						</Switch>
-					</div>
+					<Switch>
+						<Route path="/initiatives">
+							<Initiatives />
+						</Route>
+						<Route path="/connexion">
+							<Connexion />
+						</Route>
+						<Route path="/missions">
+							<Missions />
+						</Route>
+						<Route path="/">
+							<Homepage theme={theme} />
+						</Route>
+					</Switch>
 				</Router>
 			</div>
 		</ThemeProvider>
