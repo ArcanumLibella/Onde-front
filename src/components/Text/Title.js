@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { rem } from '../utilities/utils.js';
+import { rem } from '../../utilities/utils.js';
 
 const TitleStyled = styled.h1`
 	color: ${(props) => props.theme.midnight};
