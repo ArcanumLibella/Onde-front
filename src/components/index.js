@@ -3,7 +3,8 @@
 import Title from './Text/Title';
 import SubTitle from './Text/SubTitle';
 import Paragraph from './Text/Paragraph';
-export { Title, SubTitle, Paragraph };
+import Link from './Text/Link';
+export { Title, SubTitle, Paragraph, Link };
 
 import * as assets from '../assets/index';
 export { assets };
