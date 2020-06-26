@@ -1,18 +1,14 @@
 // icons
 export {
   ArrowBackCircleo as ArrowBackCircleO,
-  Dropf as DropF,
   Dropo as DropO,
   DropCirclef as DropCircleF,
   FistRaisedCirclef as FistRaisedCircleF,
-  Heartf as HeartF,
   Hearto as HeartO,
   Homef as HomeF,
-  Homeo as HomeO,
   ParametersCirclef as ParametersCircleF,
   PinCirclef as PinCircleF,
   ShareCirclef as ShareCircleF,
-  Userf as UserF,
   Usero as UserO
 } from './icons/all-icons.js';
 

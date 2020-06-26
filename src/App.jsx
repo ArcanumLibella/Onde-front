@@ -19,7 +19,7 @@ function App() {
           <Navigation />
           <Switch>
             <Route path="/initiatives">
-              <Initiatives />
+              <Initiatives theme={theme} />
             </Route>
             <Route path="/connexion">
               <Connexion />

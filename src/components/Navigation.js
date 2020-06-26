@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { ImageWrapper } from '../components';
-import { HomeO, DropO, HeartO, UserO } from '../assets';
+import { HomeF, DropO, HeartO, UserO } from '../assets';
 import { devices, rem } from '../utilities';
 
 const HeaderStyle = styled.header`
@@ -96,7 +96,7 @@ const Navigation = props => {
       <nav role="navigation">
         <ul className="content-wrapper">
           <li>
-            <HomeO />
+            <HomeF />
             <Link to="/">Accueil</Link>
           </li>
           <li>
