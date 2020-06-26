@@ -8,6 +8,8 @@ const ButtonStyle = styled.button`
   font-size: ${rem(17)};
   font-weight: 500;
   letter-spacing: 0.3px;
+  width: 288px;
+  height: 50px;
   background-color: ${props => props.backgroundColor || props.theme.malibuBlue};
   border: none;
   border-radius: 4px;
