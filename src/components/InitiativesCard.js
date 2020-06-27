@@ -7,20 +7,20 @@ import { DropCircleF } from '../assets';
 const InitiativesCardStyled = styled.section``;
 
 const InitiativesCard = props => {
-  const { theme } = props;
+  const { theme, initiative } = props;
+
+  const { name, description, likes } = initiative;
+  // Initiative informations : GET ​/api​/posts​/{id}
+  // Tags are in collection : tags[]
+  // Gouttes are in collection : likes[]
 
   return (
     <InitiativesCardStyled>
-      {/* Connect back tags related */}
-      <Title>Nettoyer la plage de Pampelonne</Title>
-      <Paragraph>
-        La plage de Pampelonne accueille chaque été de nombreux fêtards avec
-        comme conséquence des déchets qui s’accumulent...
-      </Paragraph>
+      <Title>{name}</Title>
+      <Paragraph>{description}</Paragraph>
       <div>
         <DropCircleF width="34" fill={theme.blue} />
-        {/* Connect back nbr "gouttes" */}
-        <Paragraph>25</Paragraph>
+        <Paragraph>{likes}</Paragraph>
       </div>
       <Button>Je participe</Button>
     </InitiativesCardStyled>
