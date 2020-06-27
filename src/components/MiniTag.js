@@ -1,35 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { Paragraph } from '.';
 
 const MiniTag = props => {
   const { tags } = props;
   const list = [
-    { id: 1, name: 'Plage' },
-    { id: 2, name: 'Var' },
-    { id: 3, name: 'WWF' },
-    { id: 4, name: 'Gard' }
+    { id: 1, name: 'Plage', color: 'green' },
+    { id: 2, name: 'Var', color: 'blue' },
+    { id: 3, name: 'WWF', color: 'pink' },
+    { id: 4, name: 'Gard', color: 'red' }
   ];
 
   const initiativeTag = tags.map(i => i);
-  const tagsCollection = list.map(i => i);
 
-  const initiativeTags = tagsCollection.filter(x =>
-    initiativeTag.includes(x.id)
-  );
+  const initiativeTags = list.filter(i => initiativeTag.includes(i.id));
 
-  // const tagsCollection = list.map(i => <Paragraph>{i}</Paragraph>);
+  const tagsCollection = initiativeTags.map(i => (
+    <Paragraph color={i.color}>{i.name}</Paragraph>
+  ));
 
-  // console.log(tagsCollection),
-  // console.log(initiativeTag);
-  return (
-    <>
-      {/* <Paragraph>{console.log('initiativeTag', initiativeTag)}</Paragraph>{' '}
-      <Paragraph>{console.log('tagsCollection', tagsCollection)}</Paragraph> */}
-      <Paragraph>{console.log('initiativeTags', initiativeTags)}</Paragraph>
-    </>
-  );
+  return <>{tagsCollection}</>;
 };
 
 export default MiniTag;

@@ -23,4 +23,5 @@ import Link from './Text/Link';
 import Paragraph from './Text/Paragraph';
 import SubTitle from './Text/SubTitle';
 import Title from './Text/Title';
-export { Link, Paragraph, SubTitle, Title };
+import Truncate from './Text/Truncate';
+export { Link, Paragraph, SubTitle, Title, Truncate };

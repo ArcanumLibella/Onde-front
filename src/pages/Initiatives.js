@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Title, InitiativesCard, MiniTag } from '../components';
+import { Title, InitiativesCard } from '../components';
 import { ParametersCircleF } from '../assets';
 
 const InitiativesStyled = styled.section``;
