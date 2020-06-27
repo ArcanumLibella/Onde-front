@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Title } from '../components';
+import { Title, InitiativesCard } from '../components';
 import { ParametersCircleF } from '../assets';
 
-const InitiativeStyled = styled.section``;
+const InitiativesStyled = styled.section``;
 
 const Initiatives = props => {
   const { theme } = props;
 
   return (
-    <InitiativeStyled>
+    <InitiativesStyled>
       <Title>Vos initiatives</Title>
       <ParametersCircleF width="40" fill={theme.midnight} />
-    </InitiativeStyled>
+      <InitiativesCard theme={theme} />
+    </InitiativesStyled>
   );
 };
 
