@@ -1,10 +1,4 @@
 /* eslint-disable import/first */
-// Texts
-import Title from './Text/Title';
-import SubTitle from './Text/SubTitle';
-import Paragraph from './Text/Paragraph';
-import Link from './Text/Link';
-export { Title, SubTitle, Paragraph, Link };
 
 import * as assets from '../assets/index';
 export { assets };
@@ -12,8 +6,21 @@ export { assets };
 import Button from './Button';
 export { Button };
 
+import ImageWrapper from './ImageWrapper';
+export { ImageWrapper };
+
+import InitiativesCard from './InitiativesCard';
+export { InitiativesCard };
+
 import Navigation from './Navigation';
 export { Navigation };
 
-import ImageWrapper from './ImageWrapper';
-export { ImageWrapper };
+import MiniTag from './MiniTag';
+export { MiniTag };
+
+// Texts
+import Link from './Text/Link';
+import Paragraph from './Text/Paragraph';
+import SubTitle from './Text/SubTitle';
+import Title from './Text/Title';
+export { Link, Paragraph, SubTitle, Title };

@@ -1,6 +1,7 @@
 import React from 'react';
-import { assets } from './index';
 import styled from 'styled-components';
+
+import { assets } from './index';
 import { rem } from '../utilities';
 
 const ImgStyle = styled.img.attrs(props => ({
