@@ -15,6 +15,9 @@ export { InitiativesCard };
 import Navigation from './Navigation';
 export { Navigation };
 
+import MiniTag from './MiniTag';
+export { MiniTag };
+
 // Texts
 import Link from './Text/Link';
 import Paragraph from './Text/Paragraph';
