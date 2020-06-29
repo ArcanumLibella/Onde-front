@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Title, Paragraph, Button, MiniTag } from '../components';
+import { Title, Paragraph, Button, MiniTag, Truncate } from '../components';
 import { DropCircleF } from '../assets';
 
 const InitiativesCardStyled = styled.section``;
@@ -18,9 +18,17 @@ const InitiativesCard = props => {
     <InitiativesCardStyled>
       <MiniTag tags={tags} />
 
-      <Title>{name}</Title>
+      <Title>
+        <Truncate maxChars="40" trailingCharCount="0">
+          {name}
+        </Truncate>
+      </Title>
       {/* <Title>{console.log(tags)}</Title> */}
-      <Paragraph>{description}</Paragraph>
+      <Paragraph>
+        <Truncate maxChars="120" trailingCharCount="0">
+          {description}
+        </Truncate>
+      </Paragraph>
       <div>
         <DropCircleF width="34" fill={theme.blue} />
         <Paragraph>{likes}</Paragraph>
