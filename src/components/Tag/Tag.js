@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Paragraph } from '..';
+import { Button } from '..';
 
 const MiniTag = props => {
   const list = [
@@ -10,7 +10,7 @@ const MiniTag = props => {
     { id: 4, name: 'Gard', color: 'red' }
   ];
 
-  const tagsCollection = list.map(i => <Paragraph>{i.name}</Paragraph>);
+  const tagsCollection = list.map(i => <Button>{i.name}</Button>);
 
   return <>{tagsCollection}</>;
 };

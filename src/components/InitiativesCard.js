@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Title, Paragraph, Button, MiniTag, Truncate } from '../components';
-import { DropCircleF } from '../assets';
+import { DropCircleF, ShareCircleF } from '../assets';
 
 const InitiativesCardStyled = styled.section``;
 
@@ -33,6 +33,7 @@ const InitiativesCard = props => {
         <DropCircleF width="34" fill={theme.blue} />
         <Paragraph>{likes}</Paragraph>
       </div>
+      <ShareCircleF width="40" fill={theme.midnight} />
       <Button>Je participe</Button>
     </InitiativesCardStyled>
   );
