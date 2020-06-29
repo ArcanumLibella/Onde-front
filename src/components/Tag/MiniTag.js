@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Paragraph } from '.';
+import { Paragraph } from '..';
 
 const MiniTag = props => {
   const { tags } = props;

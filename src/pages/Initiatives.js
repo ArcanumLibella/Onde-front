@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Title, InitiativesCard } from '../components';
+import { Title, InitiativesCard, Tag } from '../components';
 import { ParametersCircleF } from '../assets';
 
 const InitiativesStyled = styled.section``;
@@ -48,6 +48,7 @@ const Initiatives = props => {
     <InitiativesStyled>
       <Title>Vos initiatives</Title>
       <ParametersCircleF width="40" fill={theme.midnight} />
+      <Tag />
       {initiativesCollection}
     </InitiativesStyled>
   );
