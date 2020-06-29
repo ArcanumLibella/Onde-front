@@ -106,35 +106,33 @@ const Navigation = () => {
 	// To change icon style if clicked
 	const manageClick = () => {
 		setIsSelected(!isSelected);
-		return changeIcon(isSelected);
+		// console.log('click');
+		if ({ isSelected }) {
+			handleIcon(isSelected);
+		}
+		// return handleIcon(isSelected);
 	};
 
-	const changeIcon = (isSelected) => {
-		if ({ isSelected }) {
-			console.log('click ? ', isSelected);
-			return <HomeF />;
-		} else {
-			return <HomeO />;
+	const handleIcon = (isSelected) => {
+		switch (isSelected) {
+			case true:
+				return <HomeF />;
+			case false:
+				return <HomeO />;
+			default:
+				return <HomeO />;
 		}
 	};
-
-	// To remove a sport selected
-	// const handleSportSelection = (sportSelected) => {
-	//   setIsSelected(!isSelected)
-	//   if ({ isSelected }) {
-	//     updateSportSelection(sportSelected)
-	//     removeSportSelection(sportSelected)
-	//   }
-	// }
 
 	return (
 		<HeaderStyle className="content-wrapper">
 			<Picture name="OndeLogo" />
 			<nav role="navigation">
 				<ul className="content-wrapper">
-					<Link to="/">
+					<Link to="/" onClick={() => manageClick()}>
 						<li>
-							<HomeO />
+							{handleIcon(isSelected)}
+							{/* <HomeO /> */}
 							Accueil
 						</li>
 					</Link>
