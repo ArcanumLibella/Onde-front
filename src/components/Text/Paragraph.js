@@ -5,10 +5,10 @@ import { rem, devices } from '../../utilities';
 
 // TEMPLATE
 const Paragraph = (props) => {
-	const { fontSize, fontWeight, color } = props;
+	const { fontSize, fontWeight, color, textTransform } = props;
 
 	return (
-		<ParagraphStyle color={color} fontSize={fontSize} fontWeight={fontWeight}>
+		<ParagraphStyle color={color} fontSize={fontSize} fontWeight={fontWeight} textTransform={textTransform}>
 			{props.children}
 		</ParagraphStyle>
 	);
@@ -16,11 +16,11 @@ const Paragraph = (props) => {
 
 // STYLE
 const ParagraphStyle = styled.p`
-	/* Body 16 - Regular */
 	color: ${(props) => (props.color ? props.color : props.theme.midnight)};
 	font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(16))};
 	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '500')};
 	line-height: 20px;
+	text-transform: ${(props) => (props.textTransform ? 'uppercase' : 'none')};
 
 	@media ${devices.large} {
 		font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(22))};

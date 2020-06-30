@@ -16,7 +16,6 @@ const DisplayTitle = (props) => {
 
 // STYLE
 const DisplayTitleStyled = styled.h1`
-	/* Display Title 30 */
 	color: ${(props) => (props.color ? props.color : props.theme.midnight)};
 	font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(30))};
 	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '800')};

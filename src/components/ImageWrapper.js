@@ -19,9 +19,7 @@ const ImageWrapper = (props) => {
 const ImgStyle = styled.img.attrs((props) => ({
 	width: rem(props.width) || rem(320)
 }))`
-  position: relative;
   width: ${(props) => props.width};
-  z-index: -1;
 `;
 
 export default ImageWrapper;

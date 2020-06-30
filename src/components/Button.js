@@ -20,6 +20,7 @@ const Button = (props) => {
 
 // STYLE
 const ButtonStyle = styled.button`
+	position: relative;
 	display: block;
 	padding: 14px 20px;
 	margin: 0 auto;
@@ -35,6 +36,7 @@ const ButtonStyle = styled.button`
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
+	z-index: 1;
 `;
 
 export default Button;

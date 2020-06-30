@@ -10,7 +10,6 @@ const TextLink = (props) => {
 
 // STYLE
 const TextLinkStyle = styled.p`
-	/* Link 16 - Normal */
 	color: ${(props) => props.theme.malibuBlue};
 	font-size: ${rem(16)};
 	font-weight: '400';

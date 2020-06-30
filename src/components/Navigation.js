@@ -44,6 +44,7 @@ const HeaderStyle = styled.header`
 	width: 100vw;
 	height: 75px;
 	background-color: ${(props) => props.theme.white};
+	z-index: 100;
 
 	@media ${devices.large} {
 		bottom: auto;
