@@ -3,6 +3,18 @@ import styled from 'styled-components';
 
 import { rem, devices } from '../../utilities';
 
+// TEMPLATE
+const Title = (props) => {
+	const { fontSize, fontWeight, color } = props;
+
+	return (
+		<TitleStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
+			{props.children}
+		</TitleStyled>
+	);
+};
+
+// STYLE
 const TitleStyled = styled.h1`
 	/*  Title 20 - Semi Bold */
 	color: ${(props) => (props.color ? props.color : props.theme.midnight)};
@@ -13,15 +25,5 @@ const TitleStyled = styled.h1`
 		font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(26))};
 	}
 `;
-
-const Title = (props) => {
-	const { fontSize, fontWeight, color } = props;
-
-	return (
-		<TitleStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
-			{props.children}
-		</TitleStyled>
-	);
-};
 
 export default Title;

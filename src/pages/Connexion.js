@@ -2,6 +2,7 @@ import React from 'react';
 
 import { DisplayTitle } from '../components';
 
+// TEMPLATE
 const Connexion = () => {
   return (
     <>
@@ -9,5 +10,7 @@ const Connexion = () => {
     </>
   );
 };
+
+// STYLE
 
 export default Connexion;

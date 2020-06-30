@@ -6,6 +6,36 @@ import { ImageWrapper } from '../components';
 import { HomeF, DropO, HeartO, UserO } from '../assets';
 import { devices, rem } from '../utilities';
 
+// TEMPLATE
+const Navigation = (props) => {
+	return (
+		<HeaderStyle className="content-wrapper">
+			<ImageWrapper name="OndeLogo" />
+			<nav role="navigation">
+				<ul className="content-wrapper">
+					<li>
+						<HomeF />
+						<Link to="/">Accueil</Link>
+					</li>
+					<li>
+						<DropO />
+						<Link to="/initiatives">Initiatives</Link>
+					</li>
+					<li>
+						<HeartO />
+						<Link to="/missions">Missions</Link>
+					</li>
+					<li>
+						<UserO />
+						<Link to="/connexion">Connexion</Link>
+					</li>
+				</ul>
+			</nav>
+		</HeaderStyle>
+	);
+};
+
+// STYLE
 const HeaderStyle = styled.header`
 	position: sticky;
 	top: 0;
@@ -93,33 +123,5 @@ const HeaderStyle = styled.header`
 		}
 	}
 `;
-
-const Navigation = (props) => {
-	return (
-		<HeaderStyle className="content-wrapper">
-			<ImageWrapper name="OndeLogo" />
-			<nav role="navigation">
-				<ul className="content-wrapper">
-					<li>
-						<HomeF />
-						<Link to="/">Accueil</Link>
-					</li>
-					<li>
-						<DropO />
-						<Link to="/initiatives">Initiatives</Link>
-					</li>
-					<li>
-						<HeartO />
-						<Link to="/missions">Missions</Link>
-					</li>
-					<li>
-						<UserO />
-						<Link to="/connexion">Connexion</Link>
-					</li>
-				</ul>
-			</nav>
-		</HeaderStyle>
-	);
-};
 
 export default Navigation;

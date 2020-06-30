@@ -2,6 +2,7 @@ import React from 'react';
 
 import { DisplayTitle } from '../components';
 
+// TEMPLATE
 const Missions = () => {
   return (
     <>
@@ -12,5 +13,7 @@ const Missions = () => {
     </>
   );
 };
+
+// STYLE
 
 export default Missions;

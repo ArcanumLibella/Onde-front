@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { DisplayTitle, InitiativesCard, Tag } from '../components';
 import { ParametersCircleF } from '../assets';
 
-const InitiativesStyled = styled.section``;
-
+// TEMPLATE
 const Initiatives = (props) => {
 	const { theme } = props;
 
@@ -51,5 +50,8 @@ const Initiatives = (props) => {
 		</InitiativesStyled>
 	);
 };
+
+// STYLE
+const InitiativesStyled = styled.section``;
 
 export default Initiatives;

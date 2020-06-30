@@ -3,6 +3,18 @@ import styled from 'styled-components';
 
 import { rem, devices } from '../../utilities';
 
+// TEMPLATE
+const DisplayTitle = (props) => {
+	const { fontSize, fontWeight, color } = props;
+
+	return (
+		<DisplayTitleStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
+			{props.children}
+		</DisplayTitleStyled>
+	);
+};
+
+// STYLE
 const DisplayTitleStyled = styled.h1`
 	/* Display Title 30 */
 	color: ${(props) => (props.color ? props.color : props.theme.midnight)};
@@ -13,15 +25,5 @@ const DisplayTitleStyled = styled.h1`
 		font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(40))};
 	}
 `;
-
-const DisplayTitle = (props) => {
-	const { fontSize, fontWeight, color } = props;
-
-	return (
-		<DisplayTitleStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
-			{props.children}
-		</DisplayTitleStyled>
-	);
-};
 
 export default DisplayTitle;

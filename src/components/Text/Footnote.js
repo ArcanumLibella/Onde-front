@@ -3,6 +3,12 @@ import styled from 'styled-components';
 
 import { rem, devices } from '../../utilities';
 
+// TEMPLATE
+const Footnote = (props) => {
+	return <FootnoteStyle>{props.children}</FootnoteStyle>;
+};
+
+// STYLE
 const FootnoteStyle = styled.p`
 	/* Footnote 13 - Regular */
 	color: ${(props) => props.theme.malibuBlue};
@@ -15,9 +21,5 @@ const FootnoteStyle = styled.p`
 		line-height: 19px;
 	}
 `;
-
-const Footnote = (props) => {
-	return <FootnoteStyle>{props.children}</FootnoteStyle>;
-};
 
 export default Footnote;

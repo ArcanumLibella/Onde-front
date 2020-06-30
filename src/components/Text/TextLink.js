@@ -3,6 +3,12 @@ import styled from 'styled-components';
 
 import { rem, devices } from '../../utilities';
 
+// TEMPLATE
+const TextLink = (props) => {
+	return <TextLinkStyle>{props.children}</TextLinkStyle>;
+};
+
+// STYLE
 const TextLinkStyle = styled.p`
 	/* Link 16 - Normal */
 	color: ${(props) => props.theme.malibuBlue};
@@ -16,9 +22,5 @@ const TextLinkStyle = styled.p`
 		line-height: 27px;
 	}
 `;
-
-const TextLink = (props) => {
-	return <TextLinkStyle>{props.children}</TextLinkStyle>;
-};
 
 export default TextLink;

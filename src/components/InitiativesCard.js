@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { DisplayTitle, Paragraph, Button, MiniTag, Truncate } from '../components';
 import { DropCircleF, ShareCircleF } from '../assets';
 
-const InitiativesCardStyled = styled.section``;
-
+// TEMPLATE
 const InitiativesCard = (props) => {
 	const { theme, initiative } = props;
 
@@ -38,5 +37,8 @@ const InitiativesCard = (props) => {
 		</InitiativesCardStyled>
 	);
 };
+
+// STYLE
+const InitiativesCardStyled = styled.section``;
 
 export default InitiativesCard;

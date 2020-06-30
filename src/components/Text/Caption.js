@@ -3,6 +3,12 @@ import styled from 'styled-components';
 
 import { rem, devices } from '../../utilities';
 
+// TEMPLATE
+const Caption = (props) => {
+	return <CaptionStyle>{props.children}</CaptionStyle>;
+};
+
+// STYLE
 const CaptionStyle = styled.p`
 	/* Caption 12 - Regular */
 	color: ${(props) => props.theme.malibuBlue};
@@ -16,9 +22,5 @@ const CaptionStyle = styled.p`
 		line-height: 19px;
 	}
 `;
-
-const Caption = (props) => {
-	return <CaptionStyle>{props.children}</CaptionStyle>;
-};
 
 export default Caption;

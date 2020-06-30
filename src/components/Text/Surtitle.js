@@ -3,6 +3,12 @@ import styled from 'styled-components';
 
 import { rem, devices } from '../../utilities';
 
+// TEMPLATE
+const Surtitle = (props) => {
+	return <SurtitleStyle>{props.children}</SurtitleStyle>;
+};
+
+// STYLE
 const SurtitleStyle = styled.p`
 	/* Surtitle 14 - Regular */
 	color: ${(props) => props.theme.malibuBlue};
@@ -16,9 +22,5 @@ const SurtitleStyle = styled.p`
 		line-height: 27px;
 	}
 `;
-
-const Surtitle = (props) => {
-	return <SurtitleStyle>{props.children}</SurtitleStyle>;
-};
 
 export default Surtitle;

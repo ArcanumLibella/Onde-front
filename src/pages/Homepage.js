@@ -5,34 +5,7 @@ import { DisplayTitle, ParagraphBig, Paragraph, Button, ImageWrapper, TextLink }
 import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
 import { rem } from '../utilities';
 
-const HomepageStyled = styled.main`
-	margin-top: 16px;
-
-	.section {
-		padding-bottom: 64px;
-
-		&--hero {
-			h1,
-			h2,
-			p {
-				margin-bottom: 16px;
-			}
-
-			img {
-				margin: -88px 0 -12px;
-			}
-		}
-
-		&--blue {
-			background-color: ${(props) => props.theme.blueBackground};
-		}
-
-		&--grey {
-			background-color: ${(props) => props.theme.greyBackground};
-		}
-	}
-`;
-
+// TEMPLATE
 const Homepage = (props) => {
 	const { theme } = props;
 
@@ -156,5 +129,34 @@ const Homepage = (props) => {
 		</HomepageStyled>
 	);
 };
+
+// STYLE
+const HomepageStyled = styled.main`
+	margin-top: 16px;
+
+	.section {
+		padding-bottom: 64px;
+
+		&--hero {
+			h1,
+			h2,
+			p {
+				margin-bottom: 16px;
+			}
+
+			img {
+				margin: -88px 0 -12px;
+			}
+		}
+
+		&--blue {
+			background-color: ${(props) => props.theme.blueBackground};
+		}
+
+		&--grey {
+			background-color: ${(props) => props.theme.greyBackground};
+		}
+	}
+`;
 
 export default Homepage;

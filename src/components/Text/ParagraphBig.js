@@ -3,6 +3,18 @@ import styled from 'styled-components';
 
 import { rem, devices } from '../../utilities';
 
+// TEMPLATE
+const ParagraphBig = (props) => {
+	const { fontSize, fontWeight, color } = props;
+
+	return (
+		<ParagraphStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
+			{props.children}
+		</ParagraphStyled>
+	);
+};
+
+// STYLE
 const ParagraphStyled = styled.h2`
 	/* Body 18 - Medium */
 	color: ${(props) => (props.color ? props.color : props.theme.blue)};
@@ -15,15 +27,5 @@ const ParagraphStyled = styled.h2`
 		line-height: 32px;
 	}
 `;
-
-const ParagraphBig = (props) => {
-	const { fontSize, fontWeight, color } = props;
-
-	return (
-		<ParagraphStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
-			{props.children}
-		</ParagraphStyled>
-	);
-};
 
 export default ParagraphBig;
