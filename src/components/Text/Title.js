@@ -1,22 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { rem } from '../../utilities';
+import { rem, devices } from '../../utilities';
 
 const TitleStyled = styled.h1`
-  color: ${props => (props.color ? props.color : props.theme.midnight)};
-  font-size: ${props => (props.fontSize ? rem(props.fontSize) : rem(30))};
-  font-weight: ${props => (props.fontWeight ? props.fontWeight : '800')};
+	/*  Title 20 - Semi Bold */
+	color: ${(props) => (props.color ? props.color : props.theme.midnight)};
+	font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(20))};
+	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '600')};
+
+	@media ${devices.large} {
+		font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(26))};
+	}
 `;
 
-const Title = props => {
-  const { fontSize, fontWeight, color } = props;
+const Title = (props) => {
+	const { fontSize, fontWeight, color } = props;
 
-  return (
-    <TitleStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
-      {props.children}
-    </TitleStyled>
-  );
+	return (
+		<TitleStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
+			{props.children}
+		</TitleStyled>
+	);
 };
 
 export default Title;

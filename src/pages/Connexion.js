@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Title } from '../components';
+import { DisplayTitle } from '../components';
 
 const Connexion = () => {
   return (
     <>
-      <Title>Bienvenue !</Title>
+      <DisplayTitle>Bienvenue !</DisplayTitle>
     </>
   );
 };

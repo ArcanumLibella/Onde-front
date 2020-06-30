@@ -19,10 +19,15 @@ import MiniTag from './Tag/MiniTag';
 import Tag from './Tag/Tag';
 export { MiniTag, Tag };
 
-// Texts
-import Link from './Text/Link';
-import Paragraph from './Text/Paragraph';
-import SubTitle from './Text/SubTitle';
+// TYPOGRAPHY
+import DisplayTitle from './Text/DisplayTitle';
 import Title from './Text/Title';
+import ParagraphBig from './Text/ParagraphBig';
+import Paragraph from './Text/Paragraph';
+import TextCta from './Text/TextCta';
+import TextLink from './Text/TextLink';
+import Surtitle from './Text/Surtitle';
+import Footnote from './Text/Footnote';
+import Caption from './Text/Caption';
 import Truncate from './Text/Truncate';
-export { Link, Paragraph, SubTitle, Title, Truncate };
+export { TextLink, Paragraph, ParagraphBig, DisplayTitle, Title, TextCta, Surtitle, Footnote, Caption, Truncate };

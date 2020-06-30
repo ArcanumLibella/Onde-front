@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Title } from '../components';
+import { DisplayTitle } from '../components';
 
 const Missions = () => {
   return (
     <>
-      <Title>
+      <DisplayTitle>
         Une plateforme qui encourage la prise de parole et les échanges entre
         activistes
-      </Title>
+      </DisplayTitle>
     </>
   );
 };
