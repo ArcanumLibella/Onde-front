@@ -15,7 +15,7 @@ const Title = (props) => {
 };
 
 // STYLE
-const TitleStyled = styled.h1`
+const TitleStyled = styled.h2`
 	/*  Title 20 - Semi Bold */
 	color: ${(props) => (props.color ? props.color : props.theme.midnight)};
 	font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(20))};

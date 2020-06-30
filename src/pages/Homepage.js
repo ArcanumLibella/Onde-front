@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DisplayTitle, Title, ParagraphBig, Paragraph, Button, ImageWrapper, TextLink } from '../components';
+import { DisplayTitle, Title, Paragraph, Button, ImageWrapper, TextLink } from '../components';
 import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
-import { rem } from '../utilities';
+import { rem, devices } from '../utilities';
 
 // TEMPLATE
 const Homepage = (props) => {
@@ -12,9 +12,9 @@ const Homepage = (props) => {
 	const IconContainer = (props) => {
 		const { title, paragraph } = props;
 		return (
-			<div class="">
+			<div className="">
 				<Title color={theme.midnight}>{title}</Title>
-				<ParagraphBig fontSize={rem(18)}>{paragraph}</ParagraphBig>
+				<Paragraph fontSize={rem(17)}>{paragraph}</Paragraph>
 			</div>
 		);
 	};
@@ -25,7 +25,7 @@ const Homepage = (props) => {
 			<section className="section section--hero">
 				<div className="content-wrapper">
 					<DisplayTitle>Apporter sa goutte à la mer !</DisplayTitle>
-					<ParagraphBig color={theme.blue}>Plateforme participative</ParagraphBig>
+					<Paragraph color={theme.blue}>Plateforme participative</Paragraph>
 					<Paragraph>
 						Onde donne la parole aux citoyens afin de mener à bien des initiatives pour la protection du
 						bassin méditerranéen.
@@ -60,9 +60,9 @@ const Homepage = (props) => {
 			{/* ADVANTAGES */}
 			<section className="section section--advantages section--blue">
 				<div className="content-wrapper">
-					<ParagraphBig color={theme.white} fontSize="14">
+					<Paragraph color={theme.white} fontSize={rem(14)}>
 						VÉRIFICATIONS ADMINS
-					</ParagraphBig>
+					</Paragraph>
 					<DisplayTitle color={theme.white}>Se concentrer sur l’essentiel</DisplayTitle>
 					<Paragraph color={theme.white}>
 						Des personnes s’occupent de la vérification des initiatives afin de conserver une plateforme
@@ -106,9 +106,9 @@ const Homepage = (props) => {
 			{/* PARTNERS */}
 			<section className="section section--partners section--grey">
 				<div className="content-wrapper">
-					<ParagraphBig fontSize="14" color={theme.midnight}>
+					<Paragraph fontSize="14" color={theme.midnight}>
 						NOS PARTENAIRES
-					</ParagraphBig>
+					</Paragraph>
 					<DisplayTitle>Ils nous font confiance !</DisplayTitle>
 					{/* add carousel */}
 				</div>
@@ -133,6 +133,12 @@ const HomepageStyled = styled.main`
 		padding-bottom: 64px;
 
 		&--hero {
+			@media ${devices.medium} {
+				margin: 58px auto 104px;
+				max-width: 600px;
+				text-align: center;
+			}
+
 			h1,
 			h2,
 			p {
@@ -141,6 +147,10 @@ const HomepageStyled = styled.main`
 
 			img {
 				margin: -88px 0 -12px;
+
+				@media ${devices.large} {
+					margin: -180px 0 -20px;
+				}
 			}
 		}
 

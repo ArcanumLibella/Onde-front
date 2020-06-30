@@ -22,12 +22,9 @@ export { MiniTag, Tag };
 // TYPOGRAPHY
 import DisplayTitle from './Text/DisplayTitle';
 import Title from './Text/Title';
-import ParagraphBig from './Text/ParagraphBig';
 import Paragraph from './Text/Paragraph';
 import TextCta from './Text/TextCta';
 import TextLink from './Text/TextLink';
 import Surtitle from './Text/Surtitle';
-import Footnote from './Text/Footnote';
-import Caption from './Text/Caption';
 import Truncate from './Text/Truncate';
-export { TextLink, Paragraph, ParagraphBig, DisplayTitle, Title, TextCta, Surtitle, Footnote, Caption, Truncate };
+export { TextLink, Paragraph, DisplayTitle, Title, TextCta, Surtitle, Truncate };

@@ -29,10 +29,12 @@ const ButtonStyle = styled.button`
 	color: ${(props) => props.theme.white};
 	font-size: ${rem(17)};
 	font-weight: 500;
+	line-height: 22px;
 	letter-spacing: 0.3px;
 	background-color: ${(props) => props.backgroundColor || props.theme.malibuBlue};
 	border: none;
 	border-radius: 4px;
+	cursor: pointer;
 `;
 
 export default Button;

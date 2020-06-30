@@ -9,7 +9,7 @@ const Surtitle = (props) => {
 };
 
 // STYLE
-const SurtitleStyle = styled.p`
+const SurtitleStyle = styled.h3`
 	/* Surtitle 14 - Regular */
 	color: ${(props) => props.theme.midnight};
 	font-size: ${rem(14)};
