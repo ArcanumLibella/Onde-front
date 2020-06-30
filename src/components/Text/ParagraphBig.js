@@ -8,16 +8,16 @@ const ParagraphBig = (props) => {
 	const { fontSize, fontWeight, color } = props;
 
 	return (
-		<ParagraphStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
+		<ParagraphBigStyled color={color} fontSize={fontSize} fontWeight={fontWeight}>
 			{props.children}
-		</ParagraphStyled>
+		</ParagraphBigStyled>
 	);
 };
 
 // STYLE
-const ParagraphStyled = styled.h2`
+const ParagraphBigStyled = styled.h2`
 	/* Body 18 - Medium */
-	color: ${(props) => (props.color ? props.color : props.theme.blue)};
+	color: ${(props) => (props.color ? props.color : props.theme.midnight)};
 	font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(18))};
 	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '500')};
 	line-height: 22px;

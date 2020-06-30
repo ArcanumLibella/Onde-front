@@ -17,7 +17,7 @@ const TextCta = (props) => {
 // STYLE
 const TextCtaStyled = styled.h2`
 	/* CTA 17 - Medium */
-	color: ${(props) => (props.color ? props.color : props.theme.blue)};
+	color: ${(props) => (props.color ? props.color : props.theme.midnight)};
 	font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(17))};
 	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '500')};
 	line-height: 22px;

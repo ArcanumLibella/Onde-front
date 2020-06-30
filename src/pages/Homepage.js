@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DisplayTitle, ParagraphBig, Paragraph, Button, ImageWrapper, TextLink } from '../components';
+import { DisplayTitle, Title, ParagraphBig, Paragraph, Button, ImageWrapper, TextLink } from '../components';
 import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
 import { rem } from '../utilities';
 
@@ -13,10 +13,8 @@ const Homepage = (props) => {
 		const { title, paragraph } = props;
 		return (
 			<div class="">
-				<ParagraphBig fontWeight="600" color={theme.midnight}>
-					{title}
-				</ParagraphBig>
-				<Paragraph>{paragraph}</Paragraph>
+				<Title color={theme.midnight}>{title}</Title>
+				<ParagraphBig fontSize={rem(18)}>{paragraph}</ParagraphBig>
 			</div>
 		);
 	};
@@ -27,7 +25,7 @@ const Homepage = (props) => {
 			<section className="section section--hero">
 				<div className="content-wrapper">
 					<DisplayTitle>Apporter sa goutte à la mer !</DisplayTitle>
-					<ParagraphBig>Plateforme participative</ParagraphBig>
+					<ParagraphBig color={theme.blue}>Plateforme participative</ParagraphBig>
 					<Paragraph>
 						Onde donne la parole aux citoyens afin de mener à bien des initiatives pour la protection du
 						bassin méditerranéen.
@@ -43,11 +41,8 @@ const Homepage = (props) => {
 					<ImageWrapper isIcon name="HomeFilled" />
 					<DropCircleF width={rem(30)} fill={theme.darkBlue} />
 					<IconContainer
-						title="Plateforme participative"
-						paragraph="Dire j’aime ton projet, c’est déjà un premier pas ! Pour ceux qui n’ont
-            pas le temps de s’engager, il est possible d’offir de la visibilité en
-            cliquant sur la petite goutte à droite de chacune des initiatives.
-            Aucune création de compte n’est requise pour cela !"
+						title="Ajouter sa goutte"
+						paragraph="Pour ceux qui n’ont pas le temps de s’engager, il est possible d’offir de la visibilité en cliquant sur la petite goutte à droite de chacune des initiatives. Aucune création de compte n’est requise pour cela !"
 					/>
 					<FistRaisedCircleF width={rem(30)} fill={theme.blue} />
 					<IconContainer

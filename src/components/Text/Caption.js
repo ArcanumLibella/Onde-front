@@ -11,7 +11,7 @@ const Caption = (props) => {
 // STYLE
 const CaptionStyle = styled.p`
 	/* Caption 12 - Regular */
-	color: ${(props) => props.theme.malibuBlue};
+	color: ${(props) => props.theme.midnight};
 	font-size: ${rem(12)};
 	font-weight: '400';
 	line-height: 15px;

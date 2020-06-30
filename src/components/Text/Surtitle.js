@@ -11,7 +11,7 @@ const Surtitle = (props) => {
 // STYLE
 const SurtitleStyle = styled.p`
 	/* Surtitle 14 - Regular */
-	color: ${(props) => props.theme.malibuBlue};
+	color: ${(props) => props.theme.midnight};
 	font-size: ${rem(14)};
 	font-weight: '400';
 	line-height: 17px;

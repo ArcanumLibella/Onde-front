@@ -11,7 +11,7 @@ const Footnote = (props) => {
 // STYLE
 const FootnoteStyle = styled.p`
 	/* Footnote 13 - Regular */
-	color: ${(props) => props.theme.malibuBlue};
+	color: ${(props) => props.theme.midnight};
 	font-size: ${rem(13)};
 	font-weight: '400';
 	line-height: 16px;
