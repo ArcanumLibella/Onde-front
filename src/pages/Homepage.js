@@ -327,7 +327,7 @@ const HomepageStyled = styled.main`
 			text-align: left;
 		}
 
-		h2 {
+		h3 {
 			margin-bottom: 8px;
 
 			@media ${devices.large} {
