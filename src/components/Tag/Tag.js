@@ -25,7 +25,7 @@ const Tag = (props) => {
 // STYLE
 const TagStyled = styled.div`
 	display: flex;
-	margin: 0 -16px;
+	margin: 24px -16px;
 	overflow: scroll;
 
 	&::-webkit-scrollbar {

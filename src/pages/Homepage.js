@@ -43,7 +43,7 @@ const Homepage = (props) => {
 							<DropCircleF fill={theme.darkBlue} />
 							<IconContainer
 								title="Ajouter sa goutte"
-								paragraph="Pour ceux qui n’ont pas le temps de s’engager, il est possible d’offrir de la visibilité en cliquant sur la petite goutte à droite de chacune des initiatives. Aucune création de compte n’est requise pour cela !"
+								paragraph="Pour ceux qui n’ont pas le temps de s’engager, il est possible d’apporter son soutien en cliquant sur la petite goutte à droite de chacune des initiatives. Aucune création de compte n’est requise pour cela !"
 							/>
 						</div>
 						<div className="step">
@@ -167,8 +167,6 @@ const Homepage = (props) => {
 
 // STYLE
 const HomepageStyled = styled.main`
-	margin-top: 16px;
-
 	.section {
 		&--hero {
 			padding-bottom: 64px;

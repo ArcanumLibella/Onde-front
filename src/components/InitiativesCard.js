@@ -8,7 +8,7 @@ import { DropCircleF, ShareCircleF } from '../assets';
 const InitiativesCard = (props) => {
 	const { theme, initiative } = props;
 
-	const { name, description, likes, tags } = initiative;
+	const { name, description, /* likes ,*/ tags } = initiative;
 	// Initiative informations : GET ​/api​/posts​/{id}
 	// Tags are in collection : tags[]
 	// Gouttes are in collection : likes[]
@@ -30,7 +30,7 @@ const InitiativesCard = (props) => {
 			</Paragraph>
 			<div>
 				<DropCircleF width="34" fill={theme.blue} />
-				<Paragraph>{likes}</Paragraph>
+				{/* <Paragraph>{likes}</Paragraph> */}
 			</div>
 			<ShareCircleF width="40" fill={theme.midnight} />
 			<Button>Je participe</Button>
