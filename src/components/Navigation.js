@@ -10,7 +10,9 @@ import { devices, rem } from '../utilities';
 const Navigation = (props) => {
 	return (
 		<HeaderStyle className="content-wrapper">
-			<ImageWrapper name="OndeLogo" />
+			<Link to="/">
+				<ImageWrapper name="OndeLogo" />
+			</Link>
 			<nav role="navigation">
 				<ul className="content-wrapper">
 					<li>
