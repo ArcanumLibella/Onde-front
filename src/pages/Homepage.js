@@ -24,7 +24,7 @@ const Homepage = (props) => {
 			{/* HERO */}
 			<section className="section section--hero">
 				<div className="content-wrapper">
-					<DisplayTitle>Apporter sa goutte à la mer !</DisplayTitle>
+					<DisplayTitle /* tag="h1" */>Apporter sa goutte à la mer !</DisplayTitle>
 					<Paragraph color={theme.blue}>Plateforme participative</Paragraph>
 					<Paragraph>
 						Onde donne la parole aux citoyens afin de mener à bien des initiatives pour la protection du
@@ -72,13 +72,7 @@ const Homepage = (props) => {
 							<Paragraph color={theme.white} fontSize={14} textTransform="uppercase">
 								Vérifications admins
 							</Paragraph>
-							{/* TODO: adjust media-queries if props passed */}
-							<Title fontSize={30} fontWeight={800} color={theme.white}>
-								Se concentrer sur l’essentiel
-							</Title>
-							{/* <Title tag="h1" fontSize="30" fontWeight="800" color={theme.white}>
-								Se concentrer sur l’essentiel
-							</Title> */}
+							<DisplayTitle color={theme.white}>Se concentrer sur l’essentiel</DisplayTitle>
 							<Paragraph color={theme.white}>
 								Des personnes s’occupent de la vérification des initiatives afin de conserver une
 								plateforme agréable, respectueuse et porteuse de sens.
@@ -94,9 +88,7 @@ const Homepage = (props) => {
 				<div className="content-wrapper">
 					<div className="feature">
 						<div className="feature__text">
-							<Title fontSize={30} fontWeight={800}>
-								Ne rater aucune information
-							</Title>
+							<DisplayTitle>Ne rater aucune information</DisplayTitle>
 							<Paragraph>
 								Sur la plateforme, suivre l’avancement des initiatives ou rechercher des informations
 								c’est simple et rapide. Grâce à nos rappels, rester informé en temps réel.
@@ -106,9 +98,7 @@ const Homepage = (props) => {
 					</div>
 					<div className="feature">
 						<div className="feature__text">
-							<Title fontSize={30} fontWeight={800}>
-								Récompenser l'engagement
-							</Title>
+							<DisplayTitle>Récompenser l'engagement</DisplayTitle>
 							<Paragraph>
 								Des badges sont accordés aux utilisateurs réguliers de la plateforme ou à ceux qui
 								effectuent une demande pour devenir modérateur.
@@ -119,9 +109,7 @@ const Homepage = (props) => {
 					</div>
 					<div className="feature">
 						<div className="feature__text">
-							<Title fontSize={30} fontWeight={800}>
-								Diffuser vos initiatives
-							</Title>
+							<DisplayTitle>Diffuser vos initiatives</DisplayTitle>
 							<Paragraph>
 								Onde est un projet qui a besoin d’être entendu. La fonction de partage sur les réseaux
 								sociaux est disponible à tout moment sur le détail de l’initiative.
@@ -139,9 +127,7 @@ const Homepage = (props) => {
 						<Paragraph fontSize={14} textTransform="uppercase" color={theme.midnight}>
 							Nos partenaires
 						</Paragraph>
-						<Title fontSize={30} fontWeight={800}>
-							Ils nous font confiance !
-						</Title>
+						<DisplayTitle>Ils nous font confiance !</DisplayTitle>
 						<div className="section__images">
 							<ImageWrapper name="LogoWwf" alt="Logo du WWF" />
 							<ImageWrapper name="LogoGreenpeace" alt="Logo du Greenpeace" />
@@ -155,9 +141,7 @@ const Homepage = (props) => {
 			{/* SIGNUP */}
 			<section className="section section--signup section--blueBackground">
 				<div className="content-wrapper">
-					<Title fontSize={30} fontWeight={800} color={theme.white}>
-						Participer au changement
-					</Title>
+					<DisplayTitle color={theme.white}>Participer au changement</DisplayTitle>
 					<Button>S'inscrire</Button>
 				</div>
 			</section>
