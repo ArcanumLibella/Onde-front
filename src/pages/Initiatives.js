@@ -42,16 +42,27 @@ const Initiatives = (props) => {
 	// const listItems = coll.map(i => <InitiativesCard key={i} theme={theme} />);
 
 	return (
-		<InitiativesStyled>
-			<DisplayTitle>Vos initiatives</DisplayTitle>
-			<ParametersCircleF width="40" fill={theme.midnight} />
-			<Tag />
-			{initiativesCollection}
+		<InitiativesStyled className="initiatives">
+			<div className="content-wrapper">
+				<div className="initiatives__header">
+					<DisplayTitle>Vos initiatives</DisplayTitle>
+					<ParametersCircleF width="40" fill={theme.midnight} />
+				</div>
+				<Tag />
+				{initiativesCollection}
+			</div>
 		</InitiativesStyled>
 	);
 };
 
 // STYLE
-const InitiativesStyled = styled.section``;
+const InitiativesStyled = styled.main`
+	.initiatives {
+		&__header {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+`;
 
 export default Initiatives;

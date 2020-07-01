@@ -38,7 +38,6 @@ const Homepage = (props) => {
 			{/* STEPS */}
 			<section className="section section--steps">
 				<div className="content-wrapper">
-					{/* <ImageWrapper isIcon name="HomeFilled" /> */}
 					<div className="steps">
 						<div className="step">
 							<DropCircleF fill={theme.darkBlue} />
@@ -77,7 +76,7 @@ const Homepage = (props) => {
 							<Title fontSize={30} fontWeight={800} color={theme.white}>
 								Se concentrer sur l’essentiel
 							</Title>
-							{/* <Title tag="h2" fontSize="30" fontWeight="800" color={theme.white}>
+							{/* <Title tag="h1" fontSize="30" fontWeight="800" color={theme.white}>
 								Se concentrer sur l’essentiel
 							</Title> */}
 							<Paragraph color={theme.white}>
