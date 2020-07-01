@@ -342,7 +342,7 @@ const HomepageStyled = styled.main`
 		text-align: center;
 
 		@media ${devices.large} {
-			margin: 0 9px 36px;
+			margin: 0 9px 72px;
 			text-align: left;
 		}
 
