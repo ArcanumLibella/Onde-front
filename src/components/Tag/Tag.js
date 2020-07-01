@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import { Button } from '..';
+import { rem } from '../../utilities';
 
 const Tag = (props) => {
 	const list = [
@@ -38,6 +38,10 @@ const TagStyled = styled.div`
 		padding: 10px 18px;
 		margin: 6px;
 
+		color: ${(props) => props.backgroundColor || props.theme.midnight};
+		font-size: ${rem(17)};
+		font-weight: 500;
+		white-space: nowrap;
 		background: ${(props) => props.backgroundColor || props.theme.white};
 		border: none;
 		border-radius: 14px;
