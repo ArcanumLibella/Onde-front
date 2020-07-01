@@ -27,12 +27,14 @@ const Initiatives = (props) => {
 
 	const initiativesCollection = list && list.map((i) => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
 
+	// initiativesCollection && console.log('initiatives => ', initiativesCollection.initiative.tags[0]);
+
 	return (
 		<InitiativesStyled className="initiatives">
 			<div className="content-wrapper">
 				<div className="initiatives__header">
 					<DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
-					<ParametersCircleF width={40} fill={theme.midnight} />
+					<ParametersCircleF width={34} fill={theme.midnight} />
 				</div>
 				<Tag />
 				{isLoaded || error ? initiativesCollection : 'Veuillez patienter un instant...'}
