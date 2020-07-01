@@ -31,8 +31,8 @@ const Initiatives = (props) => {
 		<InitiativesStyled className="initiatives">
 			<div className="content-wrapper">
 				<div className="initiatives__header">
-					<DisplayTitle>Vos initiatives</DisplayTitle>
-					<ParametersCircleF width="40" fill={theme.midnight} />
+					<DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
+					<ParametersCircleF width={40} fill={theme.midnight} />
 				</div>
 				<Tag />
 				{isLoaded || error ? initiativesCollection : 'Veuillez patienter un instant...'}
@@ -47,6 +47,10 @@ const InitiativesStyled = styled.main`
 		&__header {
 			display: flex;
 			justify-content: space-between;
+		}
+
+		.icon {
+			width: 60px;
 		}
 	}
 `;

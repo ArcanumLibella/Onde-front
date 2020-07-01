@@ -17,7 +17,13 @@ const Tag = (props) => {
 		{ id: 10, name: 'Corse du Sud' }
 	];
 
-	const tagsCollection = list.map((i) => <button className="tag">{i.name}</button>);
+	const tagsCollection =
+		list &&
+		list.map((i) => (
+			<button key={i.id} tag={i} className="tag">
+				{i.name}
+			</button>
+		));
 
 	return <TagStyled className="tags">{tagsCollection}</TagStyled>;
 };

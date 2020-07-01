@@ -14,7 +14,7 @@ const InitiativesCard = (props) => {
 	// Gouttes are in collection : likes[]
 
 	return (
-		<InitiativesCardStyled>
+		<InitiativesCardStyled className="initiative">
 			<MiniTag tags={tags} />
 
 			<DisplayTitle>
@@ -39,6 +39,6 @@ const InitiativesCard = (props) => {
 };
 
 // STYLE
-const InitiativesCardStyled = styled.section``;
+const InitiativesCardStyled = styled.article``;
 
 export default InitiativesCard;
