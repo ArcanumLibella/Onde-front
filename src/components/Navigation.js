@@ -53,6 +53,10 @@ const HeaderStyle = styled.header`
 		box-shadow: 0px 0.8px 10px rgba(128, 138, 159, 0.23);
 	}
 
+	a {
+		z-index: 10;
+	}
+
 	nav {
 		position: fixed;
 		bottom: 0;
@@ -88,11 +92,15 @@ const HeaderStyle = styled.header`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
 		font-size: ${rem(10)};
 		font-weight: 500;
 
 		@media ${devices.large} {
 			margin: 0 20px;
+			width: auto;
 			font-size: ${rem(18)};
 		}
 
