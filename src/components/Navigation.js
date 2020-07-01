@@ -13,25 +13,25 @@ const Navigation = (props) => {
 			<Link to="/">
 				<ImageWrapper name="OndeLogo" />
 			</Link>
-			<nav role="navigation">
-				<ul className="content-wrapper">
-					<li>
+			<nav className="navigation" role="navigation">
+				<div className="content-wrapper navigation__items">
+					<Link to="/" className="navigation__item">
 						<HomeF />
-						<Link to="/">Accueil</Link>
-					</li>
-					<li>
+						Accueil
+					</Link>
+					<Link to="/initiatives" className="navigation__item">
 						<DropO />
-						<Link to="/initiatives">Initiatives</Link>
-					</li>
-					<li>
+						Initiatives
+					</Link>
+					<Link to="/missions" className="navigation__item">
 						<HeartO />
-						<Link to="/missions">Missions</Link>
-					</li>
-					<li>
+						Missions
+					</Link>
+					<Link to="/connexion" className="navigation__item">
 						<UserO />
-						<Link to="/connexion">Connexion</Link>
-					</li>
-				</ul>
+						Connexion
+					</Link>
+				</div>
 			</nav>
 		</HeaderStyle>
 	);
@@ -57,7 +57,7 @@ const HeaderStyle = styled.header`
 		z-index: 10;
 	}
 
-	nav {
+	.navigation {
 		position: fixed;
 		bottom: 0;
 		left: 0;
@@ -71,53 +71,53 @@ const HeaderStyle = styled.header`
 			justify-content: flex-end;
 			box-shadow: 0px 0.8px 10px rgba(128, 138, 159, 0.23);
 		}
-	}
 
-	ul {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		width: 100vw;
-		height: 60px;
-		color: ${(props) => props.theme.grey};
+		&__items {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			width: 100vw;
+			height: 60px;
+			color: ${(props) => props.theme.grey};
 
-		@media ${devices.large} {
-			justify-content: flex-end;
-			height: 75px;
-			color: ${(props) => props.theme.black};
-		}
-	}
-
-	li {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		font-size: ${rem(10)};
-		font-weight: 500;
-
-		@media ${devices.large} {
-			margin: 0 20px;
-			width: auto;
-			font-size: ${rem(18)};
-		}
-
-		&:first-child {
 			@media ${devices.large} {
-				display: none;
+				justify-content: flex-end;
+				height: 75px;
+				color: ${(props) => props.theme.black};
 			}
 		}
 
-		svg {
-			margin-bottom: 3px;
-			width: 21px;
-			height: 21px;
-			fill: ${(props) => props.theme.grey};
+		&__item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			font-size: ${rem(10)};
+			font-weight: 500;
 
 			@media ${devices.large} {
-				display: none;
+				margin: 0 20px;
+				width: auto;
+				font-size: ${rem(18)};
+			}
+
+			&:first-child {
+				@media ${devices.large} {
+					display: none;
+				}
+			}
+
+			svg {
+				margin-bottom: 3px;
+				width: 21px;
+				height: 21px;
+				fill: ${(props) => props.theme.grey};
+
+				@media ${devices.large} {
+					display: none;
+				}
 			}
 		}
 	}
