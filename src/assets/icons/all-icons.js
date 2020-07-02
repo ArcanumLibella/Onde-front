@@ -1,7 +1,7 @@
 import React from 'react';
 export const ArrowBackCircleo = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-arrowBackCircle-o';
+	const cName = (className || '') + 'icon arrowBackCircle-o';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 			<circle cx="12" cy="12" r="11.25" stroke-width="1.5" />
@@ -9,9 +9,30 @@ export const ArrowBackCircleo = (props) => {
 		</svg>
 	);
 };
+export const Createf = (props) => {
+	const { className, ...rest } = props;
+	const cName = (className || '') + 'icon create-f';
+	return (
+		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+			<path d="M3.496 17.463v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L18.31 9.944l-3.75-3.752L3.645 17.103c-.1.1-.15.22-.15.36zM21.21 7.042a.996.996 0 000-1.41L18.87 3.29a.998.998 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+		</svg>
+	);
+};
+export const Createo = (props) => {
+	const { className, ...rest } = props;
+	const cName = (className || '') + 'icon create-o';
+	return (
+		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+			<path
+				stroke-width="1.4"
+				d="M6.659 20.802H3.702v-2.967L14.675 6.862l2.967 2.967L6.66 20.802zm14.54-14.529h-.001L19.762 7.71l-2.968-2.968 1.436-1.436h0a.352.352 0 01.498 0h0l2.47 2.47h0a.351.351 0 010 .497z"
+			/>
+		</svg>
+	);
+};
 export const Dropo = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-drop-o';
+	const cName = (className || '') + 'icon drop-o';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
 			<mask id="a">
@@ -35,7 +56,7 @@ export const Dropo = (props) => {
 };
 export const DropCirclef = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-dropCircle-f';
+	const cName = (className || '') + 'icon dropCircle-f';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49">
 			<path
@@ -48,7 +69,7 @@ export const DropCirclef = (props) => {
 };
 export const FistRaisedCirclef = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-fistRaisedCircle-f';
+	const cName = (className || '') + 'icon fistRaisedCircle-f';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49">
 			<path
@@ -61,7 +82,7 @@ export const FistRaisedCirclef = (props) => {
 };
 export const Hearto = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-heart-o';
+	const cName = (className || '') + 'icon heart-o';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18">
 			<path
@@ -74,16 +95,75 @@ export const Hearto = (props) => {
 };
 export const Homef = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-home-f';
+	const cName = (className || '') + 'icon home-f';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 			<path d="M29.574 15.784l-12.87-12.86a.998.998 0 00-1.412 0l-12.87 12.86a2.002 2.002 0 001.413 3.415h1.356v9.177a1 1 0 001 1h7.808v-6.999h3.499v6.999h8.308a1 1 0 001-1v-9.177h1.356a1.99 1.99 0 001.415-.587 2.002 2.002 0 00-.003-2.828z" />
 		</svg>
 	);
 };
+export const Homeo = (props) => {
+	const { className, ...rest } = props;
+	const cName = (className || '') + 'icon home-o';
+	return (
+		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+			<path d="M22.677 11.838l-9.058-9.053-.607-.607a.738.738 0 00-1.04 0l-9.666 9.66a1.498 1.498 0 00-.44 1.079c.01.825.696 1.483 1.521 1.483h.996v7.635H20.6V14.4h1.017c.401 0 .778-.157 1.062-.44a1.491 1.491 0 00.438-1.062c0-.399-.157-.776-.44-1.06zm-8.873 8.51H11.18v-4.782h2.625v4.781zm5.108-7.635v7.635h-3.607v-5.345a.937.937 0 00-.938-.938h-3.75a.937.937 0 00-.938.938v5.345H6.07v-7.635h-2.25l8.673-8.666.541.541 8.13 8.125h-2.253z" />
+		</svg>
+	);
+};
+export const Libraryf = (props) => {
+	const { className, ...rest } = props;
+	const cName = (className || '') + 'icon library-f';
+	return (
+		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+			<path d="M9.21 3.003h11.399a.9.9 0 01.9.9v11.4a.9.9 0 01-.9.899h-11.4a.9.9 0 01-.9-.9V3.903a.9.9 0 01.9-.9z" />
+			<path d="M7.11 17.403v-12h-1.2v12.3a.9.9 0 00.9.9h12.3v-1.2h-12z" />
+			<path d="M4.71 7.803v11.999H16.71v1.2H4.41a.9.9 0 01-.9-.9v-12.3h1.2z" />
+		</svg>
+	);
+};
+export const Libraryo = (props) => {
+	const { className, ...rest } = props;
+	const cName = (className || '') + 'icon library-o';
+	return (
+		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+			<path
+				fillRule="evenodd"
+				d="M20.609 3.003h-11.4a.9.9 0 00-.9.9v11.4a.9.9 0 00.9.899h11.4a.9.9 0 00.9-.9V3.903a.9.9 0 00-.9-.9zm-.3 12h-10.8v-10.8h10.8v10.8zm-13.198 2.4v-12h-1.2v12.3a.9.9 0 00.9.9H19.11v-1.2h-12zm-2.4-9.6v11.999h11.998v1.2H4.41a.9.9 0 01-.9-.9v-12.3h1.2z"
+				clipRule="evenodd"
+			/>
+		</svg>
+	);
+};
+export const Listf = (props) => {
+	const { className, ...rest } = props;
+	const cName = (className || '') + 'icon list-f';
+	return (
+		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<path
+				fillRule="evenodd"
+				d="M5.41 2.498h13.18c.818 0 1.48.663 1.48 1.481v16.042a1.48 1.48 0 01-1.48 1.48H5.41a1.48 1.48 0 01-1.48-1.48V3.98c0-.818.662-1.48 1.48-1.48zm1.822 2.116l.293.695.752.065-.57.494.17.735-.645-.39-.646.39.17-.735-.57-.494.752-.065.294-.695zM17.43 5h-8.33a.2.2 0 00-.2.2v.828c0 .11.089.2.2.2h8.33a.2.2 0 00.2-.2V5.2a.2.2 0 00-.2-.2zm0 2.554h-8.33a.2.2 0 00-.2.2v.828c0 .11.089.2.2.2h8.33a.2.2 0 00.2-.2v-.828a.2.2 0 00-.2-.2zm-8.33 2.555h8.33c.11 0 .2.09.2.2v.827a.2.2 0 01-.2.2h-8.33a.2.2 0 01-.2-.2v-.827c0-.11.089-.2.2-.2zm8.33 2.504h-8.33a.2.2 0 00-.2.2v.827c0 .11.089.2.2.2h8.33a.2.2 0 00.2-.2v-.827a.2.2 0 00-.2-.2zm-8.33 2.454h8.33c.11 0 .2.09.2.2v.828a.2.2 0 01-.2.2h-8.33a.2.2 0 01-.2-.2v-.828c0-.11.089-.2.2-.2zM7.524 7.864l-.293-.696-.294.696-.752.064.57.494-.17.735.646-.39.646.39-.171-.735.57-.494-.752-.064zm-.293 1.858l.293.696.752.064-.57.495.17.734-.645-.39-.646.39.17-.735-.57-.494.752-.064.294-.696zm.293 3.25l-.293-.695-.294.695-.752.065.57.494-.17.735.646-.39.646.39-.171-.735.57-.494-.752-.065zm-.293 1.86l.293.694.752.065-.57.494.17.735-.645-.39-.646.39.17-.735-.57-.494.752-.065.294-.695z"
+				clipRule="evenodd"
+			/>
+		</svg>
+	);
+};
+export const Listo = (props) => {
+	const { className, ...rest } = props;
+	const cName = (className || '') + 'icon list-o';
+	return (
+		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<path
+				fillRule="evenodd"
+				d="M18.59 2.498H5.41A1.48 1.48 0 003.93 3.98v16.042c0 .818.663 1.48 1.48 1.48h13.18a1.48 1.48 0 001.48-1.48V3.98a1.48 1.48 0 00-1.48-1.48zm.361 16.994a.987.987 0 01-.986.987H6.035a.987.987 0 01-.987-.987V4.508c0-.545.442-.986.987-.986h11.93c.546 0 .987.441.987.986v14.984zM17.427 7.55h-8.33a.2.2 0 00-.2.2v.827c0 .11.089.2.2.2h8.33a.2.2 0 00.2-.2V7.75a.2.2 0 00-.2-.2zm-8.33-2.554h8.33c.11 0 .2.09.2.2v.827a.2.2 0 01-.2.2h-8.33a.2.2 0 01-.2-.2v-.827c0-.11.089-.2.2-.2zm8.33 5.109h-8.33a.2.2 0 00-.2.2v.827c0 .11.089.2.2.2h8.33a.2.2 0 00.2-.2v-.828a.2.2 0 00-.2-.2zm-8.33 2.503h8.33c.11 0 .2.09.2.2v.827a.2.2 0 01-.2.2h-8.33a.2.2 0 01-.2-.2v-.827c0-.11.089-.2.2-.2zm8.33 2.455h-8.33a.2.2 0 00-.2.2v.827c0 .11.089.2.2.2h8.33a.2.2 0 00.2-.2v-.827a.2.2 0 00-.2-.2zm-9.9-9.753l-.294-.695-.294.695-.752.065.57.494-.17.735.646-.39.646.39-.171-.735.57-.494-.752-.065zm-.294 1.86l.293.695.752.064-.57.494.17.735-.645-.39-.646.39.17-.735-.57-.494.752-.064.294-.696zm.293 3.249l-.293-.696-.294.696-.752.064.57.495-.17.734.646-.39.646.39-.171-.735.57-.494-.752-.064zm-.293 1.86l.293.694.752.065-.57.494.17.735-.645-.39-.646.39.17-.735-.57-.494.752-.065.294-.695zm.293 3.248l-.293-.695-.294.695-.752.065.57.494-.17.735.646-.39.646.39-.171-.735.57-.494-.752-.065z"
+				clipRule="evenodd"
+			/>
+		</svg>
+	);
+};
 export const ParametersCirclef = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-parametersCircle-f';
+	const cName = (className || '') + 'icon parametersCircle-f';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34">
 			<path
@@ -96,7 +176,7 @@ export const ParametersCirclef = (props) => {
 };
 export const PinCirclef = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-pinCircle-f';
+	const cName = (className || '') + 'icon pinCircle-f';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49">
 			<path
@@ -109,7 +189,7 @@ export const PinCirclef = (props) => {
 };
 export const ShareCirclef = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-shareCircle-f';
+	const cName = (className || '') + 'icon shareCircle-f';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 35">
 			<path
@@ -122,7 +202,7 @@ export const ShareCirclef = (props) => {
 };
 export const Usero = (props) => {
 	const { className, ...rest } = props;
-	const cName = (className || '') + 'icon icon-user-o';
+	const cName = (className || '') + 'icon user-o';
 	return (
 		<svg className={cName} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
 			<path

@@ -3,11 +3,26 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { ImageWrapper } from '../components';
-import { HomeF, DropO, HeartO, UserO } from '../assets';
+import { HomeF, HomeO, ListF, ListO, HeartF, HeartO, UserF, UserO } from '../assets';
 import { devices, rem } from '../utilities';
 
 // TEMPLATE
 const Navigation = (props) => {
+	// const handleIconTapbar = () => {
+	// 	console.log('click');
+	// };
+
+	// const switchIconTapbar = (route) => {
+	// 	switch (route) {
+	// 		case '/':
+	// 			return <HomeF />;
+	// 		case 'initiatives':
+	// 			return <ListF />;
+	// 		default:
+	// 			return 'No icons';
+	// 	}
+	// };
+
 	return (
 		<HeaderStyle className="content-wrapper">
 			<Link to="/">
@@ -16,16 +31,18 @@ const Navigation = (props) => {
 			<nav className="navigation" role="navigation">
 				<div className="content-wrapper navigation__items">
 					<Link to="/" className="navigation__item">
-						<HomeF />
+						{/* {switchIconTapbar()} */}
+						<HomeO />
 						Accueil
 					</Link>
 					<Link to="/initiatives" className="navigation__item">
-						<DropO />
+						{/* {switchIconTapbar()} */}
+						<ListO />
 						Initiatives
 					</Link>
 					<Link to="/missions" className="navigation__item">
 						<HeartO />
-						Missions
+						A propos
 					</Link>
 					<Link to="/connexion" className="navigation__item">
 						<UserO />
