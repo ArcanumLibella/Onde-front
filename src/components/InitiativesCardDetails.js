@@ -1,29 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
-import { DisplayTitle, Paragraph, Button, MiniTag } from '../components';
+import { ApiService, DisplayTitle, Paragraph, Button, MiniTag } from '../components';
 import { DropCircleF, DropO, FistRaisedF } from '../assets';
 
 const InitiativesCardDetails = (props) => {
 	const { id } = useParams();
 
-	const [ error, setError ] = useState(null);
-	const [ isLoaded, setIsLoaded ] = useState(false);
-	const [ initiative, setInitiative ] = useState([]);
-
-	useEffect(() => {
-		fetch(`http://18.224.138.171/api/posts/${id}`)
-			.then((res) => res.json())
-			.then((result) => {
-				setIsLoaded(true);
-				setInitiative(result);
-			})
-			.catch((error) => {
-				setIsLoaded(true);
-				setError(error);
-			});
-	});
+	const initiative = ApiService(`posts/${id}`);
+	// const objectifs = ApiService(`post_goals/${id}`);
 
 	// console.log('initiative', initiative);
 
@@ -48,9 +34,7 @@ const InitiativesCardDetails = (props) => {
 				<FistRaisedF width="34" />
 				<Paragraph>{amountOf(subscriptions)}</Paragraph>
 			</div>
-			<DisplayTitle>Prochains objectifs</DisplayTitle>
-			{/* Post Goal numberCircled  */}
-			{/* Post Goal name  */}
+			{/* {objectifs && <DisplayTitle>Prochains objectifs</DisplayTitle>} */}
 			<DisplayTitle>Date de fin</DisplayTitle>
 			{/* Format Date */}
 			<DisplayTitle>Rendez-vous</DisplayTitle>
@@ -69,6 +53,6 @@ const InitiativesCardDetails = (props) => {
 };
 
 // STYLE
-const InitiativesCardDetailsStyled = styled.section``;
+const InitiativesCardDetailsStyled = styled.article``;
 
 export default InitiativesCardDetails;
