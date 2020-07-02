@@ -1,16 +1,24 @@
 // icons
 export {
-  Dropf as DropF,
-  Dropo as DropO,
-  DropCirclef as DropCircleF,
-  FistRaisedCirclef as FistRaisedCircleF,
-  FistRaisedf as FistRaisedF,
-  Hearto as HeartO,
-  Homef as HomeF,
-  ParametersCirclef as ParametersCircleF,
-  PinCirclef as PinCircleF,
-  ShareCirclef as ShareCircleF,
-  Usero as UserO
+	ArrowBackCircleo as ArrowBackCircleO,
+	Dropf as DropF,
+	Dropo as DropO,
+	DropCirclef as DropCircleF,
+	FistRaisedCirclef as FistRaisedCircleF,
+	FistRaisedf as FistRaisedF,
+	Hearto as HeartO,
+	Homef as HomeF,
+	Homeo as HomeO,
+	ParametersCirclef as ParametersCircleF,
+	PinCirclef as PinCircleF,
+	ShareCirclef as ShareCircleF,
+	Usero as UserO,
+	Createf as CreateF,
+	Createo as CreateO,
+	Libraryo as LibraryO,
+	Libraryf as LibraryF,
+	Listo as ListO,
+	Listf as ListF
 } from './icons/all-icons.js';
 
 // images
