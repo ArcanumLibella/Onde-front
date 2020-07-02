@@ -43,7 +43,6 @@ const InitiativesCard = props => {
   );
 };
 
-// STYLE
 const InitiativesCardStyled = styled.article`
   margin-bottom: 64px;
 

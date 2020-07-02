@@ -3,6 +3,9 @@
 import * as assets from '../assets/index';
 export { assets };
 
+import ApiService from './ApiService';
+export { ApiService };
+
 import Button from './Button';
 export { Button };
 
