@@ -8,6 +8,7 @@ const Initiatives = props => {
   const { theme } = props;
 
   const items = ApiService('posts');
+
   const list = items['hydra:member'];
 
   const initiativesCollection =
