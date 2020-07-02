@@ -61,7 +61,7 @@ const HeaderStyle = styled.header`
 	align-items: center;
 	width: 100vw;
 	height: 75px;
-	background-color: ${(props) => props.theme.white};
+	background-color: ${(props) => props.theme.background};
 	z-index: 100;
 
 	@media ${devices.large} {
