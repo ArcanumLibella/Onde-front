@@ -31,3 +31,7 @@ export { default as LogoUm } from './images/logoUM.png';
 export { default as LogoWwf } from './images/logoWWF.png';
 export { default as OndeLogo } from './images/logo.svg';
 export { default as SecurityCheck } from './images/securityCheck.svg';
+export { default as LogoFacebook } from './images/Facebook.svg';
+export { default as LogoInstagram } from './images/Instagram.svg';
+export { default as LogoTwitter } from './images/Twitter.svg';
+export { default as OndeLogoWhite } from './images/logoWhite.svg';
