@@ -54,7 +54,6 @@ const Navigation = (props) => {
 	);
 };
 
-// STYLE
 const HeaderStyle = styled.header`
 	position: sticky;
 	top: 0;

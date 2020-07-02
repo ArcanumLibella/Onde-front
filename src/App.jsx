@@ -6,7 +6,7 @@ import { Homepage, Initiatives, Connexion, Missions } from './pages';
 import { ThemeProvider } from 'styled-components';
 
 // COMPONENTS
-import Navigation from './components/Navigation';
+import { Navigation, InitiativesCardDetails } from './components';
 
 function App() {
   // Extract our Sass variables into a JS object
@@ -18,6 +18,9 @@ function App() {
         <Router>
           <Navigation />
           <Switch>
+            <Route path="/initiatives/:id">
+              <InitiativesCardDetails theme={theme} />
+            </Route>
             <Route path="/initiatives">
               <Initiatives theme={theme} />
             </Route>

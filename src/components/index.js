@@ -3,6 +3,9 @@
 import * as assets from '../assets/index';
 export { assets };
 
+import ApiService from './ApiService';
+export { ApiService };
+
 import Button from './Button';
 export { Button };
 
@@ -10,7 +13,8 @@ import ImageWrapper from './ImageWrapper';
 export { ImageWrapper };
 
 import InitiativesCard from './InitiativesCard';
-export { InitiativesCard };
+import InitiativesCardDetails from './InitiativesCardDetails';
+export { InitiativesCard, InitiativesCardDetails };
 
 import Navigation from './Navigation';
 export { Navigation };
