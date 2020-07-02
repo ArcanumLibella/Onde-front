@@ -10,7 +10,8 @@ import ImageWrapper from './ImageWrapper';
 export { ImageWrapper };
 
 import InitiativesCard from './InitiativesCard';
-export { InitiativesCard };
+import InitiativesCardDetails from './InitiativesCardDetails';
+export { InitiativesCard, InitiativesCardDetails };
 
 import Navigation from './Navigation';
 export { Navigation };
