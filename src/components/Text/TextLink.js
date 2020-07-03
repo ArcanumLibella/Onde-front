@@ -5,14 +5,15 @@ import { rem, devices } from '../../utilities';
 
 // TEMPLATE
 const TextLink = (props) => {
-	return <TextLinkStyle>{props.children}</TextLinkStyle>;
+  const { fontSize, color, fontWeight} = props;
+	return <TextLinkStyle color={color} fontSize={fontSize} fontWeight={fontWeight}>{props.children}</TextLinkStyle>;
 };
 
 // STYLE
 const TextLinkStyle = styled.p`
-	color: ${(props) => props.theme.malibuBlue};
-	font-size: ${rem(16)};
-	font-weight: '400';
+	color: ${(props) => (props.color ? props.color : props.theme.malibuBlue)};
+	font-size: ${(props) => (props.fontSize ? rem(props.fontSize) : rem(16))};
+	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '400')};
 	text-decoration-line: underline;
 	line-height: 19px;
 

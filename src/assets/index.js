@@ -19,7 +19,10 @@ export {
 	Libraryf as LibraryF,
 	Listo as ListO,
 	Listf as ListF,
-	Backo as BackO
+	Backo as BackO,
+	Instagramf as InstagramF,
+	Facebookf as FacebookF,
+	Twitterf as TwitterF
 } from './icons/all-icons.js';
 
 // images
@@ -32,3 +35,4 @@ export { default as LogoUm } from './images/logoUM.png';
 export { default as LogoWwf } from './images/logoWWF.png';
 export { default as OndeLogo } from './images/logo.svg';
 export { default as SecurityCheck } from './images/securityCheck.svg';
+export { default as OndeLogoWhite } from './images/logoWhite.svg';
