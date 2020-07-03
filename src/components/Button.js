@@ -35,8 +35,15 @@ const ButtonStyle = styled.button`
 	background-color: ${(props) => props.backgroundColor || props.theme.malibuBlue};
 	border: none;
 	border-radius: 4px;
+	box-shadow: none;
 	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 	z-index: 1;
+
+	&:hover {
+		background-color: ${(props) => props.backgroundColor || props.theme.darkBlue};
+		box-shadow: 0px 5px 10px $malibuBlue;
+	}
 `;
 
 export default Button;

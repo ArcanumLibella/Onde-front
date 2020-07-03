@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
-import { ApiService, DisplayTitle, Title, Paragraph, Button, MiniTag, Comment } from '../components';
-import { DropCircleF, DropO, FistRaisedF, ShareCircleF } from '../assets';
+import { ApiService, DisplayTitle, Title, Paragraph, Button, MiniTag, Comment, TextLink } from '../components';
+import { DropCircleF, DropO, FistRaisedF, ShareCircleF, BackO } from '../assets';
+import { devices } from '../utilities';
 
 const InitiativesCardDetails = (props) => {
 	const { theme } = props;
@@ -23,6 +24,20 @@ const InitiativesCardDetails = (props) => {
 		<InitiativesCardDetailsStyled className="initiativeDetails">
 			<div className="content-wrapper">
 				{/* <MiniTag tags={tags} /> */}
+				<div className="initiativeDetails__head">
+					<div className="initiativeDetails__title">
+						<DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
+						<Paragraph fontWeight={500} color={theme.blue}>
+							Sur le littoral méditerranéen
+						</Paragraph>
+					</div>
+					<Link to={`/initiatives`}>
+						<div className="initiativeDetails__back">
+							<BackO width={24} />
+							<TextLink color={theme.black}>Retour</TextLink>
+						</div>
+					</Link>
+				</div>
 				<div className="initiativeDetails__header">
 					<MiniTag />
 					<div className="initiativeDetails__icons">
@@ -33,7 +48,14 @@ const InitiativesCardDetails = (props) => {
 				<div className="initiativeDetails__content">
 					<DisplayTitle>{name}</DisplayTitle>
 					<Paragraph>{description}</Paragraph>
-					<Button>Je participe</Button>
+					<div className="initiativeDetails__cta">
+						<Paragraph>
+							<em>Germain Langelier</em> a lancé cette initiative le
+							<time dateTime="18/06/2020"> 18 juin</time>.
+						</Paragraph>
+						{/* <Paragraph><em>{author}</em> a lancé cette initiative le <time datetime={date}>{date}</time></Paragraph> */}
+						<Button>Je participe</Button>
+					</div>
 				</div>
 				<div className="initiativeDetails__infos">
 					<div className="initiativeDetails__action">
@@ -50,13 +72,18 @@ const InitiativesCardDetails = (props) => {
 					<Title>Prochains objectifs</Title>
 					<Paragraph>Lorem ipsum dolor sit amet</Paragraph>
 				</div>
-				<div className="initiativeDetails__infos">
-					<Title>Date de fin</Title>
-					{/* Format Date */}
-				</div>
-				<div className="initiativeDetails__infos">
-					<Title>Rendez-vous</Title>
-					{/* Format Date */}
+				<div className="initiativeDetails__dates">
+					<div className="initiativeDetails__infos">
+						<Title>Date de fin</Title>
+						<Paragraph>Le samedi 4 juillet 2020</Paragraph>
+						{/* Format Date */}
+					</div>
+					<div className="initiativeDetails__infos">
+						<Title>Rendez-vous</Title>
+						<Paragraph>Le samedi 27 juin 2020 à 18h30</Paragraph>
+						<Paragraph>Plage de Pampelonne</Paragraph>
+						{/* Format Date */}
+					</div>
 				</div>
 				<div className="initiativeDetails__infos">
 					<Title>Emplacement</Title>
@@ -93,6 +120,33 @@ const InitiativesCardDetails = (props) => {
 // STYLE
 const InitiativesCardDetailsStyled = styled.main`
 	.initiativeDetails {
+		&__head {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__title {
+			h1,
+			h2 {
+				margin-bottom: 12px;
+			}
+
+			p {
+				margin-bottom: 40px;
+			}
+		}
+
+		&__back {
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+
+			p {
+				margin-left: 8px;
+				text-decoration: none;
+			}
+		}
+
 		&__header {
 			display: flex;
 			align-items: flex-start;
@@ -116,6 +170,16 @@ const InitiativesCardDetailsStyled = styled.main`
 			h2,
 			p {
 				margin-bottom: 16px;
+
+				@media ${devices.large} {
+					margin-bottom: 24px;
+				}
+			}
+
+			em,
+			time {
+				font-style: normal;
+				font-weight: bold;
 			}
 
 			button {
@@ -123,9 +187,27 @@ const InitiativesCardDetailsStyled = styled.main`
 			}
 		}
 
+		&__cta {
+			@media ${devices.medium} {
+				display: flex;
+				align-items: flex-end;
+				justify-content: space-between;
+				margin: 16px 0 32px;
+
+				p,
+				button {
+					margin: 0;
+				}
+			}
+		}
+
 		&__infos {
 			padding: 32px 0 24px;
-			border-top: 1px solid grey;
+			border-top: 1px solid lightgrey;
+
+			@media ${devices.large} {
+				padding: 64px 0 32px;
+			}
 
 			h3 {
 				margin-bottom: 24px;
@@ -133,6 +215,10 @@ const InitiativesCardDetailsStyled = styled.main`
 
 			&:last-child {
 				margin-bottom: 64px;
+
+				@media ${devices.large} {
+					margin-bottom: 0;
+				}
 			}
 		}
 
@@ -145,6 +231,29 @@ const InitiativesCardDetailsStyled = styled.main`
 				margin-left: 4px;
 			}
 		}
+
+		&__dates {
+			@media ${devices.large} {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: space-between;
+				border-top: 1px solid lightgrey;
+
+				.initiativeDetails__infos {
+					border: none;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+			.initiativeDetails__infos {
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
 	}
 
 	iframe {
@@ -155,7 +264,7 @@ const InitiativesCardDetailsStyled = styled.main`
 	.comment {
 		margin-bottom: 24px;
 
-		p {
+		> p {
 			margin-bottom: 8px;
 		}
 	}
