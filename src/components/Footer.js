@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { DisplayTitle, Title, Paragraph, Button, ImageWrapper, TextLink,} from '../components';
+import { Instagramf, Facebookf, Twitterf } from '../assets';
 import { rem, devices } from '../utilities';
 
 const Footer = (props) => {
@@ -37,9 +38,9 @@ const Footer = (props) => {
     </div>
     <div className="subLink--wrapper">
       <div className='socialLogo--wrapper'>
-        <ImageWrapper name="LogoFacebook"/>
-        <ImageWrapper name="LogoInstagram"/>
-        <ImageWrapper name="LogoTwitter"/>
+        <Instagramf fill="white" width={32}></Instagramf>
+        <Twitterf fill="white" width={32}></Twitterf>
+        <Facebookf fill="white" width={32}></Facebookf>
       </div>
       <Paragraph color={theme.white} fontSize={13}>© 2020 Onde, All rights reserved</Paragraph>
     </div>
@@ -47,12 +48,11 @@ const Footer = (props) => {
   );
 }
 
-const FooterStyle = styled.div`
-  widht: 100%;
+const FooterStyle = styled.footer`
   background-color: ${(props) => props.theme.darkBlueBackground};
   display:flex;
   flex-direction:column;
-  padding: 50px 20px 100px 20px;
+  padding: 50px 16px 100px 16px;
   .link--wrapper{
     flex-direction:row;
   }
