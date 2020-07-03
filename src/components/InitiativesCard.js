@@ -41,6 +41,7 @@ const InitiativesCardStyled = styled.article`
 	margin-bottom: 64px;
 
 	.minitags {
+		display: flex;
 		margin-bottom: 24px;
 	}
 

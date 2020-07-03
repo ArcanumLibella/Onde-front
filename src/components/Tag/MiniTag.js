@@ -31,6 +31,7 @@ const MiniTag = (props) => {
 
 const MiniTagStyled = styled.div`
 	display: flex;
+  margin-left: -6px;
 
 	p,
 	.minitag {
@@ -48,10 +49,6 @@ const MiniTagStyled = styled.div`
 		border: none;
 		border-radius: 14px;
     z-index: 1;
-    
-    &:first-child {
-      margin-left: 0;
-    }
 	}
 `;
 
