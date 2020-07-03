@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DisplayTitle, Title, Paragraph, Button, ImageWrapper, TextLink } from '../components';
+import { DisplayTitle, Title, Paragraph, Button, ImageWrapper, TextLink, Footer, } from '../components';
 import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
 import { rem, devices } from '../utilities';
 
@@ -145,6 +145,11 @@ const Homepage = (props) => {
 					<Button>S'inscrire</Button>
 				</div>
 			</section>
+
+      {/* FOOTER */}
+      <Footer theme={theme}>
+      </Footer>
+
 		</HomepageStyled>
 	);
 };

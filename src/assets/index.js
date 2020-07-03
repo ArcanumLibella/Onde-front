@@ -1,6 +1,6 @@
 // icons
 export {
-	ArrowBackCircleo as ArrowBackCircleO,
+	//ArrowBackCircleo as ArrowBackCircleO,
 	Dropf as DropF,
 	Dropo as DropO,
 	DropCirclef as DropCircleF,
@@ -18,7 +18,10 @@ export {
 	Libraryo as LibraryO,
 	Libraryf as LibraryF,
 	Listo as ListO,
-	Listf as ListF
+  Listf as ListF,
+  Instagramf as Instagramf,
+  Facebookf as Facebookf,
+  Twitterf as Twitterf,
 } from './icons/all-icons.js';
 
 // images
@@ -31,3 +34,4 @@ export { default as LogoUm } from './images/logoUM.png';
 export { default as LogoWwf } from './images/logoWWF.png';
 export { default as OndeLogo } from './images/logo.svg';
 export { default as SecurityCheck } from './images/securityCheck.svg';
+export { default as OndeLogoWhite } from './images/logoWhite.svg';

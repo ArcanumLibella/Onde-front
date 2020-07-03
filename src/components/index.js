@@ -23,6 +23,9 @@ import MiniTag from './Tag/MiniTag';
 import Tag from './Tag/Tag';
 export { MiniTag, Tag };
 
+import Footer from './Footer';
+export {Footer}
+
 // TYPOGRAPHY
 import DisplayTitle from './Text/DisplayTitle';
 import Title from './Text/Title';
