@@ -19,7 +19,8 @@ export { Map, Department };
 
 // COMPONENTS
 import Button from './Button';
-export { Button };
+import DropButton from './DropButton';
+export { Button, DropButton };
 
 import ImageWrapper from './ImageWrapper';
 export { ImageWrapper };
