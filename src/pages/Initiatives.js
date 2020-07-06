@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ApiService, DisplayTitle, InitiativesCard, Tag } from '../components';
-import { ParametersCircleF } from '../assets';
+import { ApiService, InitiativesList, InitiativesCard, Map } from '../components';
 import { devices } from '../utilities';
 
 const Initiatives = (props) => {
@@ -18,32 +17,27 @@ const Initiatives = (props) => {
 
 	return (
 		<InitiativesStyled className="initiatives">
-			<div className="content-wrapper">
-				<div className="initiatives__header">
-					<DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
-					<ParametersCircleF width={34} fill={theme.midnight} />
-				</div>
-				<Tag />
-				{initiativesCollection}
-			</div>
+			<Map theme={theme}>Coucou la map</Map>
+			<InitiativesList theme={theme}>{initiativesCollection}</InitiativesList>
 		</InitiativesStyled>
 	);
 };
 
 // STYLE
 const InitiativesStyled = styled.main`
-	.initiatives {
-		&__header {
-			display: flex;
-			justify-content: space-between;
-
-			@media ${devices.large} {
-				display: none;
-			}
+	&.initiatives {
+		@media ${devices.large} {
+			margin-top: 0;
+			width: 100%;
+			height: 100vh;
 		}
+	}
 
-		.icon {
-			cursor: pointer;
+	.map {
+		display: none;
+
+		@media ${devices.large} {
+			display: block;
 		}
 	}
 `;
