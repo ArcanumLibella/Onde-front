@@ -22,7 +22,7 @@ const Initiatives = (props) => {
 
 	return (
 		<InitiativesStyled className="initiatives">
-			<Map theme={theme} onDepartmentClick={handleClick} /* minAndMax={handleValues} min={min} max={max} */ />
+			<Map theme={theme} onDepartmentClick={handleClick} />
 			<InitiativesList theme={theme} department={selectedDepartment}>
 				{initiativesCollection}
 			</InitiativesList>
