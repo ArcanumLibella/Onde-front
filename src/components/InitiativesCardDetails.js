@@ -10,6 +10,7 @@ import {
   MiniTag
 } from '../components';
 import { DropCircleF, DropO, FistRaisedF } from '../assets';
+import { formatDate } from '../utilities';
 
 const InitiativesCardDetails = props => {
   const { id } = useParams();
@@ -19,7 +20,15 @@ const InitiativesCardDetails = props => {
 
   console.log('initiative', initiative);
 
-  const { name, description, likes, tags, subscriptions } = initiative;
+  const {
+    name,
+    description,
+    likes,
+    tags,
+    dateEnd,
+    dateMeeting,
+    subscriptions
+  } = initiative;
   // console.log('tags detailCards', tags);
 
   const amountOf = data => (data ? data.length : '0');
@@ -42,11 +51,10 @@ const InitiativesCardDetails = props => {
       </div>
       {/* {objectifs && <DisplayTitle>Prochains objectifs</DisplayTitle>} */}
       <DisplayTitle>Date de fin</DisplayTitle>
-      {/* Format Date */}
+      {formatDate(dateEnd)}
       <DisplayTitle>Rendez-vous</DisplayTitle>
-      {/* Format Date */}
+      {formatDate(dateMeeting)}
       <DisplayTitle>Emplacement</DisplayTitle>
-      {/* Format Place */}
       {/* <iframe
         width="288"
         height="154"
