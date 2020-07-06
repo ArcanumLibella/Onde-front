@@ -40,10 +40,22 @@ const Navigation = (props) => {
 						<ListO />
 						Initiatives
 					</Link>
-					<Link to="/missions" className="navigation__item">
-						<HeartO />
-						A propos
-					</Link>
+                    {sessionStorage.getItem('User') &&
+                        <Link to="/nouvelle-initiative" className="navigation__item">
+                            <HeartO />
+                            Créer une initiative
+                        </Link>
+                    }
+
+                    {sessionStorage.getItem('User') &&
+                        <Link to="/bibliothèque" className="navigation__item">
+                            <HeartO />
+                            Bibliothèque
+                        </Link>
+                    }
+					
+
+					
 					<Link to="/connexion" className="navigation__item">
 						<UserO />
 						Connexion

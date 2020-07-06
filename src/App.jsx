@@ -2,7 +2,7 @@
 import React from 'react';
 import './assets/scss/app.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Homepage, Initiatives, Connexion, Missions } from './pages';
+import { Homepage, Initiatives, Connexion, Missions, Inscription, InitiativeCreate } from './pages';
 import { ThemeProvider } from 'styled-components';
 
 // COMPONENTS
@@ -25,11 +25,20 @@ function App() {
               <Initiatives theme={theme} />
             </Route>
             <Route path="/connexion">
-              <Connexion />
+              <Connexion theme={theme} />
             </Route>
             <Route path="/missions">
               <Missions theme={theme} />
             </Route>
+
+            <Route path="/inscription">
+              <Inscription theme={theme} />
+            </Route>
+
+            <Route path="/nouvelle-initiative">
+              <InitiativeCreate theme={theme} />
+            </Route>
+
             <Route path="/">
               <Homepage theme={theme} />
             </Route>
