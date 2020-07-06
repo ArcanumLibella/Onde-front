@@ -32,8 +32,20 @@ const Initiatives = (props) => {
 
 // STYLE
 const InitiativesStyled = styled.main`
-	.initiatives {
-		&__header {
+	&.initiatives {
+		@media ${devices.large} {
+			position: absolute;
+			right: 0;
+			padding: 56px;
+			margin-top: 0;
+			width: 800px;
+			height: 100%;
+			overflow: scroll;
+			background: ${(props) => props.backgroundColor || props.theme.background};
+			box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.2);
+		}
+
+		.initiatives__header {
 			display: flex;
 			justify-content: space-between;
 

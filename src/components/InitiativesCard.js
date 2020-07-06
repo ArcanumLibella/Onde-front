@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { DisplayTitle, Paragraph, Button, MiniTag, Truncate } from '../components';
 import { DropCircleF } from '../assets';
+import { devices } from '../utilities';
 
 const InitiativesCard = (props) => {
 	const { theme, initiative } = props;
@@ -26,19 +27,34 @@ const InitiativesCard = (props) => {
 					{description}
 				</Truncate>
 			</Paragraph>
-			<div className="like">
-				<DropCircleF width={34} fill={theme.blue} />
-				<Paragraph fontSize={17}>{likes.length}</Paragraph>
+			<div className="initiative__cta">
+				<div className="like">
+					<DropCircleF width={34} fill={theme.blue} />
+					<Paragraph fontSize={17}>{likes.length}</Paragraph>
+				</div>
+				<Button>
+					<Link to={`/initiatives/${id}`}>En savoir plus</Link>
+				</Button>
 			</div>
-			<Button>
-				<Link to={`/initiatives/${id}`}>En savoir plus</Link>
-			</Button>
 		</InitiativesCardStyled>
 	);
 };
 
 const InitiativesCardStyled = styled.article`
 	margin-bottom: 64px;
+
+	.initiative__cta {
+		@media ${devices.large} {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 24px;
+
+			button {
+				margin: 0;
+			}
+		}
+	}
 
 	.minitags {
 		display: flex;
