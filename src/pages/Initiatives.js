@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ApiService, DisplayTitle, InitiativesCard, Tag } from '../components';
-import { ParametersCircleF } from '../assets';
+import { ApiService, InitiativesList, InitiativesCard, Map } from '../components';
 import { devices } from '../utilities';
 
 const Initiatives = (props) => {
@@ -18,14 +17,8 @@ const Initiatives = (props) => {
 
 	return (
 		<InitiativesStyled className="initiatives">
-			<div className="content-wrapper">
-				<div className="initiatives__header">
-					<DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
-					<ParametersCircleF width={34} fill={theme.midnight} />
-				</div>
-				<Tag />
-				{initiativesCollection}
-			</div>
+			<Map theme={theme}>Coucou la map</Map>
+			<InitiativesList theme={theme}>{initiativesCollection}</InitiativesList>
 		</InitiativesStyled>
 	);
 };
@@ -34,29 +27,17 @@ const Initiatives = (props) => {
 const InitiativesStyled = styled.main`
 	&.initiatives {
 		@media ${devices.large} {
-			position: absolute;
-			right: 0;
-			padding: 56px;
 			margin-top: 0;
-			width: 40%;
-			max-width: 620px;
-			height: 100%;
-			overflow: scroll;
-			background: ${(props) => props.backgroundColor || props.theme.background};
-			box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.2);
+			width: 100%;
+			height: 100vh;
 		}
+	}
 
-		.initiatives__header {
-			display: flex;
-			justify-content: space-between;
+	.map {
+		display: none;
 
-			@media ${devices.large} {
-				display: none;
-			}
-		}
-
-		.icon {
-			cursor: pointer;
+		@media ${devices.large} {
+			display: block;
 		}
 	}
 `;

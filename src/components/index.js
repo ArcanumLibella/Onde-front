@@ -6,28 +6,35 @@ export { assets };
 import ApiService from './ApiService';
 export { ApiService };
 
+// LAYOUTS
+import Footer from './Footer';
+export { Footer };
+
+import Navigation from './Navigation';
+export { Navigation };
+
+import Map from './Map/Map';
+export { Map };
+
+// COMPONENTS
 import Button from './Button';
 export { Button };
 
 import ImageWrapper from './ImageWrapper';
 export { ImageWrapper };
 
+import InitiativesList from './InitiativesList';
 import InitiativesCard from './InitiativesCard';
 import InitiativesCardDetails from './InitiativesCardDetails';
-export { InitiativesCard, InitiativesCardDetails };
+export { InitiativesList, InitiativesCard, InitiativesCardDetails };
 
 import Comment from './Comment';
 export { Comment };
 
-import Navigation from './Navigation';
-export { Navigation };
-
+// TAGS
 import MiniTag from './Tag/MiniTag';
 import Tag from './Tag/Tag';
 export { MiniTag, Tag };
-
-import Footer from './Footer';
-export {Footer}
 
 // TYPOGRAPHY
 import DisplayTitle from './Text/DisplayTitle';
