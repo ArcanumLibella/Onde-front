@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams, Link } from 'react-router-dom';
+import axios from 'axios';
 
 import {
   ApiService,
@@ -10,15 +11,10 @@ import {
   Button,
   MiniTag,
   Comment,
-  TextLink
+  TextLink,
+  DropButton
 } from '../components';
-import {
-  DropCircleF,
-  DropO,
-  FistRaisedF,
-  ShareCircleF,
-  BackO
-} from '../assets';
+import { DropO, FistRaisedF, ShareCircleF, BackO } from '../assets';
 import { devices, formatDate } from '../utilities';
 
 const InitiativesCardDetails = props => {
@@ -26,20 +22,39 @@ const InitiativesCardDetails = props => {
   const { id } = useParams();
 
   const initiative = ApiService(`posts/${id}`);
-  // const objectifs = ApiService(`post_goals/${id}`);
+
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const [initiative, setInitiative] = useState([]);
+
+  // useEffect(() => {
+  //   !isLoaded &&
+  //     axios
+  //       .get(`https://onde-api.frb.io/api/posts/${id}`)
+  //       .then(res => res.json())
+  //       .then(result => {
+  //         setIsLoaded(true);
+  //         setInitiative(result);
+  //       })
+  //       .catch(error => {
+  //         setIsLoaded(true);
+  //         setError(error);
+  //       });
+  // }, []);
 
   // console.log('initiative', initiative);
+  // const objectifs = ApiService(`post_goals/${id}`);
 
   const {
     name,
     description,
     likes,
     tags,
+    User,
     dateEnd,
     dateMeeting,
     subscriptions
   } = initiative;
-  // console.log('tags detailCards', tags);
 
   const amountOf = data => (data ? data.length : '0');
 
@@ -65,7 +80,12 @@ const InitiativesCardDetails = props => {
           <MiniTag />
           <div className="initiativeDetails__icons">
             <ShareCircleF width="34" fill={theme.midnight} />
-            <DropCircleF width="34" fill={theme.blue} />
+            <DropButton
+              width="34"
+              fill={theme.blue}
+              initiativeId={id}
+              userId={User}
+            />
           </div>
         </div>
         <div className="initiativeDetails__content">

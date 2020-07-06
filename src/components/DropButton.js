@@ -1,45 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
-import { ApiService } from './';
 import { DropCircleF } from '../assets';
 
-const DropButton = id => {
-  const [isActive, setIsActive] = useState(false);
+const DropButton = props => {
+  const { userId, initiativeId } = props;
 
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+
   const [error, setError] = useState(null);
   const [datas, setDatas] = useState([]);
 
-  const toggle = () => setIsActive(!isActive);
-
-  console.log('isActive', isActive);
-  const options = {
-    method: 'POST',
-    data: {
-      User: '/api/users/24',
-      Post: '/api/posts/5'
-    },
-    headers: {
-      accept: 'application/ld+json',
-      "Content-Type: application/ld+json"
+  const toggle = () => {
+    if (!isLiked) {
+      axios
+        .post('https://onde-api.frb.io/api/likes', {
+          User: userId,
+          Post: `/api/posts/${initiativeId}`
+        })
+        .then(res => res.json())
+        .then(result => {
+          setDatas(result);
+          setIsLiked(true);
+        })
+        .catch(error => {
+          setError(error);
+          setIsLiked(false);
+        });
+    } else {
+      axios
+        .delete(`https://onde-api.frb.io/api/likes${initiativeId}`, {
+          User: userId,
+          Post: `/api/posts/${initiativeId}`
+        })
+        .then(res => res.json())
+        .then(result => {
+          setDatas(result);
+          setIsLiked(false);
+        })
+        .catch(error => {
+          setError(error);
+          setIsLiked(true);
+        });
     }
   };
 
-  useEffect(() => {
-    !isLoaded &&
-      fetch('https://onde-api.frb.io/api/likes', options)
-        .then(res => res.json())
-        .then(result => {
-          setIsLoaded(true);
-          setDatas(result);
-        })
-        .catch(error => {
-          setIsLoaded(true);
-          setError(error);
-        });
-  });
-
-  console.log(datas);
+  // console.log('datas dbutton', datas);
+  // console.log('isLiked dbutton', isLiked);
+  error && console.log(error);
 
   return <DropCircleF onClick={toggle} width={34} />;
 };
