@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 
 import { ApiService, DisplayTitle, Title, Paragraph, Button, MiniTag, Comment, TextLink } from '../components';
 import { DropCircleF, DropO, FistRaisedF, ShareCircleF, BackO } from '../assets';
-import { devices } from '../utilities';
+import { devices, formatDate } from '../utilities';
 
 const InitiativesCardDetails = (props) => {
 	const { theme } = props;
@@ -15,7 +15,7 @@ const InitiativesCardDetails = (props) => {
 
 	// console.log('initiative', initiative);
 
-	const { name, description, likes, tags, subscriptions } = initiative;
+	const { name, description, likes, tags, dateEnd, dateMeeting, subscriptions } = initiative;
 	// console.log('tags detailCards', tags);
 
 	const amountOf = (data) => (data ? data.length : '0');
@@ -75,14 +75,12 @@ const InitiativesCardDetails = (props) => {
 				<div className="initiativeDetails__dates">
 					<div className="initiativeDetails__infos">
 						<Title>Date de fin</Title>
-						<Paragraph>Le samedi 4 juillet 2020</Paragraph>
-						{/* Format Date */}
+						<Paragraph>{formatDate(dateEnd)}</Paragraph>
 					</div>
 					<div className="initiativeDetails__infos">
 						<Title>Rendez-vous</Title>
-						<Paragraph>Le samedi 27 juin 2020 à 18h30</Paragraph>
+						<Paragraph>{formatDate(dateMeeting)}</Paragraph>
 						<Paragraph>Plage de Pampelonne</Paragraph>
-						{/* Format Date */}
 					</div>
 				</div>
 				<div className="initiativeDetails__infos">
