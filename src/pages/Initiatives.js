@@ -38,7 +38,8 @@ const InitiativesStyled = styled.main`
 			right: 0;
 			padding: 56px;
 			margin-top: 0;
-			width: 800px;
+			width: 40%;
+			max-width: 620px;
 			height: 100%;
 			overflow: scroll;
 			background: ${(props) => props.backgroundColor || props.theme.background};
