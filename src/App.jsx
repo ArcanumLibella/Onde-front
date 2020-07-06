@@ -28,7 +28,7 @@ function App() {
               <Connexion />
             </Route>
             <Route path="/missions">
-              <Missions />
+              <Missions theme={theme} />
             </Route>
             <Route path="/">
               <Homepage theme={theme} />
