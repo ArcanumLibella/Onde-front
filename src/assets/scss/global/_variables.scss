@@ -6,7 +6,7 @@
 
 // *** Primary
 $blue: #23a1f5;
-$malibuBlue: #758bfd;
+$malibuBlue: #2b45c9;
 $darkBlue: #274690;
 $green: #45be93;
 $midnight: #001e3c;
@@ -14,21 +14,21 @@ $midnight: #001e3c;
 // *** Secondary
 $white: #ffffff;
 $background: #f9faff;
-$greyBackground: #EFF1F8;
-$blueBackground: #0E3056;
-$darkBlueBackground: #001E3C;
+$greyBackground: #eff1f8;
+$blueBackground: #0e3056;
+$darkBlueBackground: #001e3c;
 $grey: #808a9f;
 $black: #222222;
 
 // *** System
 $red: #f71735;
+$greyLight: rgba(0, 30, 60, 0.3);
 
 // *** Gradient
 // $gradient: linear-gradient(270deg, #64e0b9 0%, #4451c4 100%);
 
 // FONTS
-$font: 'Inter',
-sans-serif;
+$font: 'Inter', sans-serif;
 
 // BREAKPOINTS
 $medium: 768px;

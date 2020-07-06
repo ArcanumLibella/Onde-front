@@ -1,6 +1,6 @@
 // icons
 export {
-	//ArrowBackCircleo as ArrowBackCircleO,
+	// ArrowBackCircleo as ArrowBackCircleO,
 	Dropf as DropF,
 	Dropo as DropO,
 	DropCirclef as DropCircleF,
@@ -18,10 +18,11 @@ export {
 	Libraryo as LibraryO,
 	Libraryf as LibraryF,
 	Listo as ListO,
-  Listf as ListF,
-  Instagramf as Instagramf,
-  Facebookf as Facebookf,
-  Twitterf as Twitterf,
+	Listf as ListF,
+	Backo as BackO,
+	Instagramf as InstagramF,
+	Facebookf as FacebookF,
+	Twitterf as TwitterF
 } from './icons/all-icons.js';
 
 // images

@@ -16,6 +16,9 @@ import InitiativesCard from './InitiativesCard';
 import InitiativesCardDetails from './InitiativesCardDetails';
 export { InitiativesCard, InitiativesCardDetails };
 
+import Comment from './Comment';
+export { Comment };
+
 import Navigation from './Navigation';
 export { Navigation };
 
