@@ -42,7 +42,7 @@ const InitiativesListStyled = styled.section`
 			margin-top: 0;
 			width: 40%;
 			max-width: 620px;
-			height: 100%;
+			height: calc(100% - 75px);
 			overflow: scroll;
 			background: ${(props) => props.backgroundColor || props.theme.background};
 			box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.2);

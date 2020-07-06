@@ -22,7 +22,7 @@ const Initiatives = (props) => {
 
 	return (
 		<InitiativesStyled className="initiatives">
-			<Map theme={theme} onDistrictClick={handleClick} /* minAndMax={handleValues} min={min} max={max} */ />
+			<Map theme={theme} onDepartmentClick={handleClick} /* minAndMax={handleValues} min={min} max={max} */ />
 			<InitiativesList theme={theme} department={selectedDepartment}>
 				{initiativesCollection}
 			</InitiativesList>
@@ -36,7 +36,8 @@ const InitiativesStyled = styled.main`
 		@media ${devices.large} {
 			margin-top: 0;
 			width: 100%;
-			height: 100vh;
+			height: calc(100vh - 75px);
+			overflow: hidden;
 		}
 	}
 

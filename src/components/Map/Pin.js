@@ -1,5 +1,5 @@
 import React from 'react';
-const pins = require('../../data/pins.js');
+const pins = require('../../utilities/pins');
 
 const Pin = ({ id }) => {
 	const data = pins.tag;
