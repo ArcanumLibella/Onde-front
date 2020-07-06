@@ -5,7 +5,7 @@ import { ApiService, DisplayTitle, InitiativesCard, Tag } from '../components';
 import { ParametersCircleF } from '../assets';
 import { devices } from '../utilities';
 
-const InitiativesList = (props) => {
+const InitiativesList = (props, { district }) => {
 	const { theme } = props;
 
 	const items = ApiService('posts');
@@ -23,6 +23,7 @@ const InitiativesList = (props) => {
 					<DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
 					<ParametersCircleF width={34} fill={theme.midnight} />
 				</div>
+				<DisplayTitle>{district}</DisplayTitle>
 				<Tag />
 				{initiativesCollection}
 			</div>

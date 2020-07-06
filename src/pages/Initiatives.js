@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { ApiService, InitiativesList, InitiativesCard, Map } from '../components';
@@ -6,19 +6,26 @@ import { devices } from '../utilities';
 
 const Initiatives = (props) => {
 	const { theme } = props;
-
 	const items = ApiService('posts');
-
 	const list = items['hydra:member'];
 
-	const initiativesCollection = list && list.map((i) => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
+	// STATE
+	const [ selectedDepartment, setSelectedDepartment ] = useState(false);
 
-	// initiativesCollection && console.log('initiatives => ', initiativesCollection.initiative.tags[0]);
+	// To handle click on map and open dashboard
+	const handleClick = function(number) {
+		setSelectedDepartment(number);
+	};
+
+	// To map on each initiative
+	const initiativesCollection = list && list.map((i) => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
 
 	return (
 		<InitiativesStyled className="initiatives">
-			<Map theme={theme}>Coucou la map</Map>
-			<InitiativesList theme={theme}>{initiativesCollection}</InitiativesList>
+			<Map theme={theme} onDistrictClick={handleClick} /* minAndMax={handleValues} min={min} max={max} */ />
+			<InitiativesList theme={theme} department={selectedDepartment}>
+				{initiativesCollection}
+			</InitiativesList>
 		</InitiativesStyled>
 	);
 };

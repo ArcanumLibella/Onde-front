@@ -14,7 +14,8 @@ import Navigation from './Navigation';
 export { Navigation };
 
 import Map from './Map/Map';
-export { Map };
+import Department from './Map/Department';
+export { Map, Department };
 
 // COMPONENTS
 import Button from './Button';
