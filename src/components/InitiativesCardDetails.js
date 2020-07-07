@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import {
-  ApiService,
   DisplayTitle,
   Title,
   Paragraph,
@@ -21,143 +20,150 @@ const InitiativesCardDetails = props => {
   const { theme } = props;
   const { id } = useParams();
 
-  const initiative = ApiService(`posts/${id}`);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [initiative, setInitiative] = useState();
 
-  // const [error, setError] = useState(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const [initiative, setInitiative] = useState([]);
+  useEffect(() => {
+    !isLoaded &&
+      axios
+        .get(`https://onde-api.frb.io/api/posts/${id}`)
+        .then(result => {
+          console.log('result', result);
+          setIsLoaded(true);
+          setInitiative(result);
+        })
+        .catch(error => {
+          setIsLoaded(true);
+        });
+  });
 
-  // useEffect(() => {
-  //   !isLoaded &&
-  //     axios
-  //       .get(`https://onde-api.frb.io/api/posts/${id}`)
-  //       .then(res => res.json())
-  //       .then(result => {
-  //         setIsLoaded(true);
-  //         setInitiative(result);
-  //       })
-  //       .catch(error => {
-  //         setIsLoaded(true);
-  //         setError(error);
-  //       });
-  // }, []);
+  console.log('initiative', initiative);
 
-  // console.log('initiative', initiative);
-  // const objectifs = ApiService(`post_goals/${id}`);
+  const destructureData = () => {
+    if (initiative) {
+      const {
+        data: { Post }
+      } = initiative;
 
-  const {
-    name,
-    description,
-    likes,
-    tags,
-    User,
-    dateEnd,
-    dateMeeting,
-    subscriptions
-  } = initiative;
+      const {
+        id,
+        name,
+        description,
+        User,
+        dateCreated,
+        dateEnd,
+        dateMeeting,
+        likes
+      } = Post;
+
+      return (
+        <InitiativesCardDetailsStyled className="initiativeDetails">
+          <div className="content-wrapper">
+            {/* <MiniTag tags={tags} /> */}
+            <div className="initiativeDetails__head">
+              <div className="initiativeDetails__title">
+                <DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
+                <Paragraph fontWeight={500} color={theme.blue}>
+                  Sur le littoral méditerranéen
+                </Paragraph>
+              </div>
+              <Link to={`/initiatives`}>
+                <div className="initiativeDetails__back">
+                  <BackO width={24} />
+                  <TextLink color={theme.black}>Retour</TextLink>
+                </div>
+              </Link>
+            </div>
+            <div className="initiativeDetails__header">
+              <MiniTag />
+              <div className="initiativeDetails__icons">
+                <ShareCircleF width="34" fill={theme.midnight} />
+                <DropButton
+                  width="34"
+                  fill={theme.blue}
+                  initiativeId={id}
+                  userId={User}
+                />
+              </div>
+            </div>
+            <div className="initiativeDetails__content">
+              <DisplayTitle>{name}</DisplayTitle>
+              <Paragraph>{description}</Paragraph>
+              <div className="initiativeDetails__cta">
+                <Paragraph>
+                  <em>Germain Langelier</em> a lancé cette initiative le
+                  <time> {formatDate(dateCreated)}</time>.
+                </Paragraph>
+                {/* <Paragraph><em>{author}</em> a lancé cette initiative le <time datetime={date}>{date}</time></Paragraph> */}
+                <Button>Je participe</Button>
+              </div>
+            </div>
+            <div className="initiativeDetails__infos">
+              <div className="initiativeDetails__action">
+                <DropO width="34" />
+                <Paragraph>{amountOf(likes)} personnes ont aimé</Paragraph>
+              </div>
+              <div className="initiativeDetails__action">
+                <FistRaisedF width="34" />
+                {/* <Paragraph>
+                  {amountOf(subscriptions)} personnes participent
+                </Paragraph> */}
+              </div>
+            </div>
+            <div className="initiativeDetails__infos">
+              {/* {objectifs &&  */}
+              <Title>Prochains objectifs</Title>
+              <Paragraph>Lorem ipsum dolor sit amet</Paragraph>
+            </div>
+            <div className="initiativeDetails__dates">
+              <div className="initiativeDetails__infos">
+                <Title>Date de fin</Title>
+                <Paragraph>{formatDate(dateEnd)}</Paragraph>
+              </div>
+              <div className="initiativeDetails__infos">
+                <Title>Rendez-vous</Title>
+                <Paragraph>{formatDate(dateMeeting)}</Paragraph>
+                <Paragraph>Plage de Pampelonne</Paragraph>
+              </div>
+            </div>
+            <div className="initiativeDetails__infos">
+              <Title>Emplacement</Title>
+              {/* Format Place */}
+              <iframe
+                title="map"
+                width="288"
+                height="154"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDzhuwSfm5IUEs3cXThQQFs60o8ouymWLk&q=@43.5153627,3.9120154,14z"
+                allowFullScreen
+              />
+            </div>
+            <div className="initiativeDetails__infos">
+              <Title>Commentaires</Title>
+              <Comment
+                author="Julie Aubé"
+                comment="Belle initiative ! Il est temps d’agir pour préserver la beauté de nos plages."
+                likeNumber="7"
+                theme={theme}
+              />
+              <Comment
+                author="Lucas Beaulac"
+                comment="Aucune mesure d’interdiction n’est prise pour les fêtes sauvages organisées sur la plage. Résultat, depuis quelques années celle-ci ressemble à une décharge !
+          Honteux !"
+                likeNumber="35"
+                theme={theme}
+              />
+            </div>
+          </div>
+        </InitiativesCardDetailsStyled>
+      );
+    }
+
+    return 'Chargement ...';
+  };
 
   const amountOf = data => (data ? data.length : '0');
 
-  return (
-    <InitiativesCardDetailsStyled className="initiativeDetails">
-      <div className="content-wrapper">
-        {/* <MiniTag tags={tags} /> */}
-        <div className="initiativeDetails__head">
-          <div className="initiativeDetails__title">
-            <DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
-            <Paragraph fontWeight={500} color={theme.blue}>
-              Sur le littoral méditerranéen
-            </Paragraph>
-          </div>
-          <Link to={`/initiatives`}>
-            <div className="initiativeDetails__back">
-              <BackO width={24} />
-              <TextLink color={theme.black}>Retour</TextLink>
-            </div>
-          </Link>
-        </div>
-        <div className="initiativeDetails__header">
-          <MiniTag />
-          <div className="initiativeDetails__icons">
-            <ShareCircleF width="34" fill={theme.midnight} />
-            <DropButton
-              width="34"
-              fill={theme.blue}
-              initiativeId={id}
-              userId={User}
-            />
-          </div>
-        </div>
-        <div className="initiativeDetails__content">
-          <DisplayTitle>{name}</DisplayTitle>
-          <Paragraph>{description}</Paragraph>
-          <div className="initiativeDetails__cta">
-            <Paragraph>
-              <em>Germain Langelier</em> a lancé cette initiative le
-              <time dateTime="18/06/2020"> 18 juin</time>.
-            </Paragraph>
-            {/* <Paragraph><em>{author}</em> a lancé cette initiative le <time datetime={date}>{date}</time></Paragraph> */}
-            <Button>Je participe</Button>
-          </div>
-        </div>
-        <div className="initiativeDetails__infos">
-          <div className="initiativeDetails__action">
-            <DropO width="34" />
-            <Paragraph>{amountOf(likes)} personnes ont aimé</Paragraph>
-          </div>
-          <div className="initiativeDetails__action">
-            <FistRaisedF width="34" />
-            <Paragraph>
-              {amountOf(subscriptions)} personnes participent
-            </Paragraph>
-          </div>
-        </div>
-        <div className="initiativeDetails__infos">
-          {/* {objectifs &&  */}
-          <Title>Prochains objectifs</Title>
-          <Paragraph>Lorem ipsum dolor sit amet</Paragraph>
-        </div>
-        <div className="initiativeDetails__dates">
-          <div className="initiativeDetails__infos">
-            <Title>Date de fin</Title>
-            <Paragraph>{formatDate(dateEnd)}</Paragraph>
-          </div>
-          <div className="initiativeDetails__infos">
-            <Title>Rendez-vous</Title>
-            <Paragraph>{formatDate(dateMeeting)}</Paragraph>
-            <Paragraph>Plage de Pampelonne</Paragraph>
-          </div>
-        </div>
-        <div className="initiativeDetails__infos">
-          <Title>Emplacement</Title>
-          {/* Format Place */}
-          <iframe
-            title="map"
-            width="288"
-            height="154"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDzhuwSfm5IUEs3cXThQQFs60o8ouymWLk&q=@43.5153627,3.9120154,14z"
-            allowFullScreen
-          />
-        </div>
-        <div className="initiativeDetails__infos">
-          <Title>Commentaires</Title>
-          <Comment
-            author="Julie Aubé"
-            comment="Belle initiative ! Il est temps d’agir pour préserver la beauté de nos plages."
-            likeNumber="7"
-            theme={theme}
-          />
-          <Comment
-            author="Lucas Beaulac"
-            comment="Aucune mesure d’interdiction n’est prise pour les fêtes sauvages organisées sur la plage. Résultat, depuis quelques années celle-ci ressemble à une décharge ! 
-          Honteux !"
-            likeNumber="35"
-            theme={theme}
-          />
-        </div>
-      </div>
-    </InitiativesCardDetailsStyled>
-  );
+  return destructureData();
 };
 
 // STYLE
