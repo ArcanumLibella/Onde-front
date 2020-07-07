@@ -29,7 +29,7 @@ const DropButton = props => {
         });
     } else {
       axios
-        .delete(`https://onde-api.frb.io/api/likes${initiativeId}`, {
+        .delete(`https://onde-api.frb.io/api/likes/${initiativeId}`, {
           User: userId,
           Post: `/api/posts/${initiativeId}`
         })
