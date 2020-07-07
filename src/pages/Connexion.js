@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import styled from 'styled-components';
 
 import { DisplayTitle } from '../components';
 
@@ -39,18 +40,35 @@ const Connexion = () => {
     }
 
   return (
-    <div className="content-wrapper">
-      <DisplayTitle>Bienvenue !</DisplayTitle>
-
-      <form onSubmit={(e) => testConnexion(e)}>
+    <ConnexionStyled>
+      <div className="content-wrapper">
+        <div className="section">
+        <DisplayTitle>Heureux de vous retrouver !</DisplayTitle>
+        <form onSubmit={(e) => testConnexion(e)}>
           <input type="email" name="email"/>
           <input type="text" name="password"/>
           <input type="submit" value="Connecter"/>
-      </form>
-    </div>
+        </form>
+        </div>
+        <div className="section section--desktop">
+          
+        </div>
+      </div>
+    </ConnexionStyled>
   );
 };
 
 // STYLE
+const ConnexionStyled = styled.main`
+  display:flex;
+  flex-direction: row;
+  .section {
+    width: 50vw;
+  }
+  .section--desktop{
+    display:none;
+  }
+`
+
 
 export default Connexion;
