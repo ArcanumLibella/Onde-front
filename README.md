@@ -1,92 +1,149 @@
-# Onde - Front-end
+# Projet **Onde** - Front-end
 
-## Concept :
+### Concept
 
 Plateforme numérique de participation citoyenne destinée à préserver le littoral et les eaux méditerranéennes.
 
-#### Lien du site :
-https://onde.netlify.app/
+##### Lien du site :
 
-#### Groupe 8 :
+Hébergé sur Netlify : https://onde.netlify.app/
 
-- Emma Cassagnettes (UI | UX)
-- Victor Balducci (UI | UX)
-- Romain Dreidemy (Back-end)
-- Kalani Marquand (Front-end)
-- Fiona Roux (Front-end)
+##### Lien du swagger :
 
-## Choix techniques :
+Hébergé sur API Plateform : https://onde-api.frb.io/api
+
+### Groupe 8
+
+**UI | UX**
+
+> Emma Cassagnettes
+> Victor Balducci
+
+**Back-end**
+
+> Romain Dreidemy
+
+**Front-end**
+
+> Victor Balducci
+> Kalani Marquand
+> Fiona Roux
+
+### Choix techniques
 
 Notre projet sera composé d'un front, d'une API, d'un back et d'une BDD.
 
-- React.js
-- Map SVG
+- Framework React.js
 - PWA
-- Performances et accessibilité seront au coeur de notre attention
+- Map SVG
+- Yarn
 
-## Available Scripts
+##### Librairies :
 
-In the project directory, you can run:
+- ServiceWorker : Workbox
+- Style scss : Styled components
+- API : Axios
+- Gestion icons : Inline-SVG
+- Router : React router-dom
+- Format du code : Prettier
 
-### `yarn start`
+### Pour lancer le projet
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> git clone avec ssh :
+> `git@github.com:ArcanumLibella/Onde-front.git`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+> Installer les dépendances :
+> `yarn`
 
-### `yarn test`
+> Lancer le projet
+> `yarn start`
+> Le projet s'ouvre sur [http://localhost:3000](http://localhost:3000)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Les règles de développement mises en place
 
-### `yarn build`
+##### Les pages
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Les pages principales du site sont répertoriées dans le dossier `src/pages`,
+sont exportées dans le fichier `src/pages/index.js`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+##### Les components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Les components sont répertoriés dans le dossier `src/components`,
+sont exportés dans le fichier `src/components/index.js`.
+Ce sont des components fonctionnels.
+Le style est défini en fin de fichier à l'aide de styled-component.
 
-### `yarn eject`
+###### Les imports se font dans l'ordre suivant :
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- React
+- Styled-Component
+  _saut de ligne_
+- Component
+- Assets
+- Utilities
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##### Les assets
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Les assets se trouvent dans le dossier `src/assets`,
+ils regroupent :
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> la police
+> les images
+> les icones
+> les variables globales scss
 
-## Learn More
+###### - Les variables globales ...
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+... définissent les couleurs, les breakpoints des media-queries et la font utilisées sur le site,
+rassemblées et utilisés à travers le `ThemeProvider` de **styled-components**.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###### - Les images ...
 
-### Code Splitting
+... sont des svg minifiés grâce à https://jakearchibald.github.io/svgomg/
+et exportées dans le fichier `src/assets/index.js` :
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+export { default as CleanUpTheBeach } from './images/cleanUpTheBeach.svg';
+```
 
-### Analyzing the Bundle Size
+Le component **ImageWrapper** permet une gestion des images simplifiée :
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```react.js
+const ImageWrapper = (props) => {
+	const { name, width, alt } = props;
 
-### Making a Progressive Web App
+	if (!assets[name]) {
+		return null;
+	}
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+	return <img width={width} alt={alt} src={assets[name]} />;
+};
+```
 
-### Advanced Configuration
+Une fois **ImageWrapper** importé dans un fichier, il suffit de donner en propriété `name` le nom d'export de l'image souhaitée :
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+<ImageWrapper name="CleanUpTheBeach" alt="Nettoyage de plage" />
+```
 
-### Deployment
+###### - Les icônes ...
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+... sont des svg rassemblés dans le dossier `src/assets/icons`
+La librairie **svg-inliner** permet la gestion des icones :
 
-### `yarn build` fails to minify
+- minification (**SVGOMG**)
+- gestion du style
+- export en tant que component
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Les icônes sont ensuite exportées dans le fichier `src/assets/index.js`, selon la convention suivante :
+
+> si l'icônes est outlined :
+> → `IconNameO`
+> si l'icônes est filled :
+> → `IconNameF`
+
+L'import se fait ainsi :
+
+```
+import { DropO, FistRaisedF, ShareCircleF, BackO } from '../assets';
+```
