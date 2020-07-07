@@ -94,44 +94,52 @@ const InitiativeCreate = (props) => {
 							<label>
 								<InputText>Thème</InputText>
 							</label>
-							<select>
-								{tags.map((tag) => {
-									return (
-										<option key={tag.id} value={tag.id}>
-											{tag.name}
-										</option>
-									);
-								})}
-							</select>
+							<InputText>
+								<select>
+									{tags.map((tag) => {
+										return (
+											<option key={tag.id} value={tag.id}>
+												{tag.name}
+											</option>
+										);
+									})}
+								</select>
+							</InputText>
 						</fieldset>
 
 						<fieldset className="form__field">
 							<label>
 								<InputText>Titre de l'initiative</InputText>
 							</label>
-							<input type="text" name="name" />
+							<InputText>
+								<input type="text" name="name" />
+							</InputText>
 						</fieldset>
 
 						<fieldset className="form__field">
 							<label>
 								<InputText>Description</InputText>
 							</label>
-							<textarea name="description" />
+							<InputText>
+								<textarea name="description" />
+							</InputText>
 						</fieldset>
 
 						<fieldset className="form__field">
 							<label>
 								<InputText>Emplacement</InputText>
 							</label>
-							<select name="department">
-								{departements.map((department) => {
-									return (
-										<option key={department.id} value={department.id}>
-											{department.name}
-										</option>
-									);
-								})}
-							</select>
+							<InputText>
+								<select name="department">
+									{departements.map((department) => {
+										return (
+											<option key={department.id} value={department.id}>
+												{department.name}
+											</option>
+										);
+									})}
+								</select>
+							</InputText>
 						</fieldset>
 
 						<div className="form__fields">
@@ -139,13 +147,17 @@ const InitiativeCreate = (props) => {
 								<label>
 									<InputText>Objectif</InputText>
 								</label>
-								<input type="number" name="number[]" />
+								<InputText>
+									<input type="number" name="number[]" />
+								</InputText>
 							</fieldset>
 							<fieldset className="form__field">
 								<label>
 									<InputText>Titre de l'objectif</InputText>
 								</label>
-								<input type="text" name="nameObjectif[]" />
+								<InputText>
+									<input type="text" name="nameObjectif[]" />
+								</InputText>
 							</fieldset>
 						</div>
 
@@ -153,14 +165,18 @@ const InitiativeCreate = (props) => {
 							<label>
 								<InputText>Date et horaire du rendez-vous</InputText>
 							</label>
-							<input type="datetime-local" name="dateMeeting" />
+							<InputText>
+								<input type="datetime-local" name="dateMeeting" />
+							</InputText>
 						</fieldset>
 
 						<fieldset className="form__field">
 							<label>
 								<InputText>Date de fin</InputText>
 							</label>
-							<input type="date" name="dateEnd" />
+							<InputText>
+								<input type="date" name="dateEnd" />
+							</InputText>
 						</fieldset>
 
 						<input
@@ -225,6 +241,18 @@ const InitiativeCreateStyled = styled.main`
 
 				select {
 					cursor: pointer;
+				}
+
+				textarea {
+					font-family: 'Inter', sans-serif;
+					font-size: ${rem(12)};
+					font-weight: 500;
+					line-height: 20px;
+
+					@media ${devices.large} {
+						font-size: ${rem(16)};
+						line-height: 27px;
+					}
 				}
 			}
 
