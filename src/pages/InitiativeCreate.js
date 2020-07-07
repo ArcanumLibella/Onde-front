@@ -80,8 +80,6 @@ const InitiativeCreate = (props) => {
 		});
 	};
 
-	// initiativesCollection && console.log('initiatives => ', initiativesCollection.initiative.tags[0]);
-
 	return (
 		<div>
 			<form
