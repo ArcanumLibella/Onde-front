@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Axios from 'axios';
-import { DisplayTitle, InputText } from '../components';
-// import { ParametersCircleF } from '../assets';
+import { DisplayTitle, InputText, ImageWrapper } from '../components';
 import { devices, rem } from '../utilities';
 
 const InitiativeCreate = (props) => {
@@ -84,87 +83,95 @@ const InitiativeCreate = (props) => {
 		<InitiativeCreateStyled className="initiativeCreation">
 			<div className="content-wrapper">
 				<DisplayTitle /* tag="h1" */>Créer votre initiative</DisplayTitle>
-				<form
-					onSubmit={(e) => {
-						createInitiative(e);
-					}}
-					className="form"
-				>
-					<fieldset className="form__field">
-						<label>
-							<InputText>Thème</InputText>
-						</label>
-						<select>
-							{tags.map((tag) => {
-								return (
-									<option key={tag.id} value={tag.id}>
-										{tag.name}
-									</option>
-								);
-							})}
-						</select>
-					</fieldset>
-
-					<fieldset className="form__field">
-						<label>
-							<InputText>Titre de l'initiative</InputText>
-						</label>
-						<input type="text" name="name" />
-					</fieldset>
-
-					<fieldset className="form__field">
-						<label>
-							<InputText>Description</InputText>
-						</label>
-						<textarea name="description" />
-					</fieldset>
-
-					<fieldset className="form__field">
-						<label>
-							<InputText>Emplacement</InputText>
-						</label>
-						<select name="department">
-							{departements.map((department) => {
-								return (
-									<option key={department.id} value={department.id}>
-										{department.name}
-									</option>
-								);
-							})}
-						</select>
-					</fieldset>
-
-					<div className="form__fields">
+				<div className="initiativeCreation__wrapper">
+					<form
+						onSubmit={(e) => {
+							createInitiative(e);
+						}}
+						className="form"
+					>
 						<fieldset className="form__field">
 							<label>
-								<InputText>Objectif</InputText>
+								<InputText>Thème</InputText>
 							</label>
-							<input type="number" name="number[]" />
+							<select>
+								{tags.map((tag) => {
+									return (
+										<option key={tag.id} value={tag.id}>
+											{tag.name}
+										</option>
+									);
+								})}
+							</select>
 						</fieldset>
+
 						<fieldset className="form__field">
 							<label>
-								<InputText>Titre de l'objectif</InputText>
+								<InputText>Titre de l'initiative</InputText>
 							</label>
-							<input type="text" name="nameObjectif[]" />
+							<input type="text" name="name" />
 						</fieldset>
-					</div>
 
-					<fieldset className="form__field">
-						<label>
-							<InputText>Date et horaire du rendez-vous</InputText>
-						</label>
-						<input type="datetime-local" name="dateMeeting" />
-					</fieldset>
+						<fieldset className="form__field">
+							<label>
+								<InputText>Description</InputText>
+							</label>
+							<textarea name="description" />
+						</fieldset>
 
-					<fieldset className="form__field">
-						<label>
-							<InputText>Date de fin</InputText>
-						</label>
-						<input type="date" name="dateEnd" />
-					</fieldset>
+						<fieldset className="form__field">
+							<label>
+								<InputText>Emplacement</InputText>
+							</label>
+							<select name="department">
+								{departements.map((department) => {
+									return (
+										<option key={department.id} value={department.id}>
+											{department.name}
+										</option>
+									);
+								})}
+							</select>
+						</fieldset>
 
-					<input className="form__button" type="submit" name="Voir l'aperçu" placeholder="Voir l'aperçu" />
-				</form>
+						<div className="form__fields">
+							<fieldset className="form__field">
+								<label>
+									<InputText>Objectif</InputText>
+								</label>
+								<input type="number" name="number[]" />
+							</fieldset>
+							<fieldset className="form__field">
+								<label>
+									<InputText>Titre de l'objectif</InputText>
+								</label>
+								<input type="text" name="nameObjectif[]" />
+							</fieldset>
+						</div>
+
+						<fieldset className="form__field">
+							<label>
+								<InputText>Date et horaire du rendez-vous</InputText>
+							</label>
+							<input type="datetime-local" name="dateMeeting" />
+						</fieldset>
+
+						<fieldset className="form__field">
+							<label>
+								<InputText>Date de fin</InputText>
+							</label>
+							<input type="date" name="dateEnd" />
+						</fieldset>
+
+						<input
+							className="form__button"
+							type="submit"
+							name="Voir l'aperçu"
+							placeholder="Voir l'aperçu"
+						/>
+					</form>
+					<ImageWrapper name="CreateInitiative" width="350" />
+				</div>
 			</div>
 		</InitiativeCreateStyled>
 	);
@@ -176,11 +183,33 @@ const InitiativeCreateStyled = styled.main`
 		padding-bottom: 80px;
 		height: 100%;
 
+		.initiativeCreation__wrapper {
+			@media ${devices.large} {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+			}
+
+			img {
+				display: none;
+
+				@media ${devices.large} {
+					display: block;
+					margin: 80px 80px 0 0;
+				}
+			}
+		}
+
 		h2 {
 			margin-bottom: 24px;
 		}
 
 		.form {
+			@media ${devices.large} {
+				width: 100%;
+				max-width: 500px;
+			}
+
 			&__field {
 				margin: 16px 0;
 
@@ -220,7 +249,6 @@ const InitiativeCreateStyled = styled.main`
 				padding: 14px 20px;
 				margin: 0 auto;
 				width: 100%;
-				max-width: 288px;
 
 				color: ${(props) => props.theme.white};
 				font-size: ${rem(17)};
