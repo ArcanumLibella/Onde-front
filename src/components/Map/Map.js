@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Axios from 'axios';
 
 // COMPONENTS
 // import { Department /* , Pin */ } from '../components';
@@ -11,24 +10,6 @@ import { DisplayTitle } from '../';
 const departmentsSVG = require('../../utilities/departmentsPoints');
 
 const Map = ({ theme, onDepartmentClick }) => {
-	// STATE
-	const [ departments, setDepartments ] = useState([]);
-	const [ isLoaded, setIsLoaded ] = useState(false);
-
-	const getDepartements = () => {
-		Axios.get('https://onde-api.frb.io/api/departments').then((response) => {
-			const departmentsList = response.data['hydra:member'];
-			setDepartments(departmentsList);
-			// console.log(departmentsList);
-			console.log(departments);
-			departmentsList &&
-				departmentsList.map((departmentItem, index) => {
-					console.log('departmentItem -> ', departmentItem.code);
-				});
-			// departmentsList.find(departmentItem => departmentItem.code === code).id
-		});
-	};
-
 	// FUNCTIONS
 	// To handle click on each district and display initiatives list
 	const handleClick = function({ code, departmentsList }) {
@@ -67,18 +48,6 @@ const Map = ({ theme, onDepartmentClick }) => {
 	// 		return <Pin id={department} />;
 	// 	});
 	// };
-
-	// USEEFFECT
-	useEffect(
-		() => {
-			if (!isLoaded) {
-				getDepartements();
-				// displayDepartmentName();
-				setIsLoaded(true);
-			}
-		},
-		[ isLoaded ]
-	);
 
 	return (
 		<MapStyled className="map is-clicked">
