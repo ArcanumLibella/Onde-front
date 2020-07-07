@@ -1,15 +1,20 @@
 import React from 'react';
 
-const Department = ({ /* number ,*/ points, code, color, onDepartmentClick }) => {
-	const handleClick = function() {
-		onDepartmentClick(code);
-		console.log('Département n°', code);
-	};
+const Department = ({ /* number ,*/ points, code, color, onDepartmentClick, departments }) => {
+	// const handleClick = function(code, departments) {
+    //     // console.log(departments)
+    //     let department = departments.find(department => department.code === code).id
+
+    //     // console.log(department);
+    //     // console.log('Département n°', code);
+        
+    //     return department;
+	// };
 
 	return (
 		<path
 			onClick={() => {
-				handleClick();
+				onDepartmentClick(code, departments);
 			}}
 			id={code}
 			data-name="department"

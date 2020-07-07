@@ -9,13 +9,15 @@ import { DisplayTitle } from '../';
 // DATA
 const departmentsSVG = require('../../utilities/departmentsPoints');
 
-const Map = ({ theme, onDepartmentClick }) => {
+const Map = ({ theme, onDepartmentClick, departments }) => {
 	// FUNCTIONS
 	// To handle click on each district and display initiatives list
-	const handleClick = function({ code, departmentsList }) {
-		onDepartmentClick(code);
-		console.log(departmentsList);
-		// departmentsList.find(departmentItem => departmentItem.code === code).id
+	const handleClick = function(code, departments) {
+
+        let department = departments.find(depart => depart.code === code).id
+
+        // Axios.get('')
+        console.log(department);
 	};
 
 	// To display each department
@@ -26,10 +28,11 @@ const Map = ({ theme, onDepartmentClick }) => {
 			return (
 				<Department
 					key={index}
-					// number={index + 1}
+                    // number={index + 1}
 					points={departmentsSVG.departmentsPoints[index].point}
-					code={departmentsSVG.departmentsPoints[index].code}
-					onDepartmentClick={handleClick}
+                    code={departmentsSVG.departmentsPoints[index].code}
+                    departments={departments}
+					onDepartmentClick={onDepartmentClick}
 					// displayDepartmentName={department}
 				/>
 			);

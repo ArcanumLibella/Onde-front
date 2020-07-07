@@ -5,11 +5,11 @@ import { ApiService, DisplayTitle, InitiativesCard, Tag } from '../components';
 import { ParametersCircleF } from '../assets';
 import { devices } from '../utilities';
 
-const InitiativesList = (props, { department }) => {
+const InitiativesList = (props, { department, initiatives }) => {
 	const { theme } = props;
-	const departmentNumber = department ? department : null;
-
-	// STATE
+    const departmentNumber = department ? department : null;
+    
+    	// STATE
 	const [ isClosed, setIsClosed ] = useState('true');
 
 	// FUNCTIONS
@@ -18,6 +18,7 @@ const InitiativesList = (props, { department }) => {
 	const list = items['hydra:member'];
 	const initiativesCollection = list && list.map((i) => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
 
+    console.log(department)
 	// To display initiatives list
 	const displayInitiatives = () => {
 		department = null;

@@ -6,11 +6,13 @@ import { ApiService, InitiativesList, InitiativesCard, Map } from '../components
 import { devices } from '../utilities';
 
 const Initiatives = (props) => {
-	const { theme } = props;
+	const { theme, onDepartmentClick } = props;
 
 	// STATE
-	const [ departments, setDepartments ] = useState();
-	const [ selectedDepartment, setSelectedDepartment ] = useState(false);
+	const [ departments, setDepartments ] = useState([]);
+    const [ selectedDepartment, setSelectedDepartment ] = useState(false);
+    const [ initiatives, setInitiatives] = useState([]);
+
 
 	// API CALL
 	const retrieveDepartmentList = async function() {
@@ -22,9 +24,11 @@ const Initiatives = (props) => {
 					console.log('departmentItem -> ', departmentItem.code);
 				});
 			// departmentsList.find(departmentItem => departmentItem.code === code).id
-			setDepartments(departmentsList);
-			console.log('departmentsList -> ', departmentsList);
-			console.log('departments -> ', departments);
+            setDepartments(departmentsList)
+            console.log(departments)
+            console.log(departmentsList);
+			// console.log('departmentsList -> ', departmentsList);
+            // console.log('departments -> ', departments);
 		});
 
 		// Retrieve all competitions and store them in competitionsList
@@ -42,9 +46,28 @@ const Initiatives = (props) => {
 
 	// FUNCTIONS
 	// To handle click on map and open initiatives dashboard
-	const handleClick = function(number) {
-		setSelectedDepartment(number);
-	};
+	const handleClick = function(code, departments) {
+        // setSelectedDepartment(number);
+        let department = departments.find(department => department.code === code).id
+
+        setSelectedDepartment(code)
+        
+        Axios
+            .get(`https://onde-api.frb.io/api/posts?department=${department}`)
+            .then(({data}) => {
+                let initiatives = data;
+                console.log(data)
+            })
+
+
+        console.log(department)
+    };
+    
+    const getInitiatives = () => {
+        let items = ApiService('posts');
+        console.log('Romain le meilleur')
+        setInitiatives(items['hydra:member']);
+    }
 
 	// To map on each initiative
 	const items = ApiService('posts');
@@ -52,7 +75,8 @@ const Initiatives = (props) => {
 	const initiativesCollection = list && list.map((i) => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
 
 	useEffect(() => {
-		retrieveDepartmentList();
+        retrieveDepartmentList();
+        // getInitiatives();
 	}, []);
 
 	// USEEFFECT
@@ -66,8 +90,8 @@ const Initiatives = (props) => {
 
 	return (
 		<InitiativesStyled className="initiatives">
-			<Map theme={theme} onDepartmentClick={handleClick} />
-			<InitiativesList theme={theme} /* departmentsList={departmentsList} */ department={selectedDepartment}>
+			<Map theme={theme} onDepartmentClick={handleClick} departments={departments} />
+			<InitiativesList theme={theme} /* departmentsList={departmentsList} */ department={selectedDepartment} initiatives={initiatives}>
 				{initiativesCollection}
 			</InitiativesList>
 		</InitiativesStyled>
