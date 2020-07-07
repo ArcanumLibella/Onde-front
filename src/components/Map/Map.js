@@ -8,40 +8,46 @@ import Department from './Department';
 import { DisplayTitle } from '../';
 
 // DATA
-const departments = require('../../utilities/departmentsPoints');
+const departmentsSVG = require('../../utilities/departmentsPoints');
 
 const Map = ({ theme, onDepartmentClick }) => {
 	// STATE
-	const [ departements, setDepartements ] = useState([]);
+	const [ departments, setDepartments ] = useState([]);
 	const [ isLoaded, setIsLoaded ] = useState(false);
 
 	const getDepartements = () => {
 		Axios.get('https://onde-api.frb.io/api/departments').then((response) => {
 			const departmentsList = response.data['hydra:member'];
-			setDepartements(departmentsList);
-			console.log(departmentsList);
+			setDepartments(departmentsList);
+			// console.log(departmentsList);
+			console.log(departments);
 			departmentsList &&
 				departmentsList.map((departmentItem, index) => {
-					console.log('departmentItem -> ', departmentItem);
+					console.log('departmentItem -> ', departmentItem.code);
 				});
+			// departmentsList.find(departmentItem => departmentItem.code === code).id
 		});
 	};
 
 	// FUNCTIONS
 	// To handle click on each district and display initiatives list
-	const handleClick = function(number) {
-		onDepartmentClick(number);
-		// console.log(number);
+	const handleClick = function({ code, departmentsList }) {
+		onDepartmentClick(code);
+		console.log(departmentsList);
+		// departmentsList.find(departmentItem => departmentItem.code === code).id
 	};
 
 	// To display each department
 	const displayDepartments = () => {
-		return departments.departmentsPoints.map((department, index) => {
+		return departmentsSVG.departmentsPoints.map((departmentSVG, index) => {
+			// console.log(departments.departmentsPoints[index].code);
+			// console.log('departmentsSVG ->', departmentsSVG);
 			return (
 				<Department
 					key={index}
-					number={index + 1}
-					points={departments.departmentsPoints[index]}
+					// number={index + 1}
+					points={departmentsSVG.departmentsPoints[index].point}
+					code={departmentsSVG.departmentsPoints[index].code}
 					onDepartmentClick={handleClick}
 					// displayDepartmentName={department}
 				/>
@@ -49,11 +55,11 @@ const Map = ({ theme, onDepartmentClick }) => {
 		});
 	};
 
-	const displayDepartmentName = () => {
-		departements.map((department) => {
-			return <DisplayTitle key={department.id}>{department.name}</DisplayTitle>;
-		});
-	};
+	// const displayDepartmentName = () => {
+	// 	departements.map((department) => {
+	// 		return <DisplayTitle key={department.id}>{department.name}</DisplayTitle>;
+	// 	});
+	// };
 
 	// To display initiatives number
 	// const displayInitiativesNumber = () => {
@@ -67,7 +73,7 @@ const Map = ({ theme, onDepartmentClick }) => {
 		() => {
 			if (!isLoaded) {
 				getDepartements();
-				displayDepartmentName();
+				// displayDepartmentName();
 				setIsLoaded(true);
 			}
 		},

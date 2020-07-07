@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Department = ({ number, points, color, onDepartmentClick }) => {
+const Department = ({ /* number ,*/ points, code, color, onDepartmentClick }) => {
 	const handleClick = function() {
-		onDepartmentClick(number);
-		console.log('Département n°', number);
+		onDepartmentClick(code);
+		console.log('Département n°', code);
 	};
 
 	return (
@@ -11,7 +11,7 @@ const Department = ({ number, points, color, onDepartmentClick }) => {
 			onClick={() => {
 				handleClick();
 			}}
-			id={number}
+			id={code}
 			data-name="department"
 			className="department"
 			d={points}
