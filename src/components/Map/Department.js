@@ -1,15 +1,9 @@
 import React from 'react';
 
-<<<<<<< HEAD
 const Department = ({ /* number ,*/ points, code, color, onDepartmentClick }) => {
 	const handleClick = function() {
 		onDepartmentClick(code);
 		console.log('Département n°', code);
-=======
-const Department = ({ number, points, color, onDepartmentClick }) => {
-	const handleClick = function() {
-		onDepartmentClick(number);
->>>>>>> ef539d5c642eecfd1290932b42b19cad88461c4a
 	};
 
 	return (
@@ -17,11 +11,7 @@ const Department = ({ number, points, color, onDepartmentClick }) => {
 			onClick={() => {
 				handleClick();
 			}}
-<<<<<<< HEAD
 			id={code}
-=======
-			id={number}
->>>>>>> ef539d5c642eecfd1290932b42b19cad88461c4a
 			data-name="department"
 			className="department"
 			d={points}
