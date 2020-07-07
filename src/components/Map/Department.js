@@ -3,6 +3,7 @@ import React from 'react';
 const Department = ({ number, points, color, onDepartmentClick }) => {
 	const handleClick = function() {
 		onDepartmentClick(number);
+		console.log('Département n°', number);
 	};
 
 	return (

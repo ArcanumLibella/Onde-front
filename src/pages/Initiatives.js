@@ -6,18 +6,19 @@ import { devices } from '../utilities';
 
 const Initiatives = (props) => {
 	const { theme } = props;
-	const items = ApiService('posts');
-	const list = items['hydra:member'];
 
 	// STATE
 	const [ selectedDepartment, setSelectedDepartment ] = useState(false);
 
+	// FUNCTIONS
 	// To handle click on map and open dashboard
 	const handleClick = function(number) {
 		setSelectedDepartment(number);
 	};
 
 	// To map on each initiative
+	const items = ApiService('posts');
+	const list = items['hydra:member'];
 	const initiativesCollection = list && list.map((i) => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
 
 	return (

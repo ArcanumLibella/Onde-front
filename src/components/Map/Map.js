@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
-// import { ApiService } from '../components';
-// import { devices } from '../../utilities';
+import Axios from 'axios';
 
 // COMPONENTS
 // import { Department /* , Pin */ } from '../components';
 import Department from './Department';
+import { DisplayTitle } from '../';
+
+// DATA
 const departments = require('../../utilities/departmentsPoints');
 
 const Map = ({ theme, onDepartmentClick }) => {
-	// const items = ApiService('posts');
-	// const list = items['hydra:member'];
+	// STATE
+	const [ departements, setDepartements ] = useState([]);
+	const [ isLoaded, setIsLoaded ] = useState(false);
+
+	const getDepartements = () => {
+		Axios.get('https://onde-api.frb.io/api/departments').then((response) => {
+			const departmentsList = response.data['hydra:member'];
+			setDepartements(departmentsList);
+			console.log(departmentsList);
+			departmentsList &&
+				departmentsList.map((departmentItem, index) => {
+					console.log('departmentItem -> ', departmentItem);
+				});
+		});
+	};
 
 	// FUNCTIONS
-	// To display initiatives number
-	// const displayInitiativesNumber = () => {
-	// 	return numberInitiative.map((department) => {
-	// 		return <Pin id={department} />;
-	// 	});
-	// };
+	// To handle click on each district and display initiatives list
+	const handleClick = function(number) {
+		onDepartmentClick(number);
+		// console.log(number);
+	};
 
 	// To display each department
 	const displayDepartments = () => {
@@ -27,22 +40,42 @@ const Map = ({ theme, onDepartmentClick }) => {
 			return (
 				<Department
 					key={index}
-					number={index /*  + 1 */}
+					number={index + 1}
 					points={departments.departmentsPoints[index]}
 					onDepartmentClick={handleClick}
+					// displayDepartmentName={department}
 				/>
 			);
 		});
 	};
 
-	// To handle click on each district and display dashboard
-	const handleClick = function(number) {
-		onDepartmentClick(number);
-		console.log(number);
+	const displayDepartmentName = () => {
+		departements.map((department) => {
+			return <DisplayTitle key={department.id}>{department.name}</DisplayTitle>;
+		});
 	};
 
+	// To display initiatives number
+	// const displayInitiativesNumber = () => {
+	// 	return numberInitiative.map((department) => {
+	// 		return <Pin id={department} />;
+	// 	});
+	// };
+
+	// USEEFFECT
+	useEffect(
+		() => {
+			if (!isLoaded) {
+				getDepartements();
+				displayDepartmentName();
+				setIsLoaded(true);
+			}
+		},
+		[ isLoaded ]
+	);
+
 	return (
-		<MapStyled className="map">
+		<MapStyled className="map is-clicked">
 			<div className="map__wrapper">
 				<svg viewBox="0 0 1116 760" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g className="departments-hidden">
@@ -404,11 +437,19 @@ const MapStyled = styled.section`
 	&.map {
 		position: relative;
 
+		&.is-clicked {
+			.map__wrapper {
+				left: -180px;
+				width: 65%;
+			}
+		}
+
 		.map__wrapper {
 			position: absolute;
-			top: -100px;
-			left: -180px;
+			top: -30px;
+			left: 0;
 			width: 70%;
+			transition: all 0.3s ease-in-out;
 		}
 	}
 `;
