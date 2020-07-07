@@ -13,28 +13,31 @@ const DropButton = props => {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
-    if(!checkIsLiked){
+    if (!checkIsLiked) {
       alreadyLiked();
     }
-  })
+  });
 
   const alreadyLiked = () => {
     axios
-        .get(`https://onde-api.frb.io/api/likes?User=${sessionStorage.getItem('User')}&Post=${initiativeId}`)
-        .then((response) => { 
-          console.log(response.data['hydra:member'].length)
+      .get(
+        `https://onde-api.frb.io/api/likes?User=${sessionStorage.getItem(
+          'User'
+        )}&Post=${initiativeId}`
+      )
+      .then(response => {
+        console.log(response.data['hydra:member'].length);
 
-          if(response.data['hydra:member'].length === 1){
-            console.log('deja liké')
-            setIsLiked(true)
-          }else{
-            console.log('pas liké')
+        if (response.data['hydra:member'].length === 1) {
+          console.log('deja liké');
+          setIsLiked(true);
+        } else {
+          console.log('pas liké');
 
-            setIsLiked(false)
-          }
-          
-        })
-  }
+          setIsLiked(false);
+        }
+      });
+  };
 
   const toggle = () => {
     if (!isLiked) {
@@ -44,7 +47,7 @@ const DropButton = props => {
           Post: `/api/posts/${initiativeId}`
         })
         .then(result => {
-          console.log(result)
+          console.log(result);
           // setDatas(result);
           setIsLiked(true);
         })
@@ -53,16 +56,24 @@ const DropButton = props => {
           setIsLiked(true);
         });
     } else {
-      console.log(sessionStorage.getItem('User') + ' ' + initiativeId)
+      console.log(sessionStorage.getItem('User') + ' ' + initiativeId);
       axios
-        .get(`https://onde-api.frb.io/api/likes?User=${sessionStorage.getItem('User')}&Post=${initiativeId}`)
-        .then((response) => { 
-          console.log(response.data['hydra:member'][0])
-          let likeToDelete = response.data['hydra:member'][0].id
-          
-          axios.delete(`https://onde-api.frb.io/api/likes/${likeToDelete}`).then(response => { console.log('Like supprimé'); setIsLiked(false) })
-          
-        })
+        .get(
+          `https://onde-api.frb.io/api/likes?User=${sessionStorage.getItem(
+            'User'
+          )}&Post=${initiativeId}`
+        )
+        .then(response => {
+          console.log(response.data['hydra:member'][0]);
+          let likeToDelete = response.data['hydra:member'][0].id;
+
+          axios
+            .delete(`https://onde-api.frb.io/api/likes/${likeToDelete}`)
+            .then(response => {
+              console.log('Like supprimé');
+              setIsLiked(false);
+            });
+        });
 
       // axios
       //   .delete(`https://onde-api.frb.io/api/likes/${initiativeId}`, {

@@ -1,66 +1,82 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
-import { ApiService, DisplayTitle, InitiativesCard, Tag } from '../components';
+import { DisplayTitle, InitiativesCard, Tag } from '../components';
 import { ParametersCircleF } from '../assets';
 import { devices } from '../utilities';
 
 const InitiativesList = (props, { district }) => {
-	const { theme } = props;
+  const { theme } = props;
+  const [items, setItems] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-	const items = ApiService('posts');
+  useEffect(() => {
+    !isLoaded &&
+      axios
+        .get('https://onde-api.frb.io/api/posts')
+        .then(result => {
+          setIsLoaded(true);
+          setItems(result['data']);
+        })
+        .catch(error => {
+          setIsLoaded(true);
+        });
+  });
 
-	const list = items['hydra:member'];
+  const list = items['hydra:member'];
 
-	const initiativesCollection = list && list.map((i) => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
+  const initiativesCollection =
+    list &&
+    list.map(i => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
 
-	// initiativesCollection && console.log('initiatives => ', initiativesCollection.initiative.tags[0]);
+  // initiativesCollection && console.log('initiatives => ', initiativesCollection.initiative.tags[0]);
 
-	return (
-		<InitiativesListStyled className="initiativesList">
-			<div className="content-wrapper">
-				<div className="initiativesList__header">
-					<DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
-					<ParametersCircleF width={34} fill={theme.midnight} />
-				</div>
-				<DisplayTitle>{district}</DisplayTitle>
-				<Tag />
-				{initiativesCollection}
-			</div>
-		</InitiativesListStyled>
-	);
+  return (
+    <InitiativesListStyled className="initiativesList">
+      <div className="content-wrapper">
+        <div className="initiativesList__header">
+          <DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
+          <ParametersCircleF width={34} fill={theme.midnight} />
+        </div>
+        <DisplayTitle>{district}</DisplayTitle>
+        <Tag />
+        {initiativesCollection}
+      </div>
+    </InitiativesListStyled>
+  );
 };
 
 // STYLE
 const InitiativesListStyled = styled.section`
-	&.initiativesList {
-		@media ${devices.large} {
-			position: absolute;
-			top: 75px;
-			right: 0;
-			padding: 56px;
-			margin-top: 0;
-			width: 40%;
-			max-width: 620px;
-			height: calc(100% - 75px);
-			overflow: scroll;
-			background: ${(props) => props.backgroundColor || props.theme.background};
-			box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.2);
-		}
+  &.initiativesList {
+    @media ${devices.large} {
+      position: absolute;
+      top: 75px;
+      right: 0;
+      padding: 56px;
+      margin-top: 0;
+      width: 40%;
+      max-width: 620px;
+      height: calc(100% - 75px);
+      overflow: scroll;
+      background: ${props => props.backgroundColor || props.theme.background};
+      box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.2);
+    }
 
-		.initiativesList__header {
-			display: flex;
-			justify-content: space-between;
+    .initiativesList__header {
+      display: flex;
+      justify-content: space-between;
 
-			@media ${devices.large} {
-				display: none;
-			}
-		}
+      @media ${devices.large} {
+        display: none;
+      }
+    }
 
-		.icon {
-			cursor: pointer;
-		}
-	}
+    .icon {
+      cursor: pointer;
+    }
+  }
 `;
 
 export default InitiativesList;
