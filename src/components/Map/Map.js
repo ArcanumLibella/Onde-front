@@ -412,7 +412,6 @@ const MapStyled = styled.section`
 	&.map {
 		position: relative;
 
-<<<<<<< HEAD
 		&.is-clicked {
 			.map__wrapper {
 				left: -180px;
@@ -426,13 +425,6 @@ const MapStyled = styled.section`
 			left: 0;
 			width: 70%;
 			transition: all 0.3s ease-in-out;
-=======
-		.map__wrapper {
-			position: absolute;
-			top: -100px;
-			left: -180px;
-			width: 70%;
->>>>>>> ef539d5c642eecfd1290932b42b19cad88461c4a
 		}
 	}
 `;

@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
-import { ApiService, DisplayTitle, InitiativesCard, Tag } from '../components';
+import { DisplayTitle, InitiativesCard, Tag } from '../components';
 import { ParametersCircleF } from '../assets';
 import { devices } from '../utilities';
 
 const InitiativesList = (props, { department }) => {
 	const { theme } = props;
+	const [ items, setItems ] = useState([]);
 	const departmentNumber = department ? department : null;
+	const [ isLoaded, setIsLoaded ] = useState(false);
 
 	// STATE
 	const [ isClosed, setIsClosed ] = useState('true');
 
 	// FUNCTIONS
 	// To get initiatives list
-	const items = ApiService('posts');
+	// const items = ApiService('posts');
 	const list = items['hydra:member'];
 	const initiativesCollection = list && list.map((i) => <InitiativesCard key={i.id} theme={theme} initiative={i} />);
 
@@ -25,14 +28,28 @@ const InitiativesList = (props, { department }) => {
 	};
 
 	// USEEFFECT
-	useEffect(
-		() => {
-			if (department) {
-				setIsClosed();
-			}
-		},
-		[ department ]
-	);
+
+	useEffect(() => {
+		!isLoaded &&
+			axios
+				.get('https://onde-api.frb.io/api/posts')
+				.then((result) => {
+					setIsLoaded(true);
+					setItems(result['data']);
+				})
+				.catch((error) => {
+					setIsLoaded(true);
+				});
+	});
+
+	// useEffect(
+	// 	() => {
+	// 		if (department) {
+	// 			setIsClosed();
+	// 		}
+	// 	},
+	// 	[ department ]
+	// );
 
 	return (
 		<InitiativesListStyled
@@ -62,7 +79,7 @@ const InitiativesListStyled = styled.section`
 			margin-top: 0;
 			width: 100%;
 			max-width: 620px;
-			height: calc(100% - 75px);
+			height: 100%;
 			overflow: scroll;
 			background: ${(props) => props.backgroundColor || props.theme.background};
 			box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.2);
