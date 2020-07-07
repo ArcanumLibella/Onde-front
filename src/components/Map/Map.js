@@ -1,19 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
-// import { ApiService } from '../components';
-// import { devices } from '../../utilities';
 
 // COMPONENTS
 // import { Department /* , Pin */ } from '../components';
 import Department from './Department';
-const departments = require('../../utilities/departmentsPoints');
+import { DisplayTitle } from '../';
+
+// DATA
+const departmentsSVG = require('../../utilities/departmentsPoints');
 
 const Map = ({ theme, onDepartmentClick }) => {
-	// const items = ApiService('posts');
-	// const list = items['hydra:member'];
-
 	// FUNCTIONS
+	// To handle click on each district and display initiatives list
+	const handleClick = function({ code, departmentsList }) {
+		onDepartmentClick(code);
+		console.log(departmentsList);
+		// departmentsList.find(departmentItem => departmentItem.code === code).id
+	};
+
+	// To display each department
+	const displayDepartments = () => {
+		return departmentsSVG.departmentsPoints.map((departmentSVG, index) => {
+			// console.log(departments.departmentsPoints[index].code);
+			// console.log('departmentsSVG ->', departmentsSVG);
+			return (
+				<Department
+					key={index}
+					// number={index + 1}
+					points={departmentsSVG.departmentsPoints[index].point}
+					code={departmentsSVG.departmentsPoints[index].code}
+					onDepartmentClick={handleClick}
+					// displayDepartmentName={department}
+				/>
+			);
+		});
+	};
+
+	// const displayDepartmentName = () => {
+	// 	departements.map((department) => {
+	// 		return <DisplayTitle key={department.id}>{department.name}</DisplayTitle>;
+	// 	});
+	// };
+
 	// To display initiatives number
 	// const displayInitiativesNumber = () => {
 	// 	return numberInitiative.map((department) => {
@@ -21,28 +49,8 @@ const Map = ({ theme, onDepartmentClick }) => {
 	// 	});
 	// };
 
-	// To display each department
-	const displayDepartments = () => {
-		return departments.departmentsPoints.map((department, index) => {
-			return (
-				<Department
-					key={index}
-					number={index /*  + 1 */}
-					points={departments.departmentsPoints[index]}
-					onDepartmentClick={handleClick}
-				/>
-			);
-		});
-	};
-
-	// To handle click on each district and display dashboard
-	const handleClick = function(number) {
-		onDepartmentClick(number);
-		console.log(number);
-	};
-
 	return (
-		<MapStyled className="map">
+		<MapStyled className="map is-clicked">
 			<div className="map__wrapper">
 				<svg viewBox="0 0 1116 760" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g className="departments-hidden">
@@ -404,11 +412,19 @@ const MapStyled = styled.section`
 	&.map {
 		position: relative;
 
+		&.is-clicked {
+			.map__wrapper {
+				left: -180px;
+				width: 65%;
+			}
+		}
+
 		.map__wrapper {
 			position: absolute;
-			top: -100px;
-			left: -180px;
+			top: -30px;
+			left: 0;
 			width: 70%;
+			transition: all 0.3s ease-in-out;
 		}
 	}
 `;

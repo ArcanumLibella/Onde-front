@@ -43,6 +43,7 @@ export { MiniTag, Tag };
 import DisplayTitle from './Text/DisplayTitle';
 import Title from './Text/Title';
 import Paragraph from './Text/Paragraph';
+import InputText from './Text/InputText';
 import TextLink from './Text/TextLink';
 import Truncate from './Text/Truncate';
-export { TextLink, Paragraph, DisplayTitle, Title, Truncate };
+export { TextLink, Paragraph, InputText, DisplayTitle, Title, Truncate };

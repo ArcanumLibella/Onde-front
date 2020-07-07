@@ -28,6 +28,7 @@ export {
 // images
 export { default as BoyUnderneathFirework } from './images/boyUnderneathFirework.svg';
 export { default as CleanUpTheBeach } from './images/cleanUpTheBeach.svg';
+export { default as CreateInitiative } from './images/createInitiative.svg';
 export { default as GirlReceivingNotification } from './images/girlReceivingNotification.svg';
 export { default as GuysAndChatBubbles } from './images/guysAndChatBubbles.svg';
 export { default as LogoGreenpeace } from './images/logoGreenpeace.png';
