@@ -250,7 +250,6 @@ const InitiativeCreateStyled = styled.main`
 					line-height: 20px;
 
 					@media ${devices.large} {
-						font-size: ${rem(16)};
 						line-height: 27px;
 					}
 				}
