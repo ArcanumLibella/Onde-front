@@ -1,32 +1,47 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Paragraph } from '..';
 import { rem } from '../../utilities';
 
-import { Paragraph } from '..';
+const MiniTag = props => {
+  const { tags } = props;
+  const { normal, department, partenaire } = tags;
 
-const MiniTag = (props) => {
-	// const { tags } = props;
-	const tags = [ 1, 2, 3, 4 ];
+  const normalTags = normal
+    ? normal.map(i => {
+        return {
+          id: i.id,
+          name: i.name,
+          color: 'blue'
+        };
+      })
+    : [];
 
-	const list = [
-		{ id: 1, name: 'Plage', color: '#45BE93' },
-		{ id: 2, name: 'Var', color: 'blue' },
-		{ id: 3, name: 'WWF', color: 'pink' },
-		{ id: 4, name: 'Gard', color: 'red' }
-	];
+  const departmentTag = {
+    id: department.id,
+    name: department.name,
+    color: 'red'
+  };
 
-	const initiativeTag = tags.map((i) => i);
+  const partenaireTag = partenaire && {
+    id: partenaire.id,
+    name: partenaire.name,
+    color: 'green'
+  };
 
-	const initiativeTags = list.filter((i) => initiativeTag.includes(i.id));
+  console.log('partenaire', partenaire);
+  console.log('partenaireTag', partenaireTag);
 
-	const tagsCollection = initiativeTags.map((i) => (
-		<Paragraph key={i.id} color={i.color} className="minitag">
-			{i.name}
-		</Paragraph>
-	));
+  const initiativeTags = [...normalTags, departmentTag];
 
-	return <MiniTagStyled className="minitags">{tagsCollection}</MiniTagStyled>;
+  const tagsCollection = initiativeTags.map(i => (
+    <Paragraph key={i.id} color={i.color} className="minitag">
+      {i.name}
+    </Paragraph>
+  ));
+
+  return <MiniTagStyled className="minitags">{tagsCollection}</MiniTagStyled>;
 };
 
 const MiniTagStyled = styled.div`
@@ -40,12 +55,12 @@ const MiniTagStyled = styled.div`
 		padding: 4px 8px;
 		margin: 0 6px;
 
-		/* color: ${(props) => props.backgroundColor || props.theme.midnight}; */
+		/* color: ${props => props.backgroundColor || props.theme.midnight}; */
 		font-size: ${rem(12)};
 		font-weight: 600;
 		white-space: nowrap;
 		text-transform: uppercase;
-		background: ${(props) => props.backgroundColor || props.theme.white};
+		background: ${props => props.backgroundColor || props.theme.white};
 		border: none;
 		border-radius: 14px;
     z-index: 1;

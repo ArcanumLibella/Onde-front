@@ -26,13 +26,13 @@ const DropButton = props => {
         )}&Post=${initiativeId}`
       )
       .then(response => {
-        console.log(response.data['hydra:member'].length);
+        // console.log(response.data['hydra:member'].length);
 
         if (response.data['hydra:member'].length === 1) {
-          console.log('deja liké');
+          // console.log('deja liké');
           setIsLiked(true);
         } else {
-          console.log('pas liké');
+          // console.log('pas liké');
 
           setIsLiked(false);
         }
@@ -47,7 +47,7 @@ const DropButton = props => {
           Post: `/api/posts/${initiativeId}`
         })
         .then(result => {
-          console.log(result);
+          // console.log(result);
           // setDatas(result);
           setIsLiked(true);
         })
@@ -56,7 +56,7 @@ const DropButton = props => {
           setIsLiked(true);
         });
     } else {
-      console.log(sessionStorage.getItem('User') + ' ' + initiativeId);
+      // console.log(sessionStorage.getItem('User') + ' ' + initiativeId);
       axios
         .get(
           `https://onde-api.frb.io/api/likes?User=${sessionStorage.getItem(
