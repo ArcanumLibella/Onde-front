@@ -14,8 +14,7 @@ const MiniTag = (props) => {
 				return {
 					id: i.id,
 					name: i.name,
-					color: '#45BE93',
-					backgroundColor: 'yellow'
+					color: '#45BE93'
 				};
 			})
 		: [];
@@ -23,16 +22,14 @@ const MiniTag = (props) => {
 	const departmentTag = {
 		id: department.id,
 		name: department.name,
-		color: '#23A1F5',
-		backgroundColor: 'yellow'
+		color: '#23A1F5'
 	};
 
 	const partenaireTag = partenaire
 		? {
 				id: partenaire.id,
 				name: partenaire.name,
-				color: '#FF5977',
-				backgroundColor: 'yellow'
+				color: '#FF5977'
 			}
 		: [];
 
@@ -40,7 +37,7 @@ const MiniTag = (props) => {
 	const initiativeTags = [ ...coll, partenaireTag ];
 
 	const tagsCollection = initiativeTags.map((i) => (
-		<Paragraph key={i.id} color={i.color} backgroundColor={i.backgroundColor} className="minitag">
+		<Paragraph key={i.id} color={i.color} className="minitag">
 			{i.name}
 		</Paragraph>
 	));
@@ -64,7 +61,7 @@ const MiniTagStyled = styled.div`
 		font-weight: 600;
 		white-space: nowrap;
 		text-transform: uppercase;
-		/* background: ${(props) => props.backgroundColor || props.theme.white}; */
+		background: ${(props) => props.backgroundColor || props.theme.white};
 		border: none;
 		border-radius: 14px;
 		z-index: 1;
