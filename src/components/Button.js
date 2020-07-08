@@ -1,21 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { rem } from '../utilities';
 
 // TEMPLATE
 const Button = (props) => {
-	const { backgroundColor } = props;
-	function handleClick(e) {
-		e.preventDefault();
-		console.log('The link was clicked.');
-	}
+	const { textCta, linkCta, backgroundColor } = props;
 
 	return (
-		<ButtonStyle backgroundColor={backgroundColor} onClick={handleClick}>
-			{props.children}
+		<ButtonStyle className="cta" backgroundColor={backgroundColor}>
+			<Link className="cta__link cta-text" to={linkCta}>
+				{textCta}
+			</Link>
 		</ButtonStyle>
 	);
+
+	// const { backgroundColor } = props;
+	// function handleClick(e) {
+	// 	e.preventDefault();
+	// 	console.log('The link was clicked.');
+	// }
+
+	// return (
+	// 	<ButtonStyle backgroundColor={backgroundColor} onClick={handleClick}>
+	// 		{props.children}
+	// 	</ButtonStyle>
+	// );
 };
 
 // STYLE

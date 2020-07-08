@@ -2,7 +2,7 @@
 import React from 'react';
 import './assets/scss/app.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Homepage, Initiatives, Connexion, Missions, Inscription, InitiativeCreate } from './pages';
+import { Homepage, Initiatives, Connexion, Missions, Inscription, InitiativeCreate, InitiativeAdded } from './pages';
 import { ThemeProvider } from 'styled-components';
 
 // COMPONENTS
@@ -37,6 +37,10 @@ function App() {
 
 						<Route path="/nouvelle-initiative">
 							<InitiativeCreate theme={theme} />
+						</Route>
+
+						<Route path="/initiative-ajoutee">
+							<InitiativeAdded theme={theme} />
 						</Route>
 
 						<Route path="/">
