@@ -35,6 +35,7 @@ export { default as InitiativeSuccess } from './images/initiativeSuccess.svg';
 export { default as LogoGreenpeace } from './images/logoGreenpeace.png';
 export { default as LogoUm } from './images/logoUM.png';
 export { default as LogoWwf } from './images/logoWWF.png';
+export { default as LoginIllustration } from './images/illustrationLogin.svg';
 export { default as OndeLogo } from './images/logo.svg';
-export { default as SecurityCheck } from './images/securityCheck.svg';
 export { default as OndeLogoWhite } from './images/logoWhite.svg';
+export { default as SecurityCheck } from './images/securityCheck.svg';
