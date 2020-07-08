@@ -24,13 +24,16 @@ const MiniTag = props => {
     color: 'red'
   };
 
-  const partenaireTag = partenaire && {
-    id: partenaire.id,
-    name: partenaire.name,
-    color: 'green'
-  };
+  const partenaireTag = partenaire
+    ? {
+        id: partenaire.id,
+        name: partenaire.name,
+        color: 'green'
+      }
+    : [];
 
-  const initiativeTags = [...normalTags, departmentTag];
+  const coll = [...normalTags, departmentTag];
+  const initiativeTags = [...coll, partenaireTag];
 
   const tagsCollection = initiativeTags.map(i => (
     <Paragraph key={i.id} color={i.color} className="minitag">
