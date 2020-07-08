@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // COMPONENTS
 // import { Department /* , Pin */ } from '../components';
 import Department from './Department';
-import { DisplayTitle } from '../';
+// import { DisplayTitle } from '../';
 
 // DATA
 const departmentsSVG = require('../../utilities/departmentsPoints');
