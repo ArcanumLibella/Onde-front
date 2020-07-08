@@ -28,7 +28,6 @@ const InitiativesCardDetails = props => {
       axios
         .get(`https://onde-api.frb.io/api/posts/${id}`)
         .then(result => {
-          console.log('result', result);
           setIsLoaded(true);
           setInitiative(result);
         })
@@ -37,13 +36,13 @@ const InitiativesCardDetails = props => {
         });
   });
 
-  console.log('initiative', initiative);
-
   const destructureData = () => {
     if (initiative) {
       const {
-        data: { Post }
+        data: { Post, Tags }
       } = initiative;
+
+      console.log('Tags', Tags);
 
       const {
         id,
@@ -59,7 +58,6 @@ const InitiativesCardDetails = props => {
       return (
         <InitiativesCardDetailsStyled className="initiativeDetails">
           <div className="content-wrapper">
-            {/* <MiniTag tags={tags} /> */}
             <div className="initiativeDetails__head">
               <div className="initiativeDetails__title">
                 <DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
@@ -75,7 +73,7 @@ const InitiativesCardDetails = props => {
               </Link>
             </div>
             <div className="initiativeDetails__header">
-              <MiniTag />
+              <MiniTag tags={Tags} />
               <div className="initiativeDetails__icons">
                 <ShareCircleF width="34" fill={theme.midnight} />
                 <DropButton
@@ -94,7 +92,6 @@ const InitiativesCardDetails = props => {
                   <em>Germain Langelier</em> a lancé cette initiative le
                   <time> {formatDate(dateCreated)}</time>.
                 </Paragraph>
-                {/* <Paragraph><em>{author}</em> a lancé cette initiative le <time datetime={date}>{date}</time></Paragraph> */}
                 <Button>Je participe</Button>
               </div>
             </div>
@@ -126,9 +123,8 @@ const InitiativesCardDetails = props => {
                 <Paragraph>Plage de Pampelonne</Paragraph>
               </div>
             </div>
-            <div className="initiativeDetails__infos">
+            {/* <div className="initiativeDetails__infos">
               <Title>Emplacement</Title>
-              {/* Format Place */}
               <iframe
                 title="map"
                 width="288"
@@ -136,7 +132,7 @@ const InitiativesCardDetails = props => {
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDzhuwSfm5IUEs3cXThQQFs60o8ouymWLk&q=@43.5153627,3.9120154,14z"
                 allowFullScreen
               />
-            </div>
+            </div> */}
             <div className="initiativeDetails__infos">
               <Title>Commentaires</Title>
               <Comment
