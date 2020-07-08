@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DisplayTitle, Title, Paragraph, Button, ImageWrapper, TextLink, Footer, } from '../components';
+import { DisplayTitle, Title, Paragraph, Button, ImageWrapper, TextLink, Footer } from '../components';
 import { DropCircleF, FistRaisedCircleF, PinCircleF } from '../assets';
 import { rem, devices } from '../utilities';
 
@@ -31,7 +31,7 @@ const Homepage = (props) => {
 						bassin méditerranéen.
 					</Paragraph>
 					<ImageWrapper name="CleanUpTheBeach" alt="Nettoyage de plage" />
-					<Button>Découvrir les initiatives</Button>
+					<Button textCta="Découvrir les initiatives" linkCta="/initiatives" />
 				</div>
 			</section>
 
@@ -132,7 +132,6 @@ const Homepage = (props) => {
 							<ImageWrapper name="LogoWwf" alt="Logo du WWF" />
 							<ImageWrapper name="LogoGreenpeace" alt="Logo du Greenpeace" />
 							<ImageWrapper name="LogoUm" alt="Logo du l'Union pour la Méditerrannée" />
-							{/* TODO: add carousel */}
 						</div>
 					</div>
 				</div>
@@ -142,14 +141,12 @@ const Homepage = (props) => {
 			<section className="section section--signup section--blueBackground">
 				<div className="content-wrapper">
 					<DisplayTitle color={theme.white}>Participer au changement</DisplayTitle>
-					<Button>S'inscrire</Button>
+					<Button textCta="S'inscrire" linkCta="/inscription" />
 				</div>
 			</section>
 
-      {/* FOOTER */}
-      <Footer theme={theme}>
-      </Footer>
-
+			{/* FOOTER */}
+			<Footer theme={theme} />
 		</HomepageStyled>
 	);
 };
