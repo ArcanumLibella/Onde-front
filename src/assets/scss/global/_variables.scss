@@ -1,9 +1,3 @@
-/**
-* VARIABLES
-*/
-
-// COLORS
-
 // *** Primary
 $blue: #23a1f5;
 $malibuBlue: #2b45c9;
@@ -24,13 +18,9 @@ $black: #222222;
 $red: #f71735;
 $greyLight: rgba(0, 30, 60, 0.3);
 
-// *** Gradient
-// $gradient: linear-gradient(270deg, #64e0b9 0%, #4451c4 100%);
+$font: 'Inter',
+sans-serif;
 
-// FONTS
-$font: 'Inter', sans-serif;
-
-// BREAKPOINTS
 $medium: 768px;
 
 $large: 1200px;

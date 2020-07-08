@@ -8,7 +8,6 @@ import { devices } from '../utilities';
 
 const InitiativesList = (props, { department }) => {
   const { theme } = props;
-  // const departmentNumber = department ? department : null;
 
   const [items, setItems] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -40,31 +39,16 @@ const InitiativesList = (props, { department }) => {
         });
   });
 
-  // useEffect(
-  // 	() => {
-  // 		if (department) {
-  // 			setIsClosed();
-  // 		}
-  // 	},
-  // 	[ department ]
-  // );
-
   return (
     <InitiativesListStyled
-      className={
-        isClosed
-          ? /* 'initiativesList is-closed' */ 'initiativesList'
-          : 'initiativesList'
-      }
+      className={isClosed ? 'initiativesList' : 'initiativesList'}
     >
       <div className="content-wrapper">
         <div className="initiativesList__header">
-          <DisplayTitle /* tag="h1" */>Vos initiatives</DisplayTitle>
+          <DisplayTitle>Vos initiatives</DisplayTitle>
           <ParametersCircleF width={34} fill={theme.midnight} />
         </div>
-        <DisplayTitle onClick={() => displayInitiatives()}>
-          {/* {department} */}
-        </DisplayTitle>
+        <DisplayTitle onClick={() => displayInitiatives()}></DisplayTitle>
         <Tag />
         {initiativesCollection}
       </div>
@@ -72,7 +56,6 @@ const InitiativesList = (props, { department }) => {
   );
 };
 
-// STYLE
 const InitiativesListStyled = styled.section`
   &.initiativesList {
     @media ${devices.large} {

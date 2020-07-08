@@ -1,31 +1,28 @@
-// icons
 export {
-	// ArrowBackCircleo as ArrowBackCircleO,
-	Dropf as DropF,
-	Dropo as DropO,
-	DropCirclef as DropCircleF,
-	FistRaisedCirclef as FistRaisedCircleF,
-	FistRaisedf as FistRaisedF,
-	Hearto as HeartO,
-	Homef as HomeF,
-	Homeo as HomeO,
-	ParametersCirclef as ParametersCircleF,
-	PinCirclef as PinCircleF,
-	ShareCirclef as ShareCircleF,
-	Usero as UserO,
-	Createf as CreateF,
-	Createo as CreateO,
-	Libraryo as LibraryO,
-	Libraryf as LibraryF,
-	Listo as ListO,
-	Listf as ListF,
-	Backo as BackO,
-	Instagramf as InstagramF,
-	Facebookf as FacebookF,
-	Twitterf as TwitterF
+  Backo as BackO,
+  Createf as CreateF,
+  Createo as CreateO,
+  Dropf as DropF,
+  Dropo as DropO,
+  DropCirclef as DropCircleF,
+  Facebookf as FacebookF,
+  FistRaisedCirclef as FistRaisedCircleF,
+  FistRaisedf as FistRaisedF,
+  Hearto as HeartO,
+  Homef as HomeF,
+  Homeo as HomeO,
+  Instagramf as InstagramF,
+  Libraryf as LibraryF,
+  Libraryo as LibraryO,
+  Listf as ListF,
+  Listo as ListO,
+  ParametersCirclef as ParametersCircleF,
+  PinCirclef as PinCircleF,
+  ShareCirclef as ShareCircleF,
+  Twitterf as TwitterF,
+  Usero as UserO
 } from './icons/all-icons.js';
 
-// images
 export { default as BoyUnderneathFirework } from './images/boyUnderneathFirework.svg';
 export { default as CleanUpTheBeach } from './images/cleanUpTheBeach.svg';
 export { default as CreateInitiative } from './images/createInitiative.svg';

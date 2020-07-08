@@ -4,13 +4,12 @@ import axios from 'axios';
 import { DropCircleF } from '../assets';
 
 const DropButton = props => {
-  const { userId, initiativeId } = props;
+  const { initiativeId } = props;
 
   const [isLiked, setIsLiked] = useState(false);
   const [checkIsLiked, setCheckIsLiked] = useState(false);
 
   const [error, setError] = useState(null);
-  const [datas, setDatas] = useState([]);
 
   useEffect(() => {
     if (!checkIsLiked) {
@@ -26,14 +25,9 @@ const DropButton = props => {
         )}&Post=${initiativeId}`
       )
       .then(response => {
-        // console.log(response.data['hydra:member'].length);
-
         if (response.data['hydra:member'].length === 1) {
-          // console.log('deja liké');
           setIsLiked(true);
         } else {
-          // console.log('pas liké');
-
           setIsLiked(false);
         }
       });
@@ -47,8 +41,6 @@ const DropButton = props => {
           Post: `/api/posts/${initiativeId}`
         })
         .then(result => {
-          // console.log(result);
-          // setDatas(result);
           setIsLiked(true);
         })
         .catch(error => {
@@ -56,7 +48,6 @@ const DropButton = props => {
           setIsLiked(true);
         });
     } else {
-      // console.log(sessionStorage.getItem('User') + ' ' + initiativeId);
       axios
         .get(
           `https://onde-api.frb.io/api/likes?User=${sessionStorage.getItem(
@@ -64,39 +55,20 @@ const DropButton = props => {
           )}&Post=${initiativeId}`
         )
         .then(response => {
-          console.log(response.data['hydra:member'][0]);
           let likeToDelete = response.data['hydra:member'][0].id;
 
           axios
             .delete(`https://onde-api.frb.io/api/likes/${likeToDelete}`)
             .then(response => {
-              console.log('Like supprimé');
               setIsLiked(false);
             });
         });
-
-      // axios
-      //   .delete(`https://onde-api.frb.io/api/likes/${initiativeId}`, {
-      //     User: userId,
-      //     Post: `/api/posts/${initiativeId}`
-      //   })
-      //   .then(res => res.json())
-      //   .then(result => {
-      //     setDatas(result);
-      //     setIsLiked(false);
-      //   })
-      //   .catch(error => {
-      //     setError(error);
-      //     setIsLiked(true);
-      //   });
     }
   };
 
-  // console.log('datas dbutton', datas);
-  // console.log('isLiked dbutton', isLiked);
   error && console.log(error);
 
-  return <DropCircleF onClick={toggle} width={34} />;
+  return <DropCircleF onClick={toggle} width={34} fill={isLiked && 'blue'} />;
 };
 
 export default DropButton;

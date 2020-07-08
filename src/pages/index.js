@@ -1,9 +1,17 @@
-import Homepage from './Homepage';
 import Connexion from './Connexion';
-import Initiatives from './Initiatives';
-import Missions from './Missions';
-import Inscription from './Inscription';
+import Homepage from './Homepage';
 import InitiativeCreate from './InitiativeCreate';
 import InitiativeAdded from './InitiativeAdded';
+import Initiatives from './Initiatives';
+import Inscription from './Inscription';
+import Missions from './Missions';
 
-export { Homepage, Connexion, Initiatives, Missions, Inscription, InitiativeCreate, InitiativeAdded };
+export {
+  Connexion,
+  Homepage,
+  InitiativeCreate,
+  InitiativeAdded,
+  Initiatives,
+  Inscription,
+  Missions
+};
