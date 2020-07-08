@@ -6,11 +6,11 @@ Plateforme numérique de participation citoyenne destinée à préserver le litt
 
 ##### Lien du site :
 
-Hébergé sur Netlify : https://onde.netlify.app/
+Hébergé sur Netlify : [https://onde.netlify.app/]()
 
 ##### Lien du swagger :
 
-Hébergé sur API Plateform : https://onde-api.frb.io/api
+Hébergé sur API Plateform : [Onde-API](https://onde-api.frb.io/api)
 
 ### Groupe 8
 
@@ -28,21 +28,22 @@ Hébergé sur API Plateform : https://onde-api.frb.io/api
 
 ### Choix techniques
 
-Notre projet sera composé d'un front, d'une API, d'un back et d'une BDD.
+Notre projet est composé d'un Front, d'une API, d'un Back et d'une BDD.
 
 - Framework React.js
 - PWA
 - Map SVG
 - Yarn
+- Client side rendering
 
 ##### Librairies :
 
 - ServiceWorker : Workbox
-- Style scss : Styled components
-- API : Axios
-- Gestion icons : Inline-SVG
-- Router : React router-dom
-- Format du code : Prettier
+- Style SCSS : [Styled components](https://styled-components.com/)
+- API : [Axios](https://www.npmjs.com/package/axios)
+- Gestion icons : [SVG-Inliner](https://github.com/cuginoAle/svg-inliner)
+- Router : [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- Format du code : [Prettier](https://prettier.io/)
 
 ### Pour lancer le projet
 
@@ -59,6 +60,8 @@ Le projet s'ouvre sur [http://localhost:3000](http://localhost:3000)
 
 ### Les règles de développement mises en place
 
+Choix du mobile first et de l'amélioration progressive dans une démarche d'amélioration de l'accessibilité et de la scalabilité dans le temps.
+
 #### Les pages
 
 Les pages principales du site sont répertoriées dans le dossier `src/pages`,
@@ -74,7 +77,7 @@ ils regroupent :
 
 > les images
 
-> les icones
+> les icônes
 
 > les variables globales scss
 
@@ -116,7 +119,7 @@ Une fois **ImageWrapper** importé dans un fichier, il suffit de donner en propr
 
 ... sont des svg rassemblés dans le dossier `src/assets/icons`
 
-La librairie **svg-inliner** permet la gestion des icones :
+La librairie **svg-inliner** permet la gestion des icônes :
 
 - minification ([**SVGomg**](https://jakearchibald.github.io/svgomg/))
 - gestion du style
@@ -231,3 +234,46 @@ Par défaut,
 - la couleur est malibuBlue
 - la font-size est rem(16)
 - la font-weight est 400
+
+###### Mise en place de **Truncate** :
+
+Permet d'afficher un texte avec un nombre de caractère prédéfinis, 
+s'utilise dans une balise texte :
+
+```
+<Paragraph>
+  <Truncate maxChars="10" trailingCharCount="4">
+    "Magnam et et est sapiente"
+  </Truncate>
+</Paragraph>
+```
+output :
+`Magnam et et...ente`
+
+- `maxChars` correspond au nombre de caractères display (sans compter les points de suspension), par défaut il est de 12 caractères
+
+- `trailingCharCount` correspond au nombre de caractères display **APRÈS** les points de suspension, par défaut il est de 3 caractères
+
+#### Les fonctions utilitaires
+
+#####
+
+### Création du ServiceAPI + utilisation de Axios
+#### Connexion Back/Front
+
+Un fichier ServiceAPI a été créé pour la gestion de la connexion entre le Back et le Front.
+La fonction permettait de fetch des données selon une route passée en paramètres.
+
+Or des difficultés de rendering ont été rencontrées sur l'application.
+Le groupe a fait le choix d'une utilisation de la librairie [Axios](https://www.npmjs.com/package/axios) à la place, utilisée à l'intérieur même des components.
+
+Le groupe s'est rendu compte de l'importance de se mettre d'accord en **amont** à propos de la sémantique de l'envoi de données depuis le Back.
+En effet, **la manipulation des informations côté Front dépend de la distribution des données envoyées** depuis le Back.
+
+- Le Back peut faire le choix de création de routes très génériques renvoyants un nombre de données conséquent. Ces données sont appelées par le Front, un fois, à la racine de l'application. Puis, sont passées au components enfants.
+
+- Autrement, le Back peut préférer une approche view-model. Il créé une multitude de routes, répondants chacune à un besoin précis du Front et renvoyants _**la** donnée_ souhaitée. Routes appelées ensuite au sein des components nécessitants l'usage de ces données.
+
+Le groupe a fait l'erreur de s'accorder un peu tard sur ce principe. Le Back a créé un panel de routes important renvoyants beaucoup d'informations chacune, parfois peu pertinentes au vu des besoins en données de l'UX.
+
+Ce qui a conduit le Front a faire des appels de données massifs, afin de coupler les informations renvoyées par plusieurs routes, ramenant par conséquent **trop** de données. On a donc une perte de performance et d'optimisation de ce point de vu.

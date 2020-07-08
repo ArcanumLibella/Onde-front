@@ -30,9 +30,6 @@ const MiniTag = props => {
     color: 'green'
   };
 
-  console.log('partenaire', partenaire);
-  console.log('partenaireTag', partenaireTag);
-
   const initiativeTags = [...normalTags, departmentTag];
 
   const tagsCollection = initiativeTags.map(i => (
@@ -45,26 +42,25 @@ const MiniTag = props => {
 };
 
 const MiniTagStyled = styled.div`
-	display: flex;
+  display: flex;
   margin-left: -6px;
 
-	p,
-	.minitag {
-		position: relative;
-		display: inline-block;
-		padding: 4px 8px;
-		margin: 0 6px;
+  p,
+  .minitag {
+    position: relative;
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 0 6px;
 
-		/* color: ${props => props.backgroundColor || props.theme.midnight}; */
-		font-size: ${rem(12)};
-		font-weight: 600;
-		white-space: nowrap;
-		text-transform: uppercase;
-		background: ${props => props.backgroundColor || props.theme.white};
-		border: none;
-		border-radius: 14px;
+    font-size: ${rem(12)};
+    font-weight: 600;
+    white-space: nowrap;
+    text-transform: uppercase;
+    background: ${props => props.backgroundColor || props.theme.white};
+    border: none;
+    border-radius: 14px;
     z-index: 1;
-	}
+  }
 `;
 
 export default MiniTag;
