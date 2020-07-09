@@ -6,8 +6,10 @@ import { DisplayTitle, InitiativesCard, Tag } from '..';
 import { ParametersCircleF } from '../../assets';
 import { devices } from '../../utilities';
 
-const InitiativesList = (props, { department }) => {
-  const { theme } = props;
+const InitiativesList = ( props ) => {
+  const {department, theme, departmentsList} = props;
+
+  console.log(department)
 
   const [items, setItems] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,21 +24,36 @@ const InitiativesList = (props, { department }) => {
     ));
 
   const displayInitiatives = () => {
-    department = null;
+    //department = null;
     setIsClosed(!isClosed);
   };
 
   useEffect(() => {
-    !isLoaded &&
-      axios
-        .get('https://onde-api.frb.io/api/posts?validated=1')
+    console.log(department)
+    console.log(departmentsList)
+
+    let selectedDepartment = '';
+
+    if(department && departmentsList){
+      let idDepartment = departmentsList.find(el => el.code === department).id
+
+      selectedDepartment = `&department=${idDepartment}`;
+    } 
+
+    if(!isLoaded){
+      
+        axios
+        .get(`https://onde-api.frb.io/api/posts?validated=1${selectedDepartment}`)
         .then(result => {
           setIsLoaded(true);
           setItems(result['data']);
         })
         .catch(error => {
           setIsLoaded(true);
-        });
+        }); 
+      
+    }
+      
   });
 
   return (

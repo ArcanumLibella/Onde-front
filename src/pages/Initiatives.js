@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -10,14 +10,25 @@ const Initiatives = (props) => {
 
 	const [ departments, setDepartments ] = useState();
 	const [ selectedDepartment, setSelectedDepartment ] = useState(false);
+	const [isLoaded, setIsLoaded] = useState(false);
+
 
 	const retrieveDepartmentList = async function() {
 		axios.get('https://onde-api.frb.io/api/departments').then((response) => {
 			let departmentsList = response.data['hydra:member'];
 			// departmentsList && departmentsList.map((departmentItem, index) => {});
+			console.log(departmentsList)
 			setDepartments(departmentsList);
 		});
 	};
+
+	useEffect( () => {
+		if(!isLoaded){
+			retrieveDepartmentList()
+			setIsLoaded(true)
+		}
+	})
+
 
 	const handleClick = function(number) {
 		setSelectedDepartment(number);
@@ -26,7 +37,7 @@ const Initiatives = (props) => {
 	return (
 		<InitiativesStyled className="initiatives">
 			<Map theme={theme} onDepartmentClick={handleClick} />
-			<InitiativesList theme={theme} department={selectedDepartment} />
+			<InitiativesList theme={theme} department={selectedDepartment} departmentsList={departments} />
 		</InitiativesStyled>
 	);
 };
