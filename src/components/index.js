@@ -8,22 +8,21 @@ import ButtonParticipation from './ButtonParticipation';
 import DropButton from './DropButton';
 export { Button, DropButton, ButtonParticipation };
 
-import Comment from './Comment';
-export { Comment };
-
 import Footer from './Footer';
 export { Footer };
-
-import GoalWrapper from './GoalWrapper';
-export { GoalWrapper };
 
 import ImageWrapper from './ImageWrapper';
 export { ImageWrapper };
 
-import InitiativesList from './InitiativesList';
-import InitiativesCard from './InitiativesCard';
-import InitiativesCardDetails from './InitiativesCardDetails';
+import InitiativesList from './Initiatives/InitiativesList';
+import InitiativesCard from './Initiatives/InitiativesCard';
+import InitiativesCardDetails from './Initiatives/InitiativesCardDetails';
 export { InitiativesList, InitiativesCard, InitiativesCardDetails };
+
+import Comment from './InitiativesComposition/Comment';
+import GoalWrapper from './InitiativesComposition/GoalWrapper';
+import HeaderInitiatives from './InitiativesComposition/HeaderInitiatives';
+export { Comment, GoalWrapper, HeaderInitiatives };
 
 import Department from './Map/Department';
 import Map from './Map/Map';

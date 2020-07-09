@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-import { DisplayTitle, InitiativesCard, Tag } from '../components';
-import { ParametersCircleF } from '../assets';
-import { devices } from '../utilities';
+import { DisplayTitle, InitiativesCard, Tag } from '..';
+import { ParametersCircleF } from '../../assets';
+import { devices } from '../../utilities';
 
 const InitiativesList = (props, { department }) => {
   const { theme } = props;
