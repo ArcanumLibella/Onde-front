@@ -3,19 +3,9 @@ import styled from 'styled-components';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
-import {
-	DisplayTitle,
-	Title,
-	GoalWrapper,
-	Paragraph,
-	Button,
-	MiniTag,
-	Comment,
-	TextLink,
-	DropButton
-} from '../components';
-import { DropO, ShareCircleF, BackO } from '../assets';
-import { devices, formatDate } from '../utilities';
+import { DisplayTitle, Title, GoalWrapper, Paragraph, Comment, TextLink, HeaderInitiatives } from '..';
+import { DropO, BackO } from '../../assets';
+import { devices, formatDate } from '../../utilities';
 
 const InitiativesCardDetails = (props) => {
 	const { theme } = props;
@@ -41,7 +31,7 @@ const InitiativesCardDetails = (props) => {
 		if (initiative) {
 			const { data: { Post, Tags, Goal } } = initiative;
 
-			const { id, name, description, dateCreated, dateEnd, dateMeeting, likes } = Post;
+			const { dateEnd, dateMeeting, likes } = Post;
 
 			return (
 				<InitiativesCardDetailsStyled className="initiativeDetails">
@@ -60,24 +50,7 @@ const InitiativesCardDetails = (props) => {
 								</div>
 							</Link>
 						</div>
-						<div className="initiativeDetails__header">
-							<MiniTag tags={Tags} />
-							<div className="initiativeDetails__icons">
-								<ShareCircleF width="34" fill={theme.midnight} />
-								<DropButton width="34" fill={theme.blue} initiativeId={id} />
-							</div>
-						</div>
-						<div className="initiativeDetails__content">
-							<DisplayTitle>{name}</DisplayTitle>
-							<Paragraph>{description}</Paragraph>
-							<div className="initiativeDetails__cta">
-								<Paragraph>
-									<em>Germain Langelier</em> a lancé cette initiative le
-									<time> {formatDate(dateCreated)}</time>.
-								</Paragraph>
-								<Button textCta="Je participe" linkCta={`/initiatives/${id}`} />
-							</div>
-						</div>
+						<HeaderInitiatives theme={theme} initiativeData={Post} initiativeTags={Tags} />
 						<div className="initiativeDetails__infos">
 							<div className="initiativeDetails__action">
 								<DropO width="34" />
@@ -93,11 +66,7 @@ const InitiativesCardDetails = (props) => {
                 </Paragraph>
 							</div> */}
 						</div>
-						<div className="initiativeDetails__infos">
-							{/* {objectifs &&  */}
-							<Title>Prochains objectifs</Title>
-							<GoalWrapper goals={Goal} />
-						</div>
+						<GoalWrapper goals={Goal} />
 						<div className="initiativeDetails__dates">
 							<div className="initiativeDetails__infos">
 								<Title>Date de fin</Title>
@@ -154,130 +123,105 @@ const InitiativesCardDetailsStyled = styled.main`
 			display: flex;
 			justify-content: space-between;
 		}
-
 		&__title {
 			h1,
 			h2 {
 				margin-bottom: 12px;
 			}
-
 			p {
 				margin-bottom: 40px;
 			}
 		}
-
 		&__back {
 			display: flex;
 			align-items: center;
 			cursor: pointer;
-
 			p {
 				margin-left: 8px;
 				text-decoration: none;
 			}
 		}
-
 		&__header {
 			display: flex;
 			align-items: flex-start;
 			justify-content: space-between;
 			margin-bottom: 12px;
-
 			.minitags {
 				flex-wrap: wrap;
 			}
 		}
-
 		&__icons {
 			display: flex;
-
 			.icon {
 				margin: 0 4px;
 			}
 		}
-
 		&__content {
 			h2,
 			p {
 				margin-bottom: 16px;
-
 				@media ${devices.large} {
 					margin-bottom: 24px;
 				}
 			}
-
 			em,
 			time {
 				font-style: normal;
 				font-weight: bold;
 			}
-
 			button {
 				margin-bottom: 24px;
 			}
 		}
-
 		&__cta {
 			@media ${devices.medium} {
 				display: flex;
 				align-items: flex-end;
 				justify-content: space-between;
 				margin: 16px 0 32px;
-
 				p,
 				button {
 					margin: 0;
 				}
 			}
 		}
-
 		&__infos {
 			padding: 32px 0 24px;
 			border-top: 1px solid lightgrey;
-
 			@media ${devices.large} {
 				padding: 64px 0 32px;
 			}
-
 			h3 {
 				margin-bottom: 24px;
 			}
-
 			&:last-child {
 				margin-bottom: 64px;
-
 				@media ${devices.large} {
 					margin-bottom: 0;
 				}
 			}
 		}
-
 		&__action {
 			display: flex;
 			align-items: center;
 			margin-bottom: 12px;
-
 			p {
 				margin-left: 4px;
 			}
 		}
-
 		&__dates {
 			@media ${devices.large} {
 				display: flex;
 				flex-direction: row-reverse;
 				justify-content: space-between;
 				border-top: 1px solid lightgrey;
-
 				.initiativeDetails__infos {
 					border: none;
-
 					&:last-child {
 						margin-bottom: 0;
 					}
 				}
 			}
-
 			.initiativeDetails__infos {
 				&:last-child {
 					margin-bottom: 0;
@@ -285,15 +229,12 @@ const InitiativesCardDetailsStyled = styled.main`
 			}
 		}
 	}
-
 	iframe {
 		width: 100%;
 		height: 100%;
 	}
-
 	.comment {
 		margin-bottom: 24px;
-
 		> p {
 			margin-bottom: 8px;
 		}

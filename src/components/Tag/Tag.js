@@ -1,26 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 import { rem, devices } from '../../utilities';
 
 const Tag = props => {
-  const list = [
-    { id: 1, name: 'Alpes de Haute Provence' },
-    { id: 2, name: 'Alpes Maritimes' },
-    { id: 3, name: 'Var' },
-    { id: 4, name: 'Bouches du Rhône' },
-    { id: 5, name: 'Gard' },
-    { id: 6, name: 'Hérault' },
-    { id: 7, name: 'Aude' },
-    { id: 8, name: 'Pyrénées-Orientales' },
-    { id: 9, name: 'Haute Corse' },
-    { id: 10, name: 'Corse du Sud' }
-  ];
+  const [tagsList, setTagsList] = useState();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    !isLoaded &&
+      axios
+        .get(`https://onde-api.frb.io/api/tags`)
+        .then(result => {
+          setIsLoaded(true);
+          setTagsList(result.data['hydra:member']);
+        })
+        .catch(error => {
+          setIsLoaded(true);
+        });
+  });
 
   const tagsCollection =
-    list &&
-    list.map(i => (
-      <button key={i.id} tag={i} className="tag">
+    tagsList &&
+    tagsList.map(i => (
+      <button key={i.id} tag={i} initiativesRelated={i.Post} className="tag">
         {i.name}
       </button>
     ));
