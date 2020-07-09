@@ -13,10 +13,11 @@ import {
 	Comment,
 	TextLink,
 	DropButton,
-	ButtonParticipation
-} from '../components';
-import { DropO, ShareCircleF, BackO } from '../assets';
-import { devices, formatDate } from '../utilities';
+	ButtonParticipation,
+	HeaderInitiatives
+} from '../../components';
+import { DropO, ShareCircleF, BackO } from '../../assets';
+import { devices, formatDate } from '../../utilities';
 
 const InitiativesCardDetails = (props) => {
 	const { theme } = props;

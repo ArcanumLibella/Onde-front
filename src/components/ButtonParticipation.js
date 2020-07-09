@@ -13,7 +13,7 @@ const ButtonParticipation = (props) => {
 
 	const alreadyParticipe = (user, post) => {
 		if(user){
-			Axios.get(`https://onde-api.frb.io/api/subscriptions?User=${user}&Post=${post}`)
+			axios.get(`https://onde-api.frb.io/api/subscriptions?User=${user}&Post=${post}`)
 			.then(({data}) => {
 				if(data['hydra:totalItems'] === 1){
 					setIsParticipate(true)
@@ -26,10 +26,10 @@ const ButtonParticipation = (props) => {
 	const toParticipe = (user, post) => {
 		if(user){
 			if(isParticipate && idParticipation){
-				Axios.delete(`https://onde-api.frb.io/api/subscriptions/${idParticipation}`)
+				axios.delete(`https://onde-api.frb.io/api/subscriptions/${idParticipation}`)
 				.then(() => setIsParticipate(false));
 			}else{
-				Axios.post(`https://onde-api.frb.io/api/subscriptions/`, {
+				axios.post(`https://onde-api.frb.io/api/subscriptions/`, {
 					User: `/api/users/${user}`,
 					Post: `/api/posts/${post}`
 				})
