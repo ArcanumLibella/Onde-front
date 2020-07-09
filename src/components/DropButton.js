@@ -6,18 +6,11 @@ import { DropCircleF } from '../assets';
 const DropButton = props => {
   const { initiativeId, theme } = props;
 
-  const [isLiked, setIsLiked] = useState(false);
-  const [checkIsLiked, setCheckIsLiked] = useState(false);
+  const [isInitiativeLiked, setIsInitiativeLiked] = useState(false);
 
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!checkIsLiked) {
-      alreadyLiked();
-    }
-  });
-
-  const alreadyLiked = () => {
     axios
       .get(
         `https://onde-api.frb.io/api/likes?User=${sessionStorage.getItem(
@@ -26,26 +19,26 @@ const DropButton = props => {
       )
       .then(response => {
         if (response.data['hydra:member'].length === 1) {
-          setIsLiked(true);
+          setIsInitiativeLiked(true);
         } else {
-          setIsLiked(false);
+          setIsInitiativeLiked(false);
         }
       });
-  };
+  });
 
   const toggle = () => {
-    if (!isLiked) {
+    if (!isInitiativeLiked) {
       axios
         .post('https://onde-api.frb.io/api/likes', {
           User: `/api/users/${sessionStorage.getItem('User')}`,
           Post: `/api/posts/${initiativeId}`
         })
         .then(result => {
-          setIsLiked(true);
+          setIsInitiativeLiked(true);
         })
         .catch(error => {
           setError(error);
-          setIsLiked(true);
+          setIsInitiativeLiked(true);
         });
     } else {
       axios
@@ -60,7 +53,7 @@ const DropButton = props => {
           axios
             .delete(`https://onde-api.frb.io/api/likes/${likeToDelete}`)
             .then(response => {
-              setIsLiked(false);
+              setIsInitiativeLiked(false);
             });
         });
     }
