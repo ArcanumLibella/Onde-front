@@ -56,7 +56,8 @@ const InitiativeCreate = (props) => {
 				dateCreated: new Date(),
 				User: `/api/users/${sessionStorage.getItem('User')}`,
 				department: `/api/departments/${form['department'].value}`,
-				validated: false
+				validated: false,
+				tags: [`/api/tags/${form['tag'].value}`]
 			})
 			.then((response) => {
 				let post = response.data;
@@ -71,9 +72,10 @@ const InitiativeCreate = (props) => {
 							done: false,
 							Post: `/api/posts/${post.id}`
 						})
-						.then((response) => {});
+						.then((response) => { return response; });
 
 					j++;
+
 				});
 			});
 	};
@@ -94,7 +96,7 @@ const InitiativeCreate = (props) => {
 								<InputText>Thème</InputText>
 							</label>
 							<InputText>
-								<select>
+								<select name="tag">
 									{tags.map((tag) => {
 										return (
 											<option key={tag.id} value={tag.id}>
