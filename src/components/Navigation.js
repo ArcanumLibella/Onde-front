@@ -23,7 +23,7 @@ const Navigation = (props) => {
 	const login = () => {
     if (log === true){
 			return(
-        <Link to="/" className="navigation__item">
+        <Link to="/" className="navigation__item" onClick={ () => { sessionStorage.removeItem('User'); window.location.reload() }}>
 						<ListO />
 						logout
 				</Link>
@@ -31,7 +31,7 @@ const Navigation = (props) => {
 		} else if (log === false) {
       console.log('je suis pas connecté');
 			return(
-        <Link to="/connexion" onClick={ () => {console.log('coucou') }} className="navigation__item">
+        <Link to="/connexion" className="navigation__item">
 					<ListO />
 					Connexion
 			</Link>
