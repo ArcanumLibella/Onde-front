@@ -49,9 +49,6 @@ function App() {
             <Route path="/initiative-ajoutee">
               <InitiativeAdded theme={theme} />
             </Route>
-            <Route path="/logout">
-              <Logout/>
-            </Route>
 
             <Route path="/">
               <Homepage theme={theme} />

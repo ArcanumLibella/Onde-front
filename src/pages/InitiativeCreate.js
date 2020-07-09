@@ -72,7 +72,7 @@ const InitiativeCreate = (props) => {
 							Post: `/api/posts/${post.id}`
 						})
 						.then((response) => {});
-
+							window.location.pathname = "/initiative-ajoutee";
 					j++;
 				});
 			});

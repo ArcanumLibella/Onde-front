@@ -23,7 +23,7 @@ const Navigation = (props) => {
 	const login = () => {
     if (log === true){
 			return(
-        <Link to="/Logout" className="navigation__item">
+        <Link to="/" className="navigation__item">
 						<ListO />
 						logout
 				</Link>
@@ -31,7 +31,7 @@ const Navigation = (props) => {
 		} else if (log === false) {
       console.log('je suis pas connecté');
 			return(
-        <Link to="/connexion" className="navigation__item">
+        <Link to="/connexion" onClick={ () => {console.log('coucou') }} className="navigation__item">
 					<ListO />
 					Connexion
 			</Link>
@@ -41,7 +41,7 @@ const Navigation = (props) => {
   
   useEffect(() => {
     stateLog();
-    /* login(); */
+    login();
   });
   
 	return (
@@ -71,7 +71,7 @@ const Navigation = (props) => {
 								Créer
 						</Link>
 					} */}
-					{login(log)}
+					{login()}
 				</div>
 			</nav>
 		</HeaderStyle>
