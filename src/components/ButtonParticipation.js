@@ -35,6 +35,8 @@ const ButtonParticipation = (props) => {
 				})
 				.then((response) => { setIsParticipate(true) });
 			}
+		}else{
+			window.location.href = `/connexion?redirect=/initiatives/${post}`;
 		}
 	}
 
