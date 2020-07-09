@@ -49,7 +49,10 @@ const InitiativesCard = props => {
         <Paragraph fontSize={17}>
           <Truncate maxChars="120" trailingCharCount="0">
             {
-              description.substr(3, description.length - 7)
+             removeBaliseInDescription = (description) => {
+                  description.substr(3, description.length - 7)
+              }
+              {removeBaliseInDescription(description)}
             }
           </Truncate>
         </Paragraph>
