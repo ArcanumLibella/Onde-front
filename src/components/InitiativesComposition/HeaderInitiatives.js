@@ -11,7 +11,6 @@ const HeaderInitiatives = props => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const { id, name, description, dateCreated, User } = initiativeData;
-  console.log('User', User);
 
   useEffect(() => {
     !isLoaded &&
@@ -19,13 +18,22 @@ const HeaderInitiatives = props => {
         .get(`https://onde-api.frb.io/api/users/${User}`)
         .then(result => {
           setIsLoaded(true);
-          setInitiativeAuthor(initiativeAuthor);
-          console.log('initiativeAuthor', initiativeAuthor);
+          setInitiativeAuthor(result);
         })
         .catch(error => {
           setIsLoaded(true);
         });
   });
+
+  const getSurname = () => {
+    if (initiativeAuthor) {
+      const {
+        data: { surname }
+      } = initiativeAuthor;
+
+      return surname;
+    } else return '';
+  };
 
   return (
     <>
@@ -41,7 +49,7 @@ const HeaderInitiatives = props => {
         <Paragraph>{description}</Paragraph>
         <div className="initiativeDetails__cta">
           <Paragraph>
-            <em>{initiativeAuthor}</em> a lancé cette initiative le
+            <em>{getSurname()}</em> a lancé cette initiative le
             <time> {formatDate(dateCreated)}</time>.
           </Paragraph>
           <Button textCta="Je participe" linkCta={`/initiatives/${id}`} />
