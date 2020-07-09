@@ -57,7 +57,7 @@ const InitiativeCreate = (props) => {
 				User: `/api/users/${sessionStorage.getItem('User')}`,
 				department: `/api/departments/${form['department'].value}`,
 				validated: false,
-				tags: [`/api/tags/${form['tag'].value}`]
+				tags: [ `/api/tags/${form['tag'].value}` ]
 			})
 			.then((response) => {
 				let post = response.data;
@@ -72,10 +72,9 @@ const InitiativeCreate = (props) => {
 							done: false,
 							Post: `/api/posts/${post.id}`
 						})
-						.then((response) => { return response; });
-
+						.then((response) => {});
+					window.location.pathname = '/initiative-ajoutee';
 					j++;
-
 				});
 			});
 	};
