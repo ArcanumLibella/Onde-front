@@ -13,6 +13,9 @@ export { Comment };
 import Footer from './Footer';
 export { Footer };
 
+import GoalWrapper from './GoalWrapper';
+export { GoalWrapper };
+
 import ImageWrapper from './ImageWrapper';
 export { ImageWrapper };
 

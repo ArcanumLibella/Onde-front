@@ -6,6 +6,7 @@ import axios from 'axios';
 import {
   DisplayTitle,
   Title,
+  GoalWrapper,
   Paragraph,
   Button,
   MiniTag,
@@ -39,7 +40,7 @@ const InitiativesCardDetails = props => {
   const destructureData = () => {
     if (initiative) {
       const {
-        data: { Post, Tags }
+        data: { Post, Tags, Goal }
       } = initiative;
 
       const {
@@ -102,7 +103,7 @@ const InitiativesCardDetails = props => {
             <div className="initiativeDetails__infos">
               {/* {objectifs &&  */}
               <Title>Prochains objectifs</Title>
-              <Paragraph>Lorem ipsum dolor sit amet</Paragraph>
+              <GoalWrapper goals={Goal} />
             </div>
             <div className="initiativeDetails__dates">
               <div className="initiativeDetails__infos">

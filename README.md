@@ -91,27 +91,27 @@ rassemblées et utilisés à travers le `ThemeProvider` de **styled-components**
 ... sont des svg minifiés grâce à [SVGomg](https://jakearchibald.github.io/svgomg/)
 et exportées dans le fichier `src/assets/index.js` :
 
-```
+```javascript
 export { default as CleanUpTheBeach } from './images/cleanUpTheBeach.svg';
 ```
 
 Le component **ImageWrapper** permet une gestion des images simplifiée :
 
-```
-const ImageWrapper = (props) => {
-	const { name, width, alt } = props;
+```javascript
+const ImageWrapper = props => {
+  const { name, width, alt } = props;
 
-	if (!assets[name]) {
-		return null;
-	}
+  if (!assets[name]) {
+    return null;
+  }
 
-	return <img width={width} alt={alt} src={assets[name]} />;
+  return <img width={width} alt={alt} src={assets[name]} />;
 };
 ```
 
 Une fois **ImageWrapper** importé dans un fichier, il suffit de donner en propriété `name` le nom d'export de l'image souhaitée :
 
-```
+```jsx
 <ImageWrapper name="CleanUpTheBeach" alt="Nettoyage de plage" />
 ```
 
@@ -134,7 +134,7 @@ Les icônes sont ensuite exportées dans le fichier `src/assets/index.js`, selon
 
 L'import se fait ainsi :
 
-```
+```javascript
 import { DropO, FistRaisedF, ShareCircleF, BackO } from '../assets';
 ```
 
@@ -166,15 +166,15 @@ On a a disposition `<Title>`, `<DisplayTitle>`, `<Paragraph>` & `<TextLink>`
 
 Pour les importer :
 
-```jsx
+```javascript
 import { Title, DisplayTitle, Paragraph, TextLink } from '../components';
 ```
 
 Utiliser **Title** :
 
-```
+```jsx
 <Title color={theme.midnight} fontSize="20" fontWeight="600">
-	Apporter sa goutte à la mer !
+  Apporter sa goutte à la mer !
 </Title>
 ```
 
@@ -188,9 +188,9 @@ Par défaut,
 
 Utiliser **DisplayTitle** :
 
-```
+```jsx
 <DisplayTitle color={theme.midnight} fontSize="20" fontWeight="600">
-	Apporter sa goutte à l'océan !
+  Apporter sa goutte à l'océan !
 </DisplayTitle>
 ```
 
@@ -204,9 +204,9 @@ Par défaut,
 
 Utiliser **Paragraph** :
 
-```
+```jsx
 <Paragraph color={theme.midnight} fontSize="20" fontWeight="600">
-	Dire j’aime ton projet, c’est déjà un premier pas !
+  Dire j’aime ton projet, c’est déjà un premier pas !
 </Paragraph>
 ```
 
@@ -221,10 +221,8 @@ Par défaut,
 
 Utiliser **TextLink** :
 
-```
-<TextLink>
-	Devenir modérateur
-</TextLink>
+```jsx
+<TextLink>Devenir modérateur</TextLink>
 ```
 
 > C'est une balise p
@@ -237,16 +235,17 @@ Par défaut,
 
 ###### Mise en place de **Truncate** :
 
-Permet d'afficher un texte avec un nombre de caractère prédéfinis, 
+Permet d'afficher un texte avec un nombre de caractère prédéfinis,
 s'utilise dans une balise texte :
 
-```
+```jsx
 <Paragraph>
   <Truncate maxChars="10" trailingCharCount="4">
     "Magnam et et est sapiente"
   </Truncate>
 </Paragraph>
 ```
+
 output :
 `Magnam et et...ente`
 
@@ -259,6 +258,7 @@ output :
 #####
 
 ### Création du ServiceAPI + utilisation de Axios
+
 #### Connexion Back/Front
 
 Un fichier ServiceAPI a été créé pour la gestion de la connexion entre le Back et le Front.
