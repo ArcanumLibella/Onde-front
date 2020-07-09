@@ -40,3 +40,6 @@ import TextLink from './Text/TextLink';
 import Title from './Text/Title';
 import Truncate from './Text/Truncate';
 export { TextLink, Paragraph, InputText, DisplayTitle, Title, Truncate };
+
+import Logout from './logout';
+export { Logout }

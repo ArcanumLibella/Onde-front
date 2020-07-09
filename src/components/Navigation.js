@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState,useEffect} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -6,48 +7,76 @@ import { ImageWrapper } from '../components';
 import { HomeO, ListO, HeartO, UserO } from '../assets';
 import { devices, rem } from '../utilities';
 
-const Navigation = props => {
-  return (
+const Navigation = (props) => {
+
+  const [ log, setLog ] = useState(Boolean);
+  
+  
+	const stateLog = () => {
+    if (sessionStorage.getItem('User') == null){
+      setLog(false);
+		} else {
+      setLog(true);
+		}
+  };
+
+	const login = () => {
+    if (log === true){
+			return(
+        <Link to="/Logout" className="navigation__item">
+						<ListO />
+						logout
+				</Link>
+			)
+		} else if (log === false) {
+      console.log('je suis pas connecté');
+			return(
+        <Link to="/connexion" className="navigation__item">
+					<ListO />
+					Connexion
+			</Link>
+			)
+		}
+	}
+  
+  useEffect(() => {
+    stateLog();
+    /* login(); */
+  });
+  
+	return (
     <HeaderStyle className="content-wrapper">
-      <Link to="/">
-        <ImageWrapper name="OndeLogo" />
-      </Link>
-      <nav className="navigation" role="navigation">
-        <div className="content-wrapper navigation__items">
-          <Link to="/" className="navigation__item">
-            {/* {switchIconTapbar()} */}
-            <HomeO />
-            Accueil
+			<Link to="/">
+				<ImageWrapper name="OndeLogo" />
+			</Link>
+			<nav className="navigation" role="navigation">
+				<div className="content-wrapper navigation__items">
+					<Link to="/" className="navigation__item">
+						{/* {switchIconTapbar()} */}
+						<HomeO />
+						Accueil
+					</Link>
+					<Link to="/initiatives" className="navigation__item">
+						{/* {switchIconTapbar()} */}
+						<ListO />
+						Initiatives
+					</Link>
+          <Link to="/missions" className="navigation__item">
+                <ListO/>
+                À propos
           </Link>
-          <Link to="/initiatives" className="navigation__item">
-            {/* {switchIconTapbar()} */}
-            <ListO />
-            Initiatives
-          </Link>
-          {sessionStorage.getItem('User') && (
-            <Link to="/nouvelle-initiative" className="navigation__item">
-              <HeartO />
-              Créer une initiative
-            </Link>
-          )}
-
-          {sessionStorage.getItem('User') && (
-            <Link to="/bibliothèque" className="navigation__item">
-              <HeartO />
-              Bibliothèque
-            </Link>
-          )}
-
-          <Link to="/connexion" className="navigation__item">
-            <UserO />
-            Connexion
-          </Link>
-        </div>
-      </nav>
-    </HeaderStyle>
-  );
+					{/* {sessionStorage.getItem('User') &&
+						<Link to="/nouvelle-initiative" className="navigation__item">
+								<PenO />
+								Créer
+						</Link>
+					} */}
+					{login(log)}
+				</div>
+			</nav>
+		</HeaderStyle>
+	);
 };
-
 const HeaderStyle = styled.header`
   position: sticky;
   top: 0;

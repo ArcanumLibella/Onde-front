@@ -11,9 +11,10 @@ import {
   Missions,
   Inscription,
   InitiativeCreate,
-  InitiativeAdded
+  InitiativeAdded,
 } from './pages';
 import { Navigation, InitiativesCardDetails } from './components';
+import { Logout } from './components';
 
 function App() {
   const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!./assets/scss/global/_variables.scss');
@@ -47,6 +48,9 @@ function App() {
 
             <Route path="/initiative-ajoutee">
               <InitiativeAdded theme={theme} />
+            </Route>
+            <Route path="/logout">
+              <Logout/>
             </Route>
 
             <Route path="/">
