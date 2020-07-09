@@ -10,7 +10,13 @@ const HeaderInitiatives = props => {
   const [initiativeAuthor, setInitiativeAuthor] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const { id, name, description, dateCreated, User } = initiativeData;
+  const {
+    id,
+    name: initiativeTitle,
+    description,
+    dateCreated,
+    User
+  } = initiativeData;
 
   useEffect(() => {
     !isLoaded &&
@@ -28,11 +34,17 @@ const HeaderInitiatives = props => {
   const getSurname = () => {
     if (initiativeAuthor) {
       const {
-        data: { surname }
+        data: { surname, name }
       } = initiativeAuthor;
 
-      return surname;
-    } else return '';
+      const authorName = surname ? surname : name;
+
+      return (
+        <Paragraph>
+          <em>{authorName}</em> a lancé cette initiative le
+        </Paragraph>
+      );
+    } else return <Paragraph>Cette initiative a été lancée le</Paragraph>;
   };
 
   return (
@@ -45,13 +57,10 @@ const HeaderInitiatives = props => {
         </div>
       </div>
       <div className="initiativeDetails__content">
-        <DisplayTitle>{name}</DisplayTitle>
+        <DisplayTitle>{initiativeTitle}</DisplayTitle>
         <Paragraph>{description}</Paragraph>
         <div className="initiativeDetails__cta">
-          <Paragraph>
-            <em>{getSurname()}</em> a lancé cette initiative le
-            <time> {formatDate(dateCreated)}</time>.
-          </Paragraph>
+          {getSurname()} <time> {formatDate(dateCreated)}</time>
           <Button textCta="Je participe" linkCta={`/initiatives/${id}`} />
         </div>
       </div>

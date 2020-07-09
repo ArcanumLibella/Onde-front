@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { Paragraph } from '../';
+import { Paragraph, Title } from '../';
 
 const GoalWrapper = props => {
   const { goals } = props;
@@ -9,15 +8,20 @@ const GoalWrapper = props => {
   const goalCollection =
     goals &&
     goals.map(i => (
-      <DivStyled key={i} classname={i.done}>
+      <div key={i} classname={i.done}>
         <Paragraph>{i.number}</Paragraph>
         <Paragraph>{i.name}</Paragraph>
-      </DivStyled>
+      </div>
     ));
 
-  return goalCollection;
+  if (goalCollection.length > 0) {
+    return (
+      <div className="initiativeDetails__infos">
+        <Title>Prochains objectifs</Title>
+        {goalCollection}
+      </div>
+    );
+  } else return '';
 };
-
-const DivStyled = styled.div``;
 
 export default GoalWrapper;
