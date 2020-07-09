@@ -42,6 +42,7 @@ const InitiativesCardDetails = props => {
       const {
         data: { Post, Tags, Goal }
       } = initiative;
+      console.log(Post);
 
       const {
         id,
@@ -91,7 +92,12 @@ const InitiativesCardDetails = props => {
             <div className="initiativeDetails__infos">
               <div className="initiativeDetails__action">
                 <DropO width="34" />
-                <Paragraph>{amountOf(likes)} personnes ont aimé</Paragraph>
+                <Paragraph>
+                  {amountOf(likes)}
+                  {amountOf(likes) > 1
+                    ? ' personnes ont aimé'
+                    : ' personne a aimé'}
+                </Paragraph>
               </div>
               {/* <div className="initiativeDetails__action">
 								<FistRaisedF width="34" />
@@ -150,7 +156,7 @@ const InitiativesCardDetails = props => {
     return 'Chargement des initiatives...';
   };
 
-  const amountOf = data => (data ? data.length : '0');
+  const amountOf = data => (data ? data.length : 0);
 
   return destructureData();
 };

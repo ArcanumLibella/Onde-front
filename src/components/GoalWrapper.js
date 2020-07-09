@@ -1,17 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { Paragraph } from '.';
 
 const GoalWrapper = props => {
   const { goals } = props;
-  console.log('goals', goals);
 
-  const goal = goals.map(i => <Paragraph>{i.name}</Paragraph>);
+  const goalCollection =
+    goals &&
+    goals.map(i => (
+      <DivStyled key={i} classname={i.done}>
+        <Paragraph>{i.number}</Paragraph>
+        <Paragraph>{i.name}</Paragraph>
+      </DivStyled>
+    ));
 
-  // name, placement, number, done;
-  console.log(goal);
-
-  return { goal };
+  return goalCollection;
 };
+
+const DivStyled = styled.div``;
 
 export default GoalWrapper;
