@@ -7,7 +7,6 @@ import { rem } from '../../utilities';
 const MiniTag = (props) => {
 	const { tags } = props;
 	const { normal, department, partenaire } = tags;
-	console.log(partenaire);
 
 	const normalTags = normal
 		? normal.map((i) => {
