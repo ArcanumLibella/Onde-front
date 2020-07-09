@@ -12,7 +12,8 @@ const departmentsSVG = require('../../utilities/departmentsPoints');
 const Map = ({ theme, onDepartmentClick }) => {
   // FUNCTIONS
   // To handle click on each district and display initiatives list
-  const handleClick = function({ code, departmentsList }) {
+  const handleClick = function( code ) {
+    console.log(code)
     onDepartmentClick(code);
     // console.log(departmentsList);
     // departmentsList.find(departmentItem => departmentItem.code === code).id

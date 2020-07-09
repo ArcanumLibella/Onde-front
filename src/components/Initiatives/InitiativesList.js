@@ -6,38 +6,23 @@ import { DisplayTitle, InitiativesCard, Tag } from '..';
 import { ParametersCircleF } from '../../assets';
 import { devices } from '../../utilities';
 
-const InitiativesList = (props, { department }) => {
-  const { theme } = props;
+const InitiativesList = ( props ) => {
+  const {theme, initiatives} = props;
 
-  const [items, setItems] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isClosed, setIsClosed] = useState('true');
 
-  const initiativesList = items['hydra:member'];
 
   const initiativesCollection =
-    initiativesList &&
-    initiativesList.map(i => (
+  initiatives &&
+    initiatives.map(i => (
       <InitiativesCard key={i.id} theme={theme} id={i.id} />
     ));
 
   const displayInitiatives = () => {
-    department = null;
+    //department = null;
     setIsClosed(!isClosed);
   };
-
-  useEffect(() => {
-    !isLoaded &&
-      axios
-        .get('https://onde-api.frb.io/api/posts?validated=1')
-        .then(result => {
-          setIsLoaded(true);
-          setItems(result['data']);
-        })
-        .catch(error => {
-          setIsLoaded(true);
-        });
-  });
 
   return (
     <InitiativesListStyled
