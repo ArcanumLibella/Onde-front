@@ -12,7 +12,8 @@ import {
 	MiniTag,
 	Comment,
 	TextLink,
-	DropButton
+	DropButton,
+	ButtonParticipation
 } from '../components';
 import { DropO, ShareCircleF, BackO } from '../assets';
 import { devices, formatDate } from '../utilities';
@@ -75,7 +76,7 @@ const InitiativesCardDetails = (props) => {
 									<em>Germain Langelier</em> a lancé cette initiative le
 									<time> {formatDate(dateCreated)}</time>.
 								</Paragraph>
-								<Button textCta="Je participe" linkCta={`/initiatives/${id}`} />
+								<ButtonParticipation post={id} user={sessionStorage.getItem('User')}/>
 							</div>
 						</div>
 						<div className="initiativeDetails__infos">
