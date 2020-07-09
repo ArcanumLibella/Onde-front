@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { Button, DisplayTitle, MiniTag, Paragraph, DropButton } from '../';
+import { Button, DisplayTitle, MiniTag, Paragraph, DropButton, ButtonParticipation } from '../';
 import { ShareCircleF } from '../../assets';
 import { formatDate } from '../../utilities';
 
@@ -58,10 +58,10 @@ const HeaderInitiatives = props => {
       </div>
       <div className="initiativeDetails__content">
         <DisplayTitle>{initiativeTitle}</DisplayTitle>
-        <Paragraph>{description}</Paragraph>
+        <Paragraph><div dangerouslySetInnerHTML = {{__html: `${description}`}} /></Paragraph>
         <div className="initiativeDetails__cta">
           {getSurname()} <time> {formatDate(dateCreated)}</time>
-          <Button textCta="Je participe" linkCta={`/initiatives/${id}`} />
+          <ButtonParticipation post={id} user={sessionStorage.getItem('User')}/>
         </div>
       </div>
     </>

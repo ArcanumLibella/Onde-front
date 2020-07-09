@@ -29,7 +29,7 @@ const InitiativesList = (props, { department }) => {
   useEffect(() => {
     !isLoaded &&
       axios
-        .get('https://onde-api.frb.io/api/posts')
+        .get('https://onde-api.frb.io/api/posts?validated=1')
         .then(result => {
           setIsLoaded(true);
           setItems(result['data']);

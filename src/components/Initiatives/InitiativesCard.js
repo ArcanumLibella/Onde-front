@@ -25,6 +25,10 @@ const InitiativesCard = props => {
         });
   });
 
+  const removeBaliseInDescription = (description) => {
+    return description.substr(3, description.length - 7)
+  }
+
   if (initiative) {
     const {
       data: { Post, Tags }
@@ -42,7 +46,9 @@ const InitiativesCard = props => {
         </DisplayTitle>
         <Paragraph fontSize={17}>
           <Truncate maxChars="120" trailingCharCount="0">
-            {description}
+            {
+              removeBaliseInDescription(description)
+            }
           </Truncate>
         </Paragraph>
         <div className="initiative__cta">

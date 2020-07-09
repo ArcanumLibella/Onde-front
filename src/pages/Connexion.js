@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import {getParams} from '../utilities';
 
 import {
   DisplayTitle,
@@ -36,7 +37,12 @@ const Connexion = props => {
       .post('https://onde-api.frb.io/api/users/login', { email, password })
       .then(({ data }) => {
         sessionStorage.setItem('User', data.id);
-        window.location.href = '/';
+
+        if(getParams('redirect')){
+          window.location.href = getParams('redirect');
+        }else{
+          window.location.href = '/';
+        }
       })
       .catch(error => {
         console.error(error.response.data.error);

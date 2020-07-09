@@ -3,8 +3,20 @@ import styled from 'styled-components';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
-import { DisplayTitle, Title, GoalWrapper, Paragraph, Comment, TextLink, HeaderInitiatives } from '..';
-import { DropO, BackO } from '../../assets';
+import {
+	DisplayTitle,
+	Title,
+	GoalWrapper,
+	Paragraph,
+	Button,
+	MiniTag,
+	Comment,
+	TextLink,
+	DropButton,
+	ButtonParticipation,
+	HeaderInitiatives
+} from '../../components';
+import { DropO, ShareCircleF, BackO } from '../../assets';
 import { devices, formatDate } from '../../utilities';
 
 const InitiativesCardDetails = (props) => {

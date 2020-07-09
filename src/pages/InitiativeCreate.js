@@ -47,10 +47,12 @@ const InitiativeCreate = (props) => {
 			i++;
 		});
 
+		let description = `<p>${form['description'].value}</p>`;
+
 		axios
 			.post('https://onde-api.frb.io/api/posts', {
 				name: form['name'].value,
-				description: form['description'].value,
+				description: description,
 				dateMeeting: form['dateMeeting'].value,
 				dateEnd: form['dateEnd'].value,
 				dateCreated: new Date(),

@@ -4,8 +4,9 @@ import * as assets from '../assets/index';
 export { assets };
 
 import Button from './Button';
+import ButtonParticipation from './ButtonParticipation';
 import DropButton from './DropButton';
-export { Button, DropButton };
+export { Button, DropButton, ButtonParticipation };
 
 import Footer from './Footer';
 export { Footer };
