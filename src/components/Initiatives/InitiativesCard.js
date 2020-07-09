@@ -2,15 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-import {
-  DisplayTitle,
-  Paragraph,
-  Button,
-  MiniTag,
-  Truncate
-} from '../components';
-import { DropCircleF } from '../assets';
-import { devices } from '../utilities';
+import { DisplayTitle, Paragraph, Button, MiniTag, Truncate } from '..';
+import { DropCircleF } from '../../assets';
+import { devices } from '../../utilities';
 
 const InitiativesCard = props => {
   const { theme, id } = props;

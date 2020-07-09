@@ -4,7 +4,7 @@ import axios from 'axios';
 import { DropCircleF } from '../assets';
 
 const DropButton = props => {
-  const { initiativeId } = props;
+  const { initiativeId, theme } = props;
 
   const [isLiked, setIsLiked] = useState(false);
   const [checkIsLiked, setCheckIsLiked] = useState(false);
@@ -68,7 +68,13 @@ const DropButton = props => {
 
   error && console.log(error);
 
-  return <DropCircleF onClick={toggle} width={34} fill={isLiked && 'blue'} />;
+  return (
+    <DropCircleF
+      onClick={toggle}
+      width={34}
+      fill={isLiked ? theme.blue : theme.midnight}
+    />
+  );
 };
 
 export default DropButton;
