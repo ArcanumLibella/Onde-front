@@ -4,7 +4,16 @@ import './assets/scss/app.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { Homepage, Initiatives, Connexion, Missions, Inscription, InitiativeCreate, InitiativeAdded } from './pages';
+import {
+	Homepage,
+	Initiatives,
+	Connexion,
+	Missions,
+	Inscription,
+	InitiativeCreate,
+	InitiativeAdded,
+	Disclaimer
+} from './pages';
 import { Navigation, InitiativesCardDetails } from './components';
 
 function App() {
@@ -39,6 +48,10 @@ function App() {
 
 						<Route path="/initiative-ajoutee">
 							<InitiativeAdded theme={theme} />
+						</Route>
+
+						<Route path="/disclaimer">
+							<Disclaimer theme={theme} />
 						</Route>
 
 						<Route path="/">
