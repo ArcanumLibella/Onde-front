@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { rem } from '../utilities';
-import Axios from 'axios';
+import axios from 'axios';
 
 const ButtonParticipation = (props) => {
 	const { textCta, linkCta, backgroundColor, user, post } = props;
