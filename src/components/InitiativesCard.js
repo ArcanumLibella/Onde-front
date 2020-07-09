@@ -48,7 +48,7 @@ const InitiativesCard = props => {
         </DisplayTitle>
         <Paragraph fontSize={17}>
           <Truncate maxChars="120" trailingCharCount="0">
-            {description}
+            {description.substr(3)}
           </Truncate>
         </Paragraph>
         <div className="initiative__cta">

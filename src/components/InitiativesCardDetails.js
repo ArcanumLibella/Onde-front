@@ -69,7 +69,7 @@ const InitiativesCardDetails = (props) => {
 						</div>
 						<div className="initiativeDetails__content">
 							<DisplayTitle>{name}</DisplayTitle>
-							<Paragraph><div dangerouslySetInnerHTML = {{__html: `${description}`}}/></Paragraph>
+							<Paragraph><p dangerouslySetInnerHTML = {{__html: `${description}`}}/></Paragraph>
 							<div className="initiativeDetails__cta">
 								<Paragraph>
 									<em>Germain Langelier</em> a lancé cette initiative le
