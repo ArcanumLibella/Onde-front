@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Paragraph } from '.';
+import { Paragraph } from '../';
 
 const GoalWrapper = props => {
   const { goals } = props;
