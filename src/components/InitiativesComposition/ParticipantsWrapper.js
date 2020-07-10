@@ -8,6 +8,7 @@ import { amountOf } from '../../utilities';
 const ParticipantsWrapper = ({postId}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [participants, setParticipants] = useState();
+  const [participantsNumber, setParticipantsNumber] = useState(0)
 
   !isLoaded &&
     axios
@@ -15,6 +16,8 @@ const ParticipantsWrapper = ({postId}) => {
       .then(result => {
         setIsLoaded(true);
         setParticipants(result.data['hydra:member']);
+        console.log(result.data['hydra:totalItems']);
+        setParticipantsNumber(result.data['hydra:totalItems'])
       })
       .catch(error => {
         setIsLoaded(true);
@@ -24,8 +27,8 @@ const ParticipantsWrapper = ({postId}) => {
     <div className="initiativeDetails__action">
       <FistRaisedF width="34" />
       <Paragraph>
-        {amountOf(participants)}
-        {amountOf(participants) > 1
+        {participantsNumber}
+        {participantsNumber > 1
           ? ' personnes participent'
           : ' personne participe'}
       </Paragraph>

@@ -35,6 +35,7 @@ const DropButton = props => {
         })
         .then(result => {
           setIsInitiativeLiked(true);
+          window.location.reload();
         })
         .catch(error => {
           setError(error);
@@ -54,6 +55,7 @@ const DropButton = props => {
             .delete(`https://onde-api.frb.io/api/likes/${likeToDelete}`)
             .then(response => {
               setIsInitiativeLiked(false);
+              window.location.reload();
             });
         });
     }
