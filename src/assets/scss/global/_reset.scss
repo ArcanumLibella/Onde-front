@@ -127,7 +127,6 @@ q {
 }
 
 blockquote {
-
 	&:before,
 	&:after {
 		content: '';
@@ -136,7 +135,6 @@ blockquote {
 }
 
 q {
-
 	&:before,
 	&:after {
 		content: '';
@@ -182,4 +180,12 @@ img {
 
 strong {
 	font-weight: inherit;
+}
+
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+	-webkit-appearance: none;
 }
