@@ -10,49 +10,47 @@ const Initiatives = (props) => {
 
 	const [ departments, setDepartments ] = useState();
 	const [ selectedDepartment, setSelectedDepartment ] = useState(false);
-	const [isLoaded, setIsLoaded] = useState(false);
-	const [initiatives, setInitiatives] = useState([]);
-
+	const [ isLoaded, setIsLoaded ] = useState(false);
+	const [ initiatives, setInitiatives ] = useState([]);
 
 	const retrieveDepartmentList = async function() {
 		axios.get('https://onde-api.frb.io/api/departments').then((response) => {
 			let departmentsList = response.data['hydra:member'];
 			// departmentsList && departmentsList.map((departmentItem, index) => {});
-			console.log(departmentsList)
+			console.log(departmentsList);
 			setDepartments(departmentsList);
 		});
 	};
 
 	const getInitiatives = (departement) => {
-		let selectedDepartment = ''
+		let selectedDepartment = '';
 
-		if(departement){
-			let idDepartment = departments.find(el => el.code === departement).id
-			selectedDepartment = `&department=${idDepartment}`
+		if (departement) {
+			let idDepartment = departments.find((el) => el.code === departement).id;
+			selectedDepartment = `&department=${idDepartment}`;
 		}
 
 		axios
-        .get(`https://onde-api.frb.io/api/posts?validated=1${selectedDepartment}`)
-        .then(result => {
-          setInitiatives(result['data']['hydra:member'])
-        })
-        .catch(error => {
-          setIsLoaded(true);
-        }); 
-	}
+			.get(`https://onde-api.frb.io/api/posts?validated=1${selectedDepartment}`)
+			.then((result) => {
+				setInitiatives(result['data']['hydra:member']);
+			})
+			.catch((error) => {
+				setIsLoaded(true);
+			});
+	};
 
-	useEffect( () => {
-		if(!isLoaded){
-			retrieveDepartmentList()
-			getInitiatives()
-			setIsLoaded(true)
+	useEffect(() => {
+		if (!isLoaded) {
+			retrieveDepartmentList();
+			getInitiatives();
+			setIsLoaded(true);
 		}
-	})
-
+	});
 
 	const handleClick = function(number) {
 		setSelectedDepartment(number);
-		getInitiatives(number)
+		getInitiatives(number);
 	};
 
 	return (
