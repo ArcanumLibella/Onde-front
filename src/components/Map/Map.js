@@ -15,8 +15,6 @@ const Map = ({ theme, onDepartmentClick }) => {
   const handleClick = function( code ) {
     console.log(code)
     onDepartmentClick(code);
-    // console.log(departmentsList);
-    // departmentsList.find(departmentItem => departmentItem.code === code).id
   };
 
   // To display each department

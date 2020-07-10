@@ -13,11 +13,12 @@ const InitiativesList = ( props ) => {
   const [isClosed, setIsClosed] = useState('true');
 
 
-  const initiativesCollection =
-  initiatives &&
-    initiatives.map(i => (
-      <InitiativesCard key={i.id} theme={theme} id={i.id} />
-    ));
+    const initiativesCollection =
+    initiatives &&
+      initiatives.map(i => (
+        <InitiativesCard key={i.id} theme={theme} id={i.id} />
+      ));
+
 
   const displayInitiatives = () => {
     //department = null;
@@ -35,7 +36,7 @@ const InitiativesList = ( props ) => {
         </div>
         <DisplayTitle onClick={() => displayInitiatives()}></DisplayTitle>
         <Tag />
-        {initiativesCollection}
+        {initiativesCollection.length > 0 ? initiativesCollection : "Aucune initiatives crées pour ce département pour l'instant"}
       </div>
     </InitiativesListStyled>
   );
