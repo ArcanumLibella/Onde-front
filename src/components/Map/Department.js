@@ -9,7 +9,7 @@ const Department = ({ /* number ,*/ points, code, color, onDepartmentClick }) =>
 	return (
 		<path
 			onClick={() => {
-				onDepartmentClick(code, 'roro');
+				onDepartmentClick(code);
 			}}
 			id={code}
 			data-name="department"
