@@ -6,7 +6,7 @@ Plateforme numérique de participation citoyenne destinée à préserver le litt
 
 ##### Lien du site :
 
-Hébergé sur Netlify : [https://onde.netlify.app/]()
+Hébergé sur Netlify : [https://onde.netlify.app/](https://onde.netlify.app/)
 
 ##### Lien du swagger :
 
