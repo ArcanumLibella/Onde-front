@@ -60,7 +60,9 @@ const HeaderInitiatives = props => {
         <DisplayTitle>{initiativeTitle}</DisplayTitle>
         <Paragraph><div dangerouslySetInnerHTML = {{__html: `${description}`}} /></Paragraph>
         <div className="initiativeDetails__cta">
-          {getSurname()} <time> {formatDate(dateCreated)}</time>
+          <div className="initiativeDetails__creation">
+            {getSurname()} <time> {formatDate(dateCreated)}</time>
+          </div>
           <ButtonParticipation post={id} user={sessionStorage.getItem('User')}/>
         </div>
       </div>
