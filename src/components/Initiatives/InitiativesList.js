@@ -6,7 +6,7 @@ import { ParametersCircleF } from '../../assets';
 import { devices } from '../../utilities';
 
 const InitiativesList = props => {
-  const { theme, initiatives, onTagClick } = props;
+  const { theme, initiatives, onTagClick, isInitiativeLoading } = props;
 
   const [isClosed, setIsClosed] = useState('true');
 
@@ -37,9 +37,19 @@ const InitiativesList = props => {
         </div>
         <DisplayTitle onClick={() => displayInitiatives()} />
         <Tag onTagClick={(id) => onTagClick(id)} />
-        {initiativesCollection.length > 0
-          ? initiativesCollection
-          : 'Chargement des initiatives ...'}
+
+
+        {
+          (isInitiativeLoading) ?
+            initiativesCollection.length > 0
+              ? initiativesCollection
+              : 'Aucune initiatives crées pour ce département pour l\'instant'
+          : ''
+        }
+
+        {
+          !isInitiativeLoading ? 'Chargement des initiatives en cours...' : console.log(isInitiativeLoading)
+        }
       </div>
     </InitiativesListStyled>
   );
