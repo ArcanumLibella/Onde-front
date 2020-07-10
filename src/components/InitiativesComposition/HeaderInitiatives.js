@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { Button, DisplayTitle, MiniTag, Paragraph, DropButton, ButtonParticipation } from '../';
+import { DisplayTitle, MiniTag, Paragraph, DropButton, ButtonParticipation } from '../';
 import { ShareCircleF } from '../../assets';
 import { formatDate } from '../../utilities';
 

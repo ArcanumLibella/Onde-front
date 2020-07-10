@@ -1,68 +1,61 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import { rem } from '../utilities';
 import axios from 'axios';
 
 const ButtonParticipation = (props) => {
-	const { textCta, linkCta, backgroundColor, user, post } = props;
+	const { backgroundColor, user, post } = props;
 
-	const [isParticipate, setIsParticipate] = useState(false);
-	const [idParticipation, setIdParticipation] = useState(null)
+	const [ isParticipate, setIsParticipate ] = useState(false);
+	const [ idParticipation, setIdParticipation ] = useState(null);
 
 	const alreadyParticipe = (user, post) => {
-		if(user){
-			axios.get(`https://onde-api.frb.io/api/subscriptions?User=${user}&Post=${post}`)
-			.then(({data}) => {
-				if(data['hydra:totalItems'] === 1){
-					setIsParticipate(true)
-					setIdParticipation(data['hydra:member'][0].id)
+		if (user) {
+			axios.get(`https://onde-api.frb.io/api/subscriptions?User=${user}&Post=${post}`).then(({ data }) => {
+				if (data['hydra:totalItems'] === 1) {
+					setIsParticipate(true);
+					setIdParticipation(data['hydra:member'][0].id);
 				}
-			})
+			});
 		}
-	}
+	};
 
 	const toParticipe = (user, post) => {
-		if(user){
-			if(isParticipate && idParticipation){
-				axios.delete(`https://onde-api.frb.io/api/subscriptions/${idParticipation}`)
-				.then(() => setIsParticipate(false));
-			}else{
-				axios.post(`https://onde-api.frb.io/api/subscriptions/`, {
-					User: `/api/users/${user}`,
-					Post: `/api/posts/${post}`
-				})
-				.then((response) => { setIsParticipate(true) });
+		if (user) {
+			if (isParticipate && idParticipation) {
+				axios
+					.delete(`https://onde-api.frb.io/api/subscriptions/${idParticipation}`)
+					.then(() => setIsParticipate(false));
+			} else {
+				axios
+					.post(`https://onde-api.frb.io/api/subscriptions/`, {
+						User: `/api/users/${user}`,
+						Post: `/api/posts/${post}`
+					})
+					.then((response) => {
+						setIsParticipate(true);
+					});
 			}
-		}else{
+		} else {
 			window.location.href = `/connexion?redirect=/initiatives/${post}`;
 		}
-	}
+	};
 
 	alreadyParticipe(user, post);
 
 	return (
-		<ButtonStyle className="cta" backgroundColor={
-			isParticipate ? 'green' : backgroundColor
-		}>
-			<p className="cta__link" onClick={() => {toParticipe(user, post)}}>
+		<ButtonStyle className="cta" backgroundColor={isParticipate ? 'green' : backgroundColor}>
+			<p
+				className="cta__link"
+				onClick={() => {
+					toParticipe(user, post);
+				}}
+			>
 				{isParticipate ? 'Vous participez' : 'Je participe'}
 			</p>
 		</ButtonStyle>
 	);
-
-	// const { backgroundColor } = props;
-	// function handleClick(e) {
-	// 	e.preventDefault();
-	// 	console.log('The link was clicked.');
-	// }
-
-	// return (
-	// 	<ButtonStyle backgroundColor={backgroundColor} onClick={handleClick}>
-	// 		{props.children}
-	// 	</ButtonStyle>
-	// );
 };
 
 const ButtonStyle = styled.button`

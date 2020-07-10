@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 
 import { DisplayTitle, InitiativesCard, Tag } from '..';
 import { ParametersCircleF } from '../../assets';
@@ -9,7 +8,6 @@ import { devices } from '../../utilities';
 const InitiativesList = (props) => {
 	const { theme, initiatives } = props;
 
-	const [ isLoaded, setIsLoaded ] = useState(false);
 	const [ isClosed, setIsClosed ] = useState('true');
 
 	const initiativesCollection =

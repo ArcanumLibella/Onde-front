@@ -16,8 +16,6 @@ const Initiatives = (props) => {
 	const retrieveDepartmentList = async function() {
 		axios.get('https://onde-api.frb.io/api/departments').then((response) => {
 			let departmentsList = response.data['hydra:member'];
-			// departmentsList && departmentsList.map((departmentItem, index) => {});
-			console.log(departmentsList);
 			setDepartments(departmentsList);
 		});
 	};
