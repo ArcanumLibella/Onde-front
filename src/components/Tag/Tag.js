@@ -11,7 +11,7 @@ const Tag = props => {
   useEffect(() => {
     !isLoaded &&
       axios
-        .get(`https://onde-api.frb.io/api/tags`)
+        .get(`https://onde-api.frb.io/api/departments`)
         .then(result => {
           setIsLoaded(true);
           setTagsList(result.data['hydra:member']);
