@@ -14,29 +14,31 @@ const Department = ({ /* number ,*/ points, code, onDepartmentClick }) => {
 	const initiativesNumber = (code) => {
 		axios.get('https://onde-api.frb.io/api/departments').then((response) => {
 			let departmentsList = response.data['hydra:member'];
+			
+			let idDepartment = departmentsList.find(el => el.code === code).id
+			let selectedDepartment = `&department=${idDepartment}`
 
-			let idDepartment = departmentsList.find((el) => el.code === code).id;
-			let selectedDepartment = `&department=${idDepartment}`;
-
-			axios.get(`https://onde-api.frb.io/api/posts?validated=1${selectedDepartment}`).then(({ data }) => {
-				setNumberInitiatives(data['hydra:totalItems']);
-			});
+			axios.get(`https://onde-api.frb.io/api/posts?validated=1${selectedDepartment}`)
+				.then(({ data }) => {
+					setNumberInitiatives(data['hydra:totalItems'])
+				})
 		});
-	};
+
+		
+	}
 
 	useEffect(() => {
-		if (!isLoaded) {
+		if(!isLoaded){
 			retrieveDepartmentList();
-			initiativesNumber(code);
-			setIsLoaded(true);
+			initiativesNumber(code)
+			setIsLoaded(true)
 		}
-	});
+	})
 
 	return (
 		<path
 			onClick={() => {
 				onDepartmentClick(code);
-				handleClick();
 			}}
 			id={code}
 			data-name="department"
