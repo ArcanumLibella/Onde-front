@@ -33,7 +33,8 @@ const MiniTag = props => {
     : [];
 
   const coll = [...normalTags, departmentTag];
-  const initiativeTags = [...coll, partenaireTag];
+  const initiativeTags =
+    partenaireTag.length === 0 ? coll : [...coll, partenaireTag];
 
   const tagsCollection = initiativeTags.map(i => (
     <Paragraph key={i.id} color={i.color} className="minitag">
