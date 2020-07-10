@@ -21,11 +21,6 @@ const InitiativesList = props => {
     setIsClosed(!isClosed);
   };
 
-  // const handleClick = (idDpartment) => {
-  //   console.log('Tag click')
-  //   console.log(idDpartment)
-  // }
-
   return (
     <InitiativesListStyled
       className={isClosed ? 'initiativesList' : 'initiativesList'}
@@ -48,7 +43,7 @@ const InitiativesList = props => {
         }
 
         {
-          !isInitiativeLoading ? 'Chargement des initiatives en cours...' : console.log(isInitiativeLoading)
+          !isInitiativeLoading ? 'Chargement des initiatives en cours...' : ''
         }
       </div>
     </InitiativesListStyled>
