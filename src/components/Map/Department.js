@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Department = ({ /* number ,*/ points, code, color, onDepartmentClick }) => {
+const Department = ({ /* number ,*/ points, code, onDepartmentClick }) => {
 	const [ isLoaded, setIsLoaded ] = useState(false);
 	const [ numberInitiatives, setNumberInitiatives ] = useState(0);
 
@@ -36,6 +36,7 @@ const Department = ({ /* number ,*/ points, code, color, onDepartmentClick }) =>
 		<path
 			onClick={() => {
 				onDepartmentClick(code);
+				handleClick();
 			}}
 			id={code}
 			data-name="department"
