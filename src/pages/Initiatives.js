@@ -54,7 +54,7 @@ const Initiatives = (props) => {
 	return (
 		<InitiativesStyled className="initiatives">
 			<Map theme={theme} onDepartmentClick={handleClick} />
-			<InitiativesList theme={theme} initiatives={initiatives} />
+			<InitiativesList theme={theme} initiatives={initiatives} onTagClick={(id) => { handleClick(id)}} />
 		</InitiativesStyled>
 	);
 };

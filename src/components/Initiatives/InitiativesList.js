@@ -6,7 +6,7 @@ import { ParametersCircleF } from '../../assets';
 import { devices } from '../../utilities';
 
 const InitiativesList = props => {
-  const { theme, initiatives } = props;
+  const { theme, initiatives, onTagClick } = props;
 
   const [isClosed, setIsClosed] = useState('true');
 
@@ -21,6 +21,11 @@ const InitiativesList = props => {
     setIsClosed(!isClosed);
   };
 
+  // const handleClick = (idDpartment) => {
+  //   console.log('Tag click')
+  //   console.log(idDpartment)
+  // }
+
   return (
     <InitiativesListStyled
       className={isClosed ? 'initiativesList' : 'initiativesList'}
@@ -31,7 +36,7 @@ const InitiativesList = props => {
           <ParametersCircleF width={34} fill={theme.midnight} />
         </div>
         <DisplayTitle onClick={() => displayInitiatives()} />
-        <Tag />
+        <Tag onTagClick={(id) => onTagClick(id)} />
         {initiativesCollection.length > 0
           ? initiativesCollection
           : 'Chargement des initiatives ...'}
