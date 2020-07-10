@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Department = ({ /* number ,*/ points, code, color, onDepartmentClick }) => {
-
-	const [isLoaded, setIsLoaded] = useState(false);
-	const [numberInitiatives, setNumberInitiatives] = useState(0);
+const Department = ({ /* number ,*/ points, code, onDepartmentClick }) => {
+	const [ isLoaded, setIsLoaded ] = useState(false);
+	const [ numberInitiatives, setNumberInitiatives ] = useState(0);
 
 	const handleClick = function() {
 		onDepartmentClick(code);
 	};
 
-	const retrieveDepartmentList = async function() {
-		
-	};
+	const retrieveDepartmentList = async function() {};
 
 	const initiativesNumber = (code) => {
 		axios.get('https://onde-api.frb.io/api/departments').then((response) => {
