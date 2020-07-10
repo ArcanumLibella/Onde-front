@@ -21,10 +21,16 @@ const Tag = props => {
         });
   });
 
+  // const handleClick = (idDpartment) =>{
+  //   console.log(idDpartment);
+  //   props.onTagClick(idDpartment)
+  // }
+
+
   const tagsCollection =
     tagsList &&
     tagsList.map(i => (
-      <button key={i.id} tag={i} initiativesRelated={i.Post} className="tag">
+      <button key={i.id} tag={i} initiativesRelated={i.Post} onClick={() => {props.onTagClick(i.code)}} className="tag">
         {i.name}
       </button>
     ));

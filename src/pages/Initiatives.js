@@ -12,6 +12,7 @@ const Initiatives = (props) => {
 	const [ selectedDepartment, setSelectedDepartment ] = useState(false);
 	const [ isLoaded, setIsLoaded ] = useState(false);
 	const [ initiatives, setInitiatives ] = useState([]);
+	const [ initiativesLoaded, setInitiativesLoaded ] = useState(false);
 
 	const retrieveDepartmentList = async function() {
 		axios.get('https://onde-api.frb.io/api/departments').then((response) => {
@@ -32,9 +33,10 @@ const Initiatives = (props) => {
 			.get(`https://onde-api.frb.io/api/posts?validated=1${selectedDepartment}`)
 			.then((result) => {
 				setInitiatives(result['data']['hydra:member']);
+				setInitiativesLoaded(true);
 			})
 			.catch((error) => {
-				setIsLoaded(true);
+				setInitiativesLoaded(true);
 			});
 	};
 
@@ -48,13 +50,14 @@ const Initiatives = (props) => {
 
 	const handleClick = function(number) {
 		setSelectedDepartment(number);
+		setInitiativesLoaded(false)
 		getInitiatives(number);
 	};
 
 	return (
 		<InitiativesStyled className="initiatives">
 			<Map theme={theme} onDepartmentClick={handleClick} />
-			<InitiativesList theme={theme} initiatives={initiatives} />
+			<InitiativesList theme={theme} initiatives={initiatives} onTagClick={(id) => { handleClick(id)}} isInitiativeLoading={initiativesLoaded} />
 		</InitiativesStyled>
 	);
 };

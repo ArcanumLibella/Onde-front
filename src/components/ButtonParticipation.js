@@ -26,7 +26,7 @@ const ButtonParticipation = (props) => {
 			if (isParticipate && idParticipation) {
 				axios
 					.delete(`https://onde-api.frb.io/api/subscriptions/${idParticipation}`)
-					.then(() => setIsParticipate(false));
+					.then(() => {setIsParticipate(false); window.location.reload(); });
 			} else {
 				axios
 					.post(`https://onde-api.frb.io/api/subscriptions/`, {
@@ -35,6 +35,7 @@ const ButtonParticipation = (props) => {
 					})
 					.then((response) => {
 						setIsParticipate(true);
+						window.location.reload();
 					});
 			}
 		} else {
