@@ -19,8 +19,6 @@ const InitiativesList = ( props ) => {
         <InitiativesCard key={i.id} theme={theme} id={i.id} />
       ));
 
-      console.log(initiativesCollection.length)
-  
 
   const displayInitiatives = () => {
     //department = null;
