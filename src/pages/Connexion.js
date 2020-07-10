@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
-import {getParams} from '../utilities';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import {
   DisplayTitle,
@@ -9,8 +9,7 @@ import {
   ImageWrapper,
   Paragraph
 } from '../components';
-import { rem, devices } from '../utilities';
-import { Link } from 'react-router-dom';
+import { rem, devices, getParams } from '../utilities';
 
 const Connexion = props => {
   const alreadyConnected = () => {
@@ -21,9 +20,9 @@ const Connexion = props => {
 
   alreadyConnected();
 
-  const logout = () => {
-    sessionStorage.removeItem('User');
-  };
+  // const logout = () => {
+  //   sessionStorage.removeItem('User');
+  // };
 
   //logout();
 
@@ -38,9 +37,9 @@ const Connexion = props => {
       .then(({ data }) => {
         sessionStorage.setItem('User', data.id);
 
-        if(getParams('redirect')){
+        if (getParams('redirect')) {
           window.location.href = getParams('redirect');
-        }else{
+        } else {
           window.location.href = '/';
         }
       })
@@ -57,9 +56,6 @@ const Connexion = props => {
             <DisplayTitle fontSize="30" fontWeight="800">
               Heureux de vous retrouver !
             </DisplayTitle>
-            <Link to="/inscription">
-              <Paragraph fontSize={rem(16)}>Pas encore de compte ?</Paragraph>
-            </Link>
             <form onSubmit={e => testConnexion(e)}>
               <InputText>
                 <label>Adresse e-mail</label>
@@ -77,6 +73,9 @@ const Connexion = props => {
                 <input type="submit" value="Connecter" />
               </InputText>
             </form>
+            <Link to="/inscription">
+              <Paragraph fontSize={rem(16)}>Pas encore de compte ?</Paragraph>
+            </Link>
           </div>
         </div>
         <div className="content-wrapper section section--desktop">

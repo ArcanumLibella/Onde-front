@@ -65,7 +65,7 @@ const DropButton = props => {
     <DropCircleF
       onClick={toggle}
       width={34}
-      fill={isLiked ? theme.blue : theme.midnight}
+      fill={isInitiativeLiked ? theme.blue : theme.midnight}
     />
   );
 };

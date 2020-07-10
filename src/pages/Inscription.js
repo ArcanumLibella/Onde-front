@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import {
   DisplayTitle,
@@ -54,7 +55,9 @@ const Inscription = () => {
             <div className="inscription__header">
               <DisplayTitle>Bienvenue !</DisplayTitle>
               <Paragraph fontSize={16}>Vous avez déjà un compte ?</Paragraph>
-              <TextLink fontSize={16}>Connectez-vous</TextLink>
+              <Link to="/connexion">
+                <TextLink fontSize={16}>Connectez-vous</TextLink>
+              </Link>
             </div>
 
             <form
