@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-import { DisplayTitle, Paragraph, Button, MiniTag, Truncate } from '..';
-import { DropCircleF } from '../../assets';
+import {
+  DisplayTitle,
+  DropButton,
+  Paragraph,
+  Button,
+  MiniTag,
+  Truncate
+} from '..';
 import { devices } from '../../utilities';
 
 const InitiativesCard = props => {
@@ -25,15 +31,15 @@ const InitiativesCard = props => {
         });
   });
 
-  const removeBaliseInDescription = (description) => {
-    return description.substr(3, description.length - 7)
-  }
+  const removeBaliseInDescription = description => {
+    return description.substr(3, description.length - 7);
+  };
 
   if (initiative) {
     const {
       data: { Post, Tags }
     } = initiative;
-    const { name, description, likes } = Post;
+    const { name, description, likes, id } = Post;
 
     return (
       <InitiativesCardStyled className="initiative">
@@ -46,14 +52,12 @@ const InitiativesCard = props => {
         </DisplayTitle>
         <Paragraph fontSize={17}>
           <Truncate maxChars="120" trailingCharCount="0">
-            {
-              removeBaliseInDescription(description)
-            }
+            {removeBaliseInDescription(description)}
           </Truncate>
         </Paragraph>
         <div className="initiative__cta">
           <div className="like">
-            <DropCircleF width={34} fill={theme.blue} />
+            <DropButton width="34" theme={theme} initiativeId={id} />
             <Paragraph fontSize={17}>{likes.length}</Paragraph>
           </div>
           <Button textCta="En savoir plus" linkCta={`/initiatives/${id}`} />

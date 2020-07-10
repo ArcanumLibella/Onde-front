@@ -22,7 +22,8 @@ export { InitiativesList, InitiativesCard, InitiativesCardDetails };
 import Comment from './InitiativesComposition/Comment';
 import GoalWrapper from './InitiativesComposition/GoalWrapper';
 import HeaderInitiatives from './InitiativesComposition/HeaderInitiatives';
-export { Comment, GoalWrapper, HeaderInitiatives };
+import ParticipantsWrapper from './InitiativesComposition/ParticipantsWrapper';
+export { Comment, GoalWrapper, HeaderInitiatives, ParticipantsWrapper };
 
 import Department from './Map/Department';
 import Map from './Map/Map';
