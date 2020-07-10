@@ -34,7 +34,6 @@ const Initiatives = (props) => {
 		axios
         .get(`https://onde-api.frb.io/api/posts?validated=1${selectedDepartment}`)
         .then(result => {
-			console.log(result['data']['hydra:member'])
           setInitiatives(result['data']['hydra:member'])
         })
         .catch(error => {
@@ -59,7 +58,7 @@ const Initiatives = (props) => {
 	return (
 		<InitiativesStyled className="initiatives">
 			<Map theme={theme} onDepartmentClick={handleClick} />
-			<InitiativesList theme={theme} department={selectedDepartment} departmentsList={departments} initiatives={initiatives} />
+			<InitiativesList theme={theme} initiatives={initiatives} />
 		</InitiativesStyled>
 	);
 };
