@@ -5,7 +5,7 @@ import { Paragraph } from '../../components';
 import { FistRaisedF } from '../../assets';
 import { amountOf } from '../../utilities';
 
-const ParticipantsWrapper = postId => {
+const ParticipantsWrapper = ({postId}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [participants, setParticipants] = useState();
 
