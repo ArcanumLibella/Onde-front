@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import { DisplayTitle, Title, GoalWrapper, Paragraph, Comment, TextLink, HeaderInitiatives } from '../../components';
 import { DropO, BackO } from '../../assets';
-import { devices, formatDate } from '../../utilities';
+import { rem, devices, formatDate } from '../../utilities';
 
 const InitiativesCardDetails = (props) => {
 	const { theme } = props;
@@ -166,11 +166,22 @@ const InitiativesCardDetailsStyled = styled.main`
 			}
 			em,
 			time {
+				font-size: ${rem(16)};
 				font-style: normal;
-				font-weight: bold;
+				font-weight: 800;
+				line-height: 20px;
+
+				@media ${devices.large} {
+					font-size: ${rem(22)};
+					line-height: 27px;
+				}
 			}
 			button {
 				margin-bottom: 24px;
+
+				p {
+					margin-bottom: 0;
+				}
 			}
 		}
 		&__cta {
@@ -185,6 +196,25 @@ const InitiativesCardDetailsStyled = styled.main`
 				}
 			}
 		}
+
+		&__creation {
+			margin-bottom: 16px;
+
+			@media ${devices.medium} {
+				display: flex;
+				align-items: baseline;
+				margin-bottom: 0;
+			}
+
+			p {
+				margin-bottom: 0;
+
+				@media ${devices.medium} {
+					margin: 0 8px 0 0;
+				}
+			}
+		}
+
 		&__infos {
 			padding: 32px 0 24px;
 			border-top: 1px solid lightgrey;
