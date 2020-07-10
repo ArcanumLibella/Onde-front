@@ -21,10 +21,14 @@ const Tag = props => {
         });
   });
 
+  const handleClick = (i) =>{
+    let id = i.id;
+  }
+
   const tagsCollection =
     tagsList &&
     tagsList.map(i => (
-      <button key={i.id} tag={i} initiativesRelated={i.Post} className="tag">
+      <button key={i.id} tag={i} initiativesRelated={i.Post} onClick={() => {handleClick(i)}} className="tag">
         {i.name}
       </button>
     ));
